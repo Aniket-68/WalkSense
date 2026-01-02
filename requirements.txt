@@ -1,0 +1,57 @@
+# ===============================
+# Core ML / Deep Learning
+# ===============================
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0
+
+# ===============================
+# Vision & Image Processing
+# ===============================
+opencv-python>=4.8.0
+Pillow>=10.0.0
+numpy>=1.24.0
+
+# ===============================
+# Vision-Language Model (Qwen3)
+# ===============================
+transformers>=4.41.0
+accelerate>=0.28.0
+peft>=0.11.0
+
+# ⚠ Optional (GPU + Linux only)
+# bitsandbytes>=0.43.0
+
+# ===============================
+# Object Detection (YOLO)
+# ===============================
+ultralytics>=8.2.0
+
+# ===============================
+# Audio (TTS / STT)
+# ===============================
+pyttsx3>=2.90
+SpeechRecognition>=3.10.0
+
+# ⚠ Install separately on Windows
+# pyaudio>=0.2.13
+
+# ===============================
+# Orchestration / Utilities
+# ===============================
+pydantic>=2.6.0
+pyyaml>=6.0.1
+loguru>=0.7.2
+
+# ===============================
+# Data Versioning & Experiments
+# ===============================
+dvc>=3.50.0
+dvc-s3>=3.2.0
+mlflow>=2.12.0
+
+# ===============================
+# Development & Debugging
+# ===============================
+tqdm>=4.66.0
+rich>=13.7.0

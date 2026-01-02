@@ -1,0 +1,8 @@
+
+2️⃣ Download YOLOv8n weights
+python - <<EOF
+from ultralytics import YOLO
+model = YOLO("yolov8n.pt")
+model.save("models/yolo/yolov8n.pt")
+print("YOLOv8n downloaded successfully")
+EOF

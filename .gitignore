@@ -3,3 +3,4 @@ __pycache__/
 *.bin 
 data/ 
 models/qwen/base/ 
+venv
