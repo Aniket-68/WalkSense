@@ -1,0 +1,48 @@
+# LM Studio Configuration - For LM Studio users
+
+vision_model:
+  backend: "lm_studio"
+  model_name: "local-model"
+  lm_studio_url: "http://localhost:1234/v1"
+
+text_model:
+  backend: "lm_studio"
+  model_name: "local-model"
+  lm_studio_url: "http://localhost:1234/v1"
+  temperature: 0.7
+  max_tokens: 100
+
+object_detection:
+  model_path: "models/yolo/yolov8n.pt"
+  confidence_threshold: 0.5
+  device: "cpu"
+
+spatial_tracking:
+  movement_threshold: 30.0
+  time_threshold: 10.0
+  max_history: 20
+  iou_threshold: 0.3
+  max_age: 30
+
+frame_processing:
+  camera_id: 0
+  resolution:
+    width: 1280
+    height: 720
+  sample_every_n_frames: 150
+  scene_change_threshold: 0.15
+
+audio:
+  tts_enabled: true
+  tts_rate: 150
+  stt_enabled: false
+
+safety:
+  alert_cooldown: 10.0
+
+system:
+  start_muted: false
+  show_visualization: true
+  log_level: "INFO"
+  async_vlm: true
+  vlm_timeout: 30

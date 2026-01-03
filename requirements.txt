@@ -33,6 +33,17 @@ ultralytics>=8.2.0
 pyttsx3>=2.90
 SpeechRecognition>=3.10.0
 
+# OpenAI Whisper (STT) - Choose one or both:
+# Option 1: OpenAI API access (cloud-based, most accurate)
+openai>=1.0.0
+
+# Option 2: Local Whisper models
+# faster-whisper (Recommended - faster inference with CTranslate2)
+faster-whisper>=0.10.0
+
+# OR: Original OpenAI Whisper (slower but works everywhere)
+# openai-whisper>=20231117
+
 # ⚠ Install separately on Windows
 # pyaudio>=0.2.13
 

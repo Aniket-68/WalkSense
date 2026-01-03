@@ -14,6 +14,7 @@ class STTListener:
 
     def listen_once(self, timeout=None):
         from utils.config_loader import Config
+        import os
         
         provider = Config.get("stt.active_provider", "google")
         config_path = f"stt.providers.{provider}"
@@ -26,16 +27,100 @@ class STTListener:
                 print(f"[STT] Listening ({provider})...")
                 self.recognizer.adjust_for_ambient_noise(source, duration=0.5)
                 audio = self.recognizer.listen(source, timeout=timeout)
+            
+            # Route to appropriate recognition method
+            if provider == "google":
+                text = self.recognizer.recognize_google(audio)
+            
+            elif provider == "whisper_api":
+                # OpenAI Whisper API
+                api_key = os.getenv(Config.get(f"{config_path}.api_key_env", "OPENAI_API_KEY"))
+                if not api_key:
+                    print("[STT ERROR] OPENAI_API_KEY not set in environment")
+                    return None
                 
-            text = self.recognizer.recognize_google(audio)
+                text = self.recognizer.recognize_whisper_api(
+                    audio,
+                    api_key=api_key,
+                    model=Config.get(f"{config_path}.model", "whisper-1"),
+                    language=Config.get(f"{config_path}.language", "en")
+                )
+            
+            elif provider == "whisper_local":
+                # Local Whisper (faster-whisper or OpenAI whisper)
+                try:
+                    # Try faster-whisper first (much faster)
+                    text = self._recognize_faster_whisper(
+                        audio,
+                        model_size=Config.get(f"{config_path}.model_size", "base"),
+                        device=Config.get(f"{config_path}.device", "cpu"),
+                        language=Config.get(f"{config_path}.language", "en")
+                    )
+                except ImportError:
+                    # Fallback to OpenAI's whisper
+                    text = self._recognize_openai_whisper(
+                        audio,
+                        model_size=Config.get(f"{config_path}.model_size", "base"),
+                        language=Config.get(f"{config_path}.language", "en")
+                    )
+            
+            else:
+                print(f"[STT ERROR] Unknown provider: {provider}")
+                return None
+            
             print(f"[STT] Heard: {text}")
             return text
+            
         except sr.WaitTimeoutError:
             print("[STT] Timeout: No speech detected")
             return None
         except Exception as e:
             print(f"[STT ERROR] {e}")
             return None
+    
+    def _recognize_faster_whisper(self, audio, model_size="base", device="cpu", language="en"):
+        """Use faster-whisper for local transcription (recommended)"""
+        from faster_whisper import WhisperModel
+        import io
+        import wave
+        
+        # Convert AudioData to WAV bytes
+        wav_data = io.BytesIO(audio.get_wav_data())
+        
+        # Load model (cached after first use)
+        if not hasattr(self, '_whisper_model') or self._whisper_model_size != model_size:
+            print(f"[STT] Loading faster-whisper model: {model_size}")
+            self._whisper_model = WhisperModel(model_size, device=device, compute_type="int8")
+            self._whisper_model_size = model_size
+        
+        # Transcribe
+        segments, info = self._whisper_model.transcribe(wav_data, language=language)
+        text = " ".join([segment.text for segment in segments])
+        return text.strip()
+    
+    def _recognize_openai_whisper(self, audio, model_size="base", language="en"):
+        """Fallback: Use OpenAI's whisper for local transcription"""
+        import whisper
+        import io
+        import tempfile
+        
+        # Load model (cached)
+        if not hasattr(self, '_whisper_model') or self._whisper_model_size != model_size:
+            print(f"[STT] Loading whisper model: {model_size}")
+            self._whisper_model = whisper.load_model(model_size)
+            self._whisper_model_size = model_size
+        
+        # Save audio to temp file
+        with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as f:
+            f.write(audio.get_wav_data())
+            temp_path = f.name
+        
+        try:
+            result = self._whisper_model.transcribe(temp_path, language=language)
+            return result["text"].strip()
+        finally:
+            import os
+            os.unlink(temp_path)
 
 
 class ListeningLayer:

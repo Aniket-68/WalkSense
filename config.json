@@ -52,14 +52,22 @@
         }
     },
     "stt": {
-        "active_provider": "google",
+        "active_provider": "whisper_local",
         "providers": {
             "google": {
                 "language": "en-US",
                 "timeout": 5
             },
+            "whisper_api": {
+                "api_key_env": "OPENAI_API_KEY",
+                "model": "whisper-1",
+                "language": "en",
+                "timeout": 10
+            },
             "whisper_local": {
-                "model_size": "base"
+                "model_size": "base",
+                "device": "cpu",
+                "language": "en"
             }
         }
     },
