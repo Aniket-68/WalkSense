@@ -1,9 +1,12 @@
 {
     "vlm": {
         "active_provider": "lm_studio",
+        "input_mode": "direct",
+        "frames_per_second": 1.0,
+        "include_yolo_context": false,
         "providers": {
             "lm_studio": {
-                "url": "http://localhost:1234/v1",
+                "url": "http://192.168.29.249:1234/v1",
                 "model_id": "qwen/qwen3-vl-4b"
             },
             "huggingface": {
@@ -65,7 +68,7 @@
                 "timeout": 10
             },
             "whisper_local": {
-                "model_size": "base",
+                "model_size": "faster-whisper",
                 "device": "cpu",
                 "language": "en"
             }

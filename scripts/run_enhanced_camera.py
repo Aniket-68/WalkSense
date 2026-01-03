@@ -156,6 +156,14 @@ def main():
     VLM_URL = Config.get(f"{vlm_config_path}.url")
     VLM_MODEL = Config.get(f"{vlm_config_path}.model_id")
     
+    # 🟢 VLM Input Mode & Frame Rate (NEW)
+    VLM_INPUT_MODE = Config.get("vlm.input_mode", "yolo")  # "direct" or "yolo"
+    VLM_FPS = Config.get("vlm.frames_per_second", 1.0)      # Frames per second to VLM
+    VLM_INCLUDE_YOLO = Config.get("vlm.include_yolo_context", True)  # Include YOLO labels as text
+    VLM_FRAME_INTERVAL = 1.0 / VLM_FPS  # Convert FPS to interval in seconds
+    
+    print(f"[CONFIG] VLM Mode: {VLM_INPUT_MODE} | FPS: {VLM_FPS} | YOLO Context: {VLM_INCLUDE_YOLO}")
+    
     # 🟢 LLM Configuration
     LLM_PROVIDER = Config.get("llm.active_provider", "ollama")
     llm_config_path = f"llm.providers.{LLM_PROVIDER}"
@@ -206,6 +214,7 @@ def main():
     llm_response = ""
     llm_response_timer = 0
     is_listening = False
+    last_vlm_time = 0  # For FPS-based VLM control
 
     cv2.namedWindow("WalkSense Enhanced", cv2.WINDOW_NORMAL)
     cv2.resizeWindow("WalkSense Enhanced", WINDOW_WIDTH, WINDOW_HEIGHT)
@@ -269,23 +278,36 @@ def main():
                 else:
                     fusion.handle_scene_description(new_desc)
             
-            # 2. Trigger Logic
+            # 2. VLM Trigger Logic (FPS-based)
             has_query = (current_user_query is not None)
-            time_to_sample = sampler.should_sample()
+            time_since_vlm = current_time - last_vlm_time
+            vlm_time_ready = time_since_vlm >= VLM_FRAME_INTERVAL
+            
             should_run_qwen = False
             
             if has_query:
-                should_run_qwen = True # Priority
-            elif time_to_sample and scene_detector.has_changed(frame):
+                should_run_qwen = True  # User query always triggers VLM
+            elif vlm_time_ready and VLM_INPUT_MODE == "direct":
+                # Direct mode: send frame to VLM at configured FPS
                 should_run_qwen = True
+            elif vlm_time_ready and VLM_INPUT_MODE == "yolo":
+                # YOLO mode: only trigger if scene changed
+                if scene_detector.has_changed(frame):
+                    should_run_qwen = True
             
             if should_run_qwen:
-                context_str = ", ".join([d["label"] for d in detections])
+                # Build context string based on config
+                if VLM_INCLUDE_YOLO and detections:
+                    context_str = ", ".join([d["label"] for d in detections])
+                else:
+                    context_str = ""  # Direct mode - no YOLO context
+                
                 if has_query:
-                    context_str += f". USER QUESTION: {current_user_query}"
+                    context_str += f". USER QUESTION: {current_user_query}" if context_str else f"USER QUESTION: {current_user_query}"
                 
                 # Send to worker (non-blocking)
                 if qwen_worker.process(frame, context_str):
+                    last_vlm_time = current_time  # Update timer
                     status_text = "Reasoning..." if has_query else "Scanning..."
                     cv2.putText(frame, status_text, (frame.shape[1]-150, 60),
                               cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
