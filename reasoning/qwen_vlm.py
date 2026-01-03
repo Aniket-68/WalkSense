@@ -24,12 +24,12 @@ class QwenVLM:
         Initialization pulls from the Central Registry if arguments are not provided.
         """
         from utils.config_loader import Config
-        self.backend = backend or Config.get("active_registry.vlm_backend", "lm_studio")
+        self.backend = backend or Config.get("vlm.active_provider", "lm_studio")
         
-        # Get details for the specific active backend
-        reg_key = f"vlm_registry.{self.backend}"
-        self.model_id = model_id or Config.get(f"{reg_key}.model_id")
-        self.url = lm_studio_url or Config.get(f"{reg_key}.url")
+        # Get provider-specific settings
+        provider_config = f"vlm.providers.{self.backend}"
+        self.url = lm_studio_url or Config.get(f"{provider_config}.url")
+        self.model_id = model_id or Config.get(f"{provider_config}.model_id")
         
         if self.backend == "lm_studio":
             self._init_lm_studio()

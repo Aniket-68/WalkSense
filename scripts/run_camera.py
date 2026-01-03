@@ -114,7 +114,7 @@ def main():
     from utils.config_loader import Config
     
     # Configuration
-    QWEN_BACKEND = Config.get("vlm.backend", "lm_studio")
+    QWEN_PROVIDER = Config.get("vlm.provider", "lm_studio")
     LM_STUDIO_URL = Config.get("vlm.url", "http://localhost:1234/v1")
     QWEN_MODEL_ID = Config.get("vlm.model_id", "qwen/qwen3-vl-4b")
     
@@ -131,7 +131,7 @@ def main():
     
     print("[INIT] Loading Qwen...")
     qwen = QwenVLM(
-        backend=QWEN_BACKEND,
+        backend=QWEN_PROVIDER,
         model_id=QWEN_MODEL_ID,
         lm_studio_url=LM_STUDIO_URL
     )

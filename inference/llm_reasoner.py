@@ -21,6 +21,8 @@ class LLMReasoner:
         self.api_url = api_url
         self.model_name = model_name
         
+        print(f"[LLM DEBUG] Connected to Backend: '{self.backend}' | Model: '{self.model_name}'")
+        
         # System prompt for assistive navigation
         self.system_prompt = """You are an AI assistant helping a visually impaired person navigate safely.
 
@@ -31,6 +33,20 @@ Your role:
 4. Keep responses under 30 words for quick TTS delivery
 
 Be direct, helpful, and safety-focused."""
+
+    def check_health(self):
+        """
+        Verify connection to the backend
+        """
+        try:
+            if self.backend == "ollama":
+                resp = requests.get(f"{self.api_url.replace('/api/generate', '')}/", timeout=1) # Ollama root
+                return resp.status_code == 200
+            else:
+                resp = requests.get(f"{self.api_url}/models", timeout=1)
+                return resp.status_code == 200
+        except:
+            return False
 
     def _call_lm_studio(self, messages, max_tokens=100, temperature=0.7):
         """Call LM Studio API"""
@@ -120,8 +136,10 @@ Provide a brief, helpful answer (max 30 words):"""}
         ]
         
         if self.backend == "lm_studio":
+            print(f"[LLM DEBUG] Processing Query via LM Studio: '{user_query}'")
             return self._call_lm_studio(messages, max_tokens=100, temperature=0.7)
         elif self.backend == "ollama":
+            print(f"[LLM DEBUG] Processing Query via Ollama: '{user_query}'")
             return self._call_ollama(messages, max_tokens=100, temperature=0.7)
         else:
             return "LLM backend not configured"

@@ -21,7 +21,7 @@ class TTSEngine:
         """Speak text (interrupts previous speech)"""
         if text:
             self._kill_process()
-            print(f"[TTS] {text}")
+            print(f"[TTS] Launching speak.py for: {text}")
             try:
                 self.current_process = subprocess.Popen([sys.executable, self.script_path, text])
             except Exception as e:

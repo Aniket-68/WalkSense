@@ -14,13 +14,17 @@ class STTListener:
 
     def listen_once(self, timeout=None):
         from utils.config_loader import Config
+        
+        provider = Config.get("stt.active_provider", "google")
+        config_path = f"stt.providers.{provider}"
+        
         if timeout is None:
-            timeout = Config.get("audio.stt_timeout", 5)
+            timeout = Config.get(f"{config_path}.timeout", 5)
 
         try:
             with self.mic as source:
-                print("[STT] Listening...")
-                self.recognizer.adjust_for_ambient_noise(source, duration=0.5) # Shorten adjust time
+                print(f"[STT] Listening ({provider})...")
+                self.recognizer.adjust_for_ambient_noise(source, duration=0.5)
                 audio = self.recognizer.listen(source, timeout=timeout)
                 
             text = self.recognizer.recognize_google(audio)

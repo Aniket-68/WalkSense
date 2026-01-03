@@ -1,31 +1,70 @@
 {
-    "active_registry": {
-        "vlm_backend": "lm_studio",
-        "llm_backend": "ollama",
-        "camera_source": "hardware"
-    },
-    "vlm_registry": {
-        "lm_studio": {
-            "url": "http://192.168.29.249:1234/v1",
-            "model_id": "qwen/qwen3-vl-4b"
-        },
-        "huggingface": {
-            "model_id": "Qwen/Qwen2-VL-2B-Instruct",
-            "device": "auto",
-            "precision": "4bit"
+    "vlm": {
+        "active_provider": "lm_studio",
+        "providers": {
+            "lm_studio": {
+                "url": "http://localhost:1234/v1",
+                "model_id": "qwen/qwen3-vl-4b"
+            },
+            "huggingface": {
+                "model_id": "Qwen/Qwen2-VL-2B-Instruct",
+                "device": "auto",
+                "precision": "4bit"
+            },
+            "ollama": {
+                "url": "http://localhost:11434",
+                "model_id": "llava"
+            }
         }
     },
-    "llm_registry": {
-        "ollama": {
-            "url": "http://192.168.29.155:11434",
-            "model_id": "gemma3:270m"
-        },
-        "lm_studio": {
-            "url": "http://localhost:1234/v1",
-            "model_id": "phi-4"
+    "llm": {
+        "active_provider": "ollama",
+        "providers": {
+            "ollama": {
+                "url": "http://192.168.29.155:11434",
+                "model_id": "gemma3:270m"
+            },
+            "lm_studio": {
+                "url": "http://localhost:1234/v1",
+                "model_id": "phi-4"
+            },
+            "huggingface": {
+                "model_id": "microsoft/phi-2",
+                "device": "auto",
+                "precision": "4bit"
+            }
         }
     },
-    "camera_registry": {
+    "tts": {
+        "active_provider": "pyttsx3",
+        "providers": {
+            "pyttsx3": {
+                "voice": "default",
+                "rate": 150,
+                "volume": 1.0
+            },
+            "coqui": {
+                "model": "tts_models/en/ljspeech/vits"
+            },
+            "system": {
+                "command": "say"
+            }
+        }
+    },
+    "stt": {
+        "active_provider": "google",
+        "providers": {
+            "google": {
+                "language": "en-US",
+                "timeout": 5
+            },
+            "whisper_local": {
+                "model_size": "base"
+            }
+        }
+    },
+    "camera": {
+        "mode": "hardware",
         "hardware": {
             "id": 0,
             "width": 1280,

@@ -8,27 +8,37 @@ class Camera:
         
         # Determine source from Switch
         # We allow parameters to override the registry choice
-        source_type = Config.get("active_registry.camera_source", "hardware") if cam_id is None else "hardware"
+        # Determine source from Switch
+        # We allow parameters to override the registry choice
+        source_type = Config.get("camera.mode", "hardware") if cam_id is None else "hardware"
         
         if source_type == "simulation" and cam_id is None:
-            video_path = Config.get("camera_registry.simulation.video_path")
+            video_path = Config.get("camera.simulation.video_path")
             self.cap = cv2.VideoCapture(video_path)
-            self.loop = Config.get("camera_registry.simulation.loop", True)
+            self.loop = Config.get("camera.simulation.loop", True)
             self.source_path = video_path
             print(f"[Camera] Simulation Mode: Reading from {video_path}")
         else:
             # Hardware mode
-            cam_id = Config.get("camera_registry.hardware.id", 0)
-            width = Config.get("camera_registry.hardware.width", 1280)
-            height = Config.get("camera_registry.hardware.height", 720)
+            c_id = cam_id if cam_id is not None else Config.get("camera.hardware.id", 0)
+            c_w = width if width is not None else Config.get("camera.hardware.width", 1280)
+            c_h = height if height is not None else Config.get("camera.hardware.height", 720)
 
-            self.cap = cv2.VideoCapture(cam_id, cv2.CAP_DSHOW)
-            if not self.cap.isOpened():
-                self.cap = cv2.VideoCapture(cam_id)
+            print(f"[Camera] Opening Hardware Device {c_id}...")
+            # Use DirectShow on Windows for faster init, but fallback if needed
+            self.cap = cv2.VideoCapture(c_id, cv2.CAP_DSHOW)
             
-            self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
-            self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
-            print(f"[Camera] Hardware Mode: Device {cam_id}")
+            # If failed to open or just weird result, try default backend
+            if not self.cap.isOpened():
+                print(f"[Camera] CAP_DSHOW failed. Trying default backend...")
+                self.cap = cv2.VideoCapture(c_id)
+
+            self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, c_w)
+            self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, c_h)
+            
+            actual_w = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+            actual_h = self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+            print(f"[Camera] Hardware Mode: Device {c_id} | Res: {int(actual_w)}x{int(actual_h)}")
 
         self.source_type = source_type
 

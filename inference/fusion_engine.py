@@ -5,7 +5,7 @@ from inference.llm_reasoner import LLMReasoner
 from inference.spatial_context_manager import SpatialContextManager
 
 class FusionEngine:
-    def __init__(self, tts_engine, llm_backend="lm_studio", llm_url="http://localhost:1234/v1"):
+    def __init__(self, tts_engine, llm_backend="lm_studio", llm_url="http://localhost:1234/v1", llm_model="qwen/qwen3-vl-4b"):
         """
         Orchestration layer that handles Safety, Reasoning, and Interaction.
         """
@@ -13,7 +13,7 @@ class FusionEngine:
         self.runtime = RuntimeState()
         
         # Enhanced Reasoning Modules
-        self.llm = LLMReasoner(backend=llm_backend, api_url=llm_url)
+        self.llm = LLMReasoner(backend=llm_backend, api_url=llm_url, model_name=llm_model)
         self.spatial = SpatialContextManager()
         
         # State for query handling

@@ -55,13 +55,24 @@ def draw_detections(frame, detections):
     return frame
 
 
-def draw_overlay(frame, status, description, spatial_summary):
+def draw_overlay(frame, status, description, spatial_summary, vlm_ok=False, llm_ok=False):
     h, w, _ = frame.shape
     
     # Status bar
     cv2.rectangle(frame, (0, 0), (w, 40), (0, 0, 0), -1)
     cv2.putText(frame, f"STATUS: {status}", (10, 28),
                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+    
+    # AI HEALTH INDICATORS (Status Dots)
+    # VLM Indicator
+    vlm_color = (0, 255, 0) if vlm_ok else (0, 0, 255)
+    cv2.circle(frame, (w-40, 20), 8, vlm_color, -1)
+    cv2.putText(frame, "VLM", (w-90, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 1)
+
+    # LLM Indicator
+    llm_color = (0, 255, 0) if llm_ok else (0, 0, 255)
+    cv2.circle(frame, (w-130, 20), 8, llm_color, -1)
+    cv2.putText(frame, "LLM", (w-180, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 1)
     
     # Spatial summary (NEW)
     cv2.rectangle(frame, (0, 40), (w, 75), (40, 40, 40), -1)
@@ -136,19 +147,28 @@ def main():
     # Load central configuration
     from utils.config_loader import Config
     
+    # 🟢 Camera Configuration
+    CAMERA_SOURCE = Config.get("camera.source", 0)
+    
     # 🟢 VLM Configuration
-    VLM_BACKEND = Config.get("vlm.backend", "lm_studio")
-    VLM_URL = Config.get("vlm.url", "http://localhost:1234/v1")
-    VLM_MODEL = Config.get("vlm.model_id", "qwen/qwen3-vl-4b")
+    VLM_PROVIDER = Config.get("vlm.active_provider", "lm_studio")
+    vlm_config_path = f"vlm.providers.{VLM_PROVIDER}"
+    VLM_URL = Config.get(f"{vlm_config_path}.url")
+    VLM_MODEL = Config.get(f"{vlm_config_path}.model_id")
     
     # 🟢 LLM Configuration
-    LLM_BACKEND = Config.get("llm.backend", "ollama")
-    LLM_URL = Config.get("llm.url", "http://localhost:11434")
-    LLM_MODEL = Config.get("llm.model_id", "llama3")
+    LLM_PROVIDER = Config.get("llm.active_provider", "ollama")
+    llm_config_path = f"llm.providers.{LLM_PROVIDER}"
+    LLM_URL = Config.get(f"{llm_config_path}.url")
+    LLM_MODEL = Config.get(f"{llm_config_path}.model_id")
+    
+    # 🟢 TTS Configuration handled internally in audio/speak.py via config.json
     
     # 🟢 Perception Thresholds
     SAMPLING = Config.get("perception.sampling_interval", 150)
     SCENE_THRESH = Config.get("perception.scene_threshold", 0.15)
+    WINDOW_WIDTH = Config.get("camera.hardware.width", 1280)
+    WINDOW_HEIGHT = Config.get("camera.hardware.height", 720)
     
     camera = Camera()
     detector = YoloDetector()
@@ -158,14 +178,19 @@ def main():
     
     # Enhanced Fusion Engine with LLM
     print("[INIT] Creating Enhanced Fusion Engine...")
-    fusion = FusionEngine(tts, llm_backend=LLM_BACKEND, llm_url=LLM_URL)
+    fusion = FusionEngine(
+        tts, 
+        llm_backend=LLM_PROVIDER, 
+        llm_url=LLM_URL,
+        llm_model=LLM_MODEL
+    )
     
     # Interaction Layer
     listener = ListeningLayer(None, fusion)
     
     print("[INIT] Loading Qwen VLM...")
     qwen = QwenVLM(
-        backend=VLM_BACKEND,
+        backend=VLM_PROVIDER,
         model_id=VLM_MODEL,
         lm_studio_url=VLM_URL
     )
@@ -174,15 +199,30 @@ def main():
     scene_detector = SceneChangeDetector(threshold=SCENE_THRESH)
     qwen_worker = QwenWorker(qwen)
     
+    # UI Variables
     started = False
     description = "System idle. Press S to start."
     current_user_query = None
-    
+    llm_response = ""
+    llm_response_timer = 0
+    is_listening = False
+
     cv2.namedWindow("WalkSense Enhanced", cv2.WINDOW_NORMAL)
-    cv2.resizeWindow("WalkSense Enhanced", 1280, 720)
+    cv2.resizeWindow("WalkSense Enhanced", WINDOW_WIDTH, WINDOW_HEIGHT)
     
-    print("[WalkSense] Enhanced system running with spatial tracking + LLM reasoning")
-    
+
+    # Threaded Listener Wrapper
+    def threaded_listen():
+        nonlocal current_user_query, is_listening
+        is_listening = True
+        print("[WalkSense] Listening thread started...")
+        query = listener.stt.listen_once()
+        if query:
+            print(f"[WalkSense] User asked: {query}")
+            current_user_query = query
+            fusion.handle_user_query(query)
+        is_listening = False
+
     for frame in camera.stream():
         current_time = time.time()
         
@@ -190,81 +230,111 @@ def main():
         detections = detector.detect(frame)
         frame = draw_detections(frame, detections)
         
-        # 🔴 SAFETY LAYER (CRITICAL)
+        # 🔴 SAFETY LAYER
         safety_result = safety.evaluate(detections)
         if safety_result:
             alert_type, message = safety_result
             fusion.handle_safety_alert(message, alert_type)
-            description = message
+            description = f"ALERT: {message}"
         
-        # 🟢 SPATIAL TRACKING (NEW)
+        # 🟢 SPATIAL TRACKING
         if started:
             fusion.update_spatial_context(detections, current_time, frame.shape[1])
         
-        # 🟡 VLM PROCESSING (BEST-EFFORT)
+        # 🟡 VLM & LLM PROCESSING
         is_critical = safety_result and safety_result[0] == "CRITICAL_ALERT"
         
         if started and not is_critical:
-            # Check for VLM results
+            # 1. Harvest Results
             result = qwen_worker.get_result()
             if result:
                 new_desc, duration = result
-                print(f"[QWEN] {duration:.2f}s | {new_desc}")
+                print(f"[WalkSense] VLM: {new_desc} ({duration:.1f}s)")
                 description = new_desc
                 
-                # Send to fusion engine (will trigger LLM if query pending)
-                fusion.handle_vlm_description(new_desc)
+                # Retrieve LLM answer if one was generated during this cycle
+                # We need to ask FusionEngine if it has a pending answer
+                # (Ideally FusionEngine returns it, or we intercept it via a callback)
+                # For now, we'll check if we had a query pending
+                if current_user_query:
+                    # Trigger LLM explicitly here if Fusion doesn't auto-return
+                    # But Fusion.handle_vlm_description calls LLM internally if query exists
+                    answer = fusion.handle_vlm_description(new_desc)
+                    if answer:
+                        llm_response = f"AI: {answer}"
+                        llm_response_timer = time.time() + 10 # Show for 10s
+                        print(f"[WalkSense] LLM Answer: {answer}")
+                        # Clear query now that it's answered
+                        current_user_query = None
+                else:
+                    fusion.handle_scene_description(new_desc)
             
-            # Decide to run VLM
+            # 2. Trigger Logic
             has_query = (current_user_query is not None)
             time_to_sample = sampler.should_sample()
-            
             should_run_qwen = False
+            
             if has_query:
-                should_run_qwen = True
+                should_run_qwen = True # Priority
             elif time_to_sample and scene_detector.has_changed(frame):
                 should_run_qwen = True
             
             if should_run_qwen:
-                context_str = ", ".join([d["label"] for d in detections]) if detections else ""
-                
+                context_str = ", ".join([d["label"] for d in detections])
                 if has_query:
                     context_str += f". USER QUESTION: {current_user_query}"
                 
+                # Send to worker (non-blocking)
                 if qwen_worker.process(frame, context_str):
-                    cv2.putText(frame, "Thinking...", (frame.shape[1]-120, 30),
+                    status_text = "Reasoning..." if has_query else "Scanning..."
+                    cv2.putText(frame, status_text, (frame.shape[1]-150, 60),
                               cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
-                    
-                    if has_query:
-                        cv2.putText(frame, "LLM Reasoning...", (frame.shape[1]-200, 60),
-                                  cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+
+        # UI Overlay Construction
+        status = "RUNNING" if started else "PAUSED"
+        if is_listening: status = "LISTENING..."
         
-        # UI Overlay
-        status = "RUNNING" if started else "WAITING"
+        # Show LLM text if fresh
+        display_desc = description
+        if time.time() < llm_response_timer:
+            # Override description or append? Let's draw it distinctly
+            cv2.rectangle(frame, (0, frame.shape[0]-130), (frame.shape[1], frame.shape[0]-90), (50, 50, 0), -1)
+            cv2.putText(frame, llm_response, (10, frame.shape[0]-105), 
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
+        
+        # Periodic Health check
+        vlm_ok = True
+        llm_ok = (sampler.counter % 30 != 0) or fusion.llm.check_health()
+        
         spatial_summary = fusion.get_spatial_summary()
-        frame = draw_overlay(frame, status, description, spatial_summary)
+        frame = draw_overlay(frame, status, display_desc, spatial_summary, vlm_ok, llm_ok)
         
         cv2.imshow("WalkSense Enhanced", frame)
         key = cv2.waitKey(1) & 0xFF
         
+        # --- CONTROLS ---
         if key in (ord('s'), ord('S')):
-            started = True
-            tts.speak("WalkSense enhanced mode started")
-        
-        if key in (ord('l'), ord('L')):
-            print("[WalkSense] Listening for user question...")
-            query = listener.stt.listen_once()
-            if query:
-                print(f"[WalkSense] User asked: {query}")
-                current_user_query = query
-                fusion.handle_user_query(query)  # Will be answered by LLM
-        
-        if key in (ord('m'), ord('M')):
+            started = not started
+            state = "Started" if started else "Paused"
+            print(f"[WalkSense] System {state}")
+            tts.speak(f"System {state}")
+
+        elif key in (ord('l'), ord('L')):
+            if not is_listening:
+                threading.Thread(target=threaded_listen, daemon=True).start()
+
+        elif key in (ord('k'), ord('K')):
+            # HARDCODED TEST QUERY
+            print("[WalkSense] Injecting Hardcoded Query...")
+            current_user_query = "What obstacles are in front of me?"
+            fusion.handle_user_query(current_user_query)
+            tts.speak("Analyzing obstacles")
+
+        elif key in (ord('m'), ord('M')):
             is_muted = fusion.router.toggle_mute()
-            state = "MUTED" if is_muted else "ACTIVE"
-            print(f"[WalkSense] Audio {state}")
-        
-        if key in (ord('q'), ord('Q')):
+            print(f"[WalkSense] Muted: {is_muted}")
+
+        elif key in (ord('q'), ord('Q')):
             break
     
     qwen_worker.stop()
