@@ -133,14 +133,22 @@ class QwenWorker:
 # =========================================================
 
 def main():
-    # Configuration
-    QWEN_BACKEND = "lm_studio"
-    LM_STUDIO_URL = "http://localhost:1234/v1"
-    QWEN_MODEL_ID = "Qwen/Qwen2-VL-2B-Instruct"
+    # Load central configuration
+    from utils.config_loader import Config
     
-    # LLM Configuration (NEW)
-    LLM_BACKEND = "lm_studio"
-    LLM_URL = "http://localhost:1234/v1"
+    # 🟢 VLM Configuration
+    VLM_BACKEND = Config.get("vlm.backend", "lm_studio")
+    VLM_URL = Config.get("vlm.url", "http://localhost:1234/v1")
+    VLM_MODEL = Config.get("vlm.model_id", "qwen/qwen3-vl-4b")
+    
+    # 🟢 LLM Configuration
+    LLM_BACKEND = Config.get("llm.backend", "ollama")
+    LLM_URL = Config.get("llm.url", "http://localhost:11434")
+    LLM_MODEL = Config.get("llm.model_id", "llama3")
+    
+    # 🟢 Perception Thresholds
+    SAMPLING = Config.get("perception.sampling_interval", 150)
+    SCENE_THRESH = Config.get("perception.scene_threshold", 0.15)
     
     camera = Camera()
     detector = YoloDetector()
@@ -157,13 +165,13 @@ def main():
     
     print("[INIT] Loading Qwen VLM...")
     qwen = QwenVLM(
-        backend=QWEN_BACKEND,
-        model_id=QWEN_MODEL_ID,
-        lm_studio_url=LM_STUDIO_URL
+        backend=VLM_BACKEND,
+        model_id=VLM_MODEL,
+        lm_studio_url=VLM_URL
     )
     
-    sampler = FrameSampler(every_n_frames=150)
-    scene_detector = SceneChangeDetector(threshold=0.15)
+    sampler = FrameSampler(every_n_frames=SAMPLING)
+    scene_detector = SceneChangeDetector(threshold=SCENE_THRESH)
     qwen_worker = QwenWorker(qwen)
     
     started = False

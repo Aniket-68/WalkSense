@@ -7,7 +7,6 @@ import os
 class TTSEngine:
     def __init__(self):
         self.script_path = os.path.join(os.path.dirname(__file__), "speak.py")
-        self.script_path = os.path.join(os.path.dirname(__file__), "speak.py")
         self.current_process = None
 
     def _kill_process(self):

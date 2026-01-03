@@ -9,12 +9,13 @@ class RuntimeState:
     Throttles repeated alerts of the same type.
     """
 
-    def __init__(self, cooldown_seconds=10.0):
+    def __init__(self, cooldown_seconds=None):
         """
         Args:
             cooldown_seconds: Minimum time between identical alerts
         """
-        self.cooldown_seconds = cooldown_seconds
+        from utils.config_loader import Config
+        self.cooldown_seconds = cooldown_seconds or Config.get("safety.alert_cooldown", 10.0)
         self.last_alert_time = defaultdict(float)
 
     def should_emit(self, alert_type, message=None):

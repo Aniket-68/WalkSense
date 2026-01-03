@@ -1,0 +1,46 @@
+{
+    "active_registry": {
+        "vlm_backend": "lm_studio",
+        "llm_backend": "ollama",
+        "camera_source": "hardware"
+    },
+    "vlm_registry": {
+        "lm_studio": {
+            "url": "http://192.168.29.249:1234/v1",
+            "model_id": "qwen/qwen3-vl-4b"
+        },
+        "huggingface": {
+            "model_id": "Qwen/Qwen2-VL-2B-Instruct",
+            "device": "auto",
+            "precision": "4bit"
+        }
+    },
+    "llm_registry": {
+        "ollama": {
+            "url": "http://192.168.29.155:11434",
+            "model_id": "gemma3:270m"
+        },
+        "lm_studio": {
+            "url": "http://localhost:1234/v1",
+            "model_id": "phi-4"
+        }
+    },
+    "camera_registry": {
+        "hardware": {
+            "id": 0,
+            "width": 1280,
+            "height": 720
+        },
+        "simulation": {
+            "video_path": "test_walk.mp4",
+            "loop": true
+        }
+    },
+    "perception": {
+        "sampling_interval": 150,
+        "scene_threshold": 0.15
+    },
+    "safety": {
+        "alert_cooldown": 10.0
+    }
+}

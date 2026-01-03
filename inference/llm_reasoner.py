@@ -10,7 +10,7 @@ class LLMReasoner:
     Supports multiple backends: OpenAI API, LM Studio, Ollama
     """
     
-    def __init__(self, backend="lm_studio", api_url="http://localhost:1234/v1", model_name="local-model"):
+    def __init__(self, backend="lm_studio", api_url="http://localhost:1234/v1", model_name="microsoft/phi-4-mini-reasoning"):
         """
         Args:
             backend: "lm_studio", "ollama", or "openai"

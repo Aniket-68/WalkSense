@@ -19,51 +19,57 @@ class QwenVLM:
     - 'huggingface': Use downloaded HuggingFace model
     """
     
-    def __init__(self, backend="lm_studio", model_id="Qwen/Qwen2-VL-2B-Instruct", lm_studio_url="http://localhost:1234/v1"):
+    def __init__(self, backend=None, model_id=None, lm_studio_url=None):
         """
-        Args:
-            backend: 'lm_studio' or 'huggingface'
-            model_id: HuggingFace model ID (only used if backend='huggingface')
-            lm_studio_url: LM Studio API endpoint (only used if backend='lm_studio')
+        Initialization pulls from the Central Registry if arguments are not provided.
         """
-        self.backend = backend
-        self.lm_studio_url = lm_studio_url
+        from utils.config_loader import Config
+        self.backend = backend or Config.get("active_registry.vlm_backend", "lm_studio")
         
-        if backend == "lm_studio":
+        # Get details for the specific active backend
+        reg_key = f"vlm_registry.{self.backend}"
+        self.model_id = model_id or Config.get(f"{reg_key}.model_id")
+        self.url = lm_studio_url or Config.get(f"{reg_key}.url")
+        
+        if self.backend == "lm_studio":
             self._init_lm_studio()
-        elif backend == "huggingface":
-            self._init_huggingface(model_id)
+        elif self.backend == "huggingface":
+            self._init_huggingface()
         else:
-            raise ValueError(f"Unknown backend: {backend}. Use 'lm_studio' or 'huggingface'")
+            raise ValueError(f"Unknown backend: {self.backend}")
     
+    def _init_huggingface(self):
+        """Initialize local HuggingFace model"""
+        print(f"[QWEN] Loading local model: {self.model_id}")
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        
+        # Load Processor and Model
+        self.processor = AutoProcessor.from_pretrained(self.model_id)
+        self.model = Qwen2VLForConditionalGeneration.from_pretrained(
+            self.model_id, 
+            torch_dtype="auto", 
+            device_map="auto"
+        )
+        print(f"[QWEN] Model loaded on {self.device}")
+
     def _init_lm_studio(self):
         """Initialize LM Studio backend"""
-        print(f"[QWEN] Using LM Studio backend")
-        print(f"[QWEN] API URL: {self.lm_studio_url}")
+        print(f"[QWEN] Using LM Studio backend: {self.url}")
         
-        # Test connection and get loaded model
         try:
-            response = requests.get(f"{self.lm_studio_url}/models", timeout=5)
+            response = requests.get(f"{self.url}/models", timeout=5)
             if response.status_code == 200:
                 models = response.json()
-                print(f"[QWEN] Connected to LM Studio successfully")
-                
-                if models.get('data') and len(models['data']) > 0:
-                    # Automatically pick the first loaded model
+                if models.get('data'):
                     self.active_model_id = models['data'][0]['id']
-                    print(f"[QWEN] Active model: {self.active_model_id}")
+                    print(f"[QWEN] Connected. Active: {self.active_model_id}")
                 else:
-                    self.active_model_id = "local-model"  # Fallback
-                    print(f"[QWEN WARNING] No models found, using fallback ID: {self.active_model_id}")
-                    
+                    self.active_model_id = self.model_id
             else:
-                print(f"[QWEN WARNING] LM Studio responded with status {response.status_code}")
-                self.active_model_id = "local-model"
-                
+                self.active_model_id = self.model_id
         except Exception as e:
-            print(f"[QWEN WARNING] Could not connect to LM Studio: {e}")
-            print("[QWEN] Make sure LM Studio is running and a vision model is loaded!")
-            self.active_model_id = "local-model"
+            print(f"[QWEN WARNING] API offline: {e}")
+            self.active_model_id = self.model_id
 
     def _encode_image_base64(self, frame):
         """Convert OpenCV frame to base64 string"""
@@ -115,7 +121,7 @@ class QwenVLM:
             
             # Make request
             response = requests.post(
-                f"{self.lm_studio_url}/chat/completions",
+                f"{self.url}/chat/completions",
                 json=payload,
                 timeout=30
             )

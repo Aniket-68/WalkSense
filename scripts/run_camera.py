@@ -110,37 +110,34 @@ def main():
     # CONFIGURATION - Change these settings as needed
     # =========================================================
     
-    # Qwen Backend: "lm_studio" or "huggingface"
-    QWEN_BACKEND = "lm_studio"  # Change to "huggingface" to use downloaded model
+    # Load central configuration
+    from utils.config_loader import Config
     
-    # LM Studio settings (only used if QWEN_BACKEND = "lm_studio")
-    LM_STUDIO_URL = "http://192.168.29.249:1234/v1"
+    # Configuration
+    QWEN_BACKEND = Config.get("vlm.backend", "lm_studio")
+    LM_STUDIO_URL = Config.get("vlm.url", "http://localhost:1234/v1")
+    QWEN_MODEL_ID = Config.get("vlm.model_id", "qwen/qwen3-vl-4b")
     
-    # HuggingFace settings (only used if QWEN_BACKEND = "huggingface")
-    QWEN_MODEL_ID = "Qwen/Qwen2-VL-2B-Instruct"
-    
-    # =========================================================
+    SAMPLING = Config.get("perception.sampling_interval", 150)
+    SCENE_THRESH = Config.get("perception.scene_threshold", 0.15)
     
     camera = Camera()
     detector = YoloDetector()
     safety = SafetyRules()
-
+    
     tts = TTSEngine()
-    
-    # Orchestration Layer
     fusion = FusionEngine(tts)
-    
-    # Interaction Layer (Input)
     listener = ListeningLayer(None, fusion)
-
+    
     print("[INIT] Loading Qwen...")
     qwen = QwenVLM(
         backend=QWEN_BACKEND,
         model_id=QWEN_MODEL_ID,
         lm_studio_url=LM_STUDIO_URL
     )
+    
     # Slow down Qwen to prevents audio spam (every 5 seconds approx)
-    sampler = FrameSampler(every_n_frames=150)
+    sampler = FrameSampler(every_n_frames=SAMPLING)
 
     started = False
     
@@ -209,7 +206,7 @@ def main():
 
     # Smart Scene Detector
     from utils.scene_change import SceneChangeDetector
-    scene_detector = SceneChangeDetector(threshold=0.15) # 15% change required
+    scene_detector = SceneChangeDetector(threshold=SCENE_THRESH) # Use value from config
 
     current_user_query = None
 

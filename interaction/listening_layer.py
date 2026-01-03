@@ -12,7 +12,11 @@ class STTListener:
         self.recognizer = sr.Recognizer()
         self.mic = sr.Microphone()
 
-    def listen_once(self, timeout=5):
+    def listen_once(self, timeout=None):
+        from utils.config_loader import Config
+        if timeout is None:
+            timeout = Config.get("audio.stt_timeout", 5)
+
         try:
             with self.mic as source:
                 print("[STT] Listening...")
