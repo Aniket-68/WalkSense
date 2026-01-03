@@ -79,7 +79,7 @@
             "whisper_local": {
                 "model_size": "base",
                 "device": "cpu",
-                "language": "hi",
+                "language": "en",
                 "timeout": 10,
                 "phrase_time_limit": 15
             }
