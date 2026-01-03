@@ -51,12 +51,14 @@ class FusionEngine:
         
         if self.pending_query:
             # We were waiting for a fresh description to answer a user query!
-            self._generate_llm_answer(self.pending_query, text)
+            ans = self._generate_llm_answer(self.pending_query, text)
             self.pending_query = None
+            return ans
         else:
             # Regular passive description
             event = AlertEvent("SCENE_DESC", text)
             self.router.route(event)
+            return text
 
     def handle_scene_description(self, text):
         """Compatibility wrapper"""
@@ -83,9 +85,26 @@ class FusionEngine:
             spatial_context=spatial_ctx,
             scene_description=vlm_desc
         )
+
+        # FACTUAL GROUNDING CHECK (Anti-Hallucination)
+        # If the LLM says "Yes" but VLM mentions a different number than the query, flag it.
+        # Example: Query has "50", VLM has "100", LLM says "Yes".
+        import re
+        numbers_in_query = re.findall(r'\d+', query)
+        if numbers_in_query:
+            for num in numbers_in_query:
+                # If query mentions a number not in VLM, but LLM is being positive...
+                if num not in vlm_desc and ("yes" in answer.lower() or "confirm" in answer.lower()):
+                    vlm_nums = re.findall(r'\d+', vlm_desc)
+                    if vlm_nums:
+                        correction = f"Wait, the camera actually sees {vlm_nums[0]}. Not {num}."
+                        print(f"[GROUNDING ALERT] Hallucination detected. Overriding LLM.")
+                        answer = correction
+                        break
         
         # Send the final 'thought' to the router
         self.router.route(AlertEvent("RESPONSE", answer))
+        return answer
 
     def handle_user_query_response(self, text):
         """Manual override or fallback for query response"""

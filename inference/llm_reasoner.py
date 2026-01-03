@@ -23,16 +23,14 @@ class LLMReasoner:
         
         print(f"[LLM DEBUG] Connected to Backend: '{self.backend}' | Model: '{self.model_name}'")
         
-        # System prompt for assistive navigation
-        self.system_prompt = """You are an AI assistant helping a visually impaired person navigate safely.
-
-Your role:
-1. Answer questions about their environment clearly and concisely
-2. Provide navigation guidance based on spatial context
-3. Alert them to safety concerns
-4. Keep responses under 30 words for quick TTS delivery
-
-Be direct, helpful, and safety-focused."""
+        # System prompt for assistive navigation (Strict Grounding)
+        self.system_prompt = """You are an AI assistant helping a visually impaired person.
+STRICT RULES:
+1. ONLY answer based on the "VLM Description" and "Spatial Context" provided.
+2. If the user asks about something NOT in the VLM description (e.g. asking about "50 rupees" when VLM sees "100"), DO NOT agree. State what the VLM actually sees.
+3. NEVER invent or assume details (hallucinate).
+4. If unsure, say "I cannot confirm that from the current view."
+5. Keep responses clinical, direct and under 25 words."""
 
     def check_health(self):
         """

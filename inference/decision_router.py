@@ -22,6 +22,12 @@ class DecisionRouter:
         """
         Route an event to Interaction Layer (TTS + Aux) based on priority.
         """
+        from utils.config_loader import Config
+        suppress = Config.get("safety.suppression.enabled", False)
+        warn_thresh = Config.get("safety.suppression.redundancy_threshold", 0.8)
+        warn_timeout = Config.get("safety.suppression.warning_timeout", 5.0)
+        scene_timeout = Config.get("safety.suppression.scene_timeout", 20.0)
+
         severity = event.type
         message = event.message
         
@@ -40,7 +46,7 @@ class DecisionRouter:
 
         # 2. WARNINGS: Medium Feedback
         if severity == "WARNING":
-            if not self.context_manager.is_redundant(message, threshold=0.8, timeout=5):
+            if not self.context_manager.is_redundant(message, threshold=warn_thresh, timeout=warn_timeout):
                 self.aux.trigger_haptic("MEDIUM")
                 self.aux.trigger_buzzer("WARNING")
                 
@@ -59,8 +65,8 @@ class DecisionRouter:
 
         # 4. SCENE DESCRIPTION: No Physical Feedback (Passive)
         if severity == "SCENE_DESC":
-            # Strict Redundancy Check (Must be 30% different to speak)
-            if not self.context_manager.is_redundant(message, threshold=0.7, timeout=20):
+            # Strict Redundancy Check
+            if not self.context_manager.is_redundant(message, threshold=warn_thresh - 0.1, timeout=scene_timeout):
                 self.tts.speak(message)
                 self.context_manager.update_context(message)
             return

@@ -51,23 +51,37 @@
             }
         }
     },
+    "microphone": {
+        "mode": "hardware",
+        "hardware": {
+            "id": 2,
+            "calibration_duration": 2.0,
+            "energy_threshold": 50,
+            "pause_threshold": 1.0,
+            "dynamic_energy": true
+        }
+    },
     "stt": {
         "active_provider": "whisper_local",
         "providers": {
             "google": {
                 "language": "en-US",
-                "timeout": 5
+                "timeout": 15,
+                "phrase_time_limit": 15
             },
             "whisper_api": {
                 "api_key_env": "OPENAI_API_KEY",
                 "model": "whisper-1",
                 "language": "en",
-                "timeout": 10
+                "timeout": 15,
+                "phrase_time_limit": 20
             },
             "whisper_local": {
                 "model_size": "base",
                 "device": "cpu",
-                "language": "en"
+                "language": "hi",
+                "timeout": 10,
+                "phrase_time_limit": 15
             }
         }
     },
@@ -88,6 +102,12 @@
         "scene_threshold": 0.15
     },
     "safety": {
-        "alert_cooldown": 10.0
+        "alert_cooldown": 20.0,
+        "suppression": {
+            "enabled": true,
+            "redundancy_threshold": 0.5,
+            "warning_timeout": 30.0,
+            "scene_timeout": 60.0
+        }
     }
 }

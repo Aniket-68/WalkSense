@@ -5,7 +5,7 @@ class FrameSampler:
     Controls how often expensive models (Qwen) are run
     """
 
-    def __init__(self, every_n_frames=1):
+    def __init__(self, every_n_frames=10):
         self.every_n_frames = every_n_frames
         self.counter = 0
 
