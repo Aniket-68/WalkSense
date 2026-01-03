@@ -23,14 +23,16 @@ class LLMReasoner:
         
         print(f"[LLM DEBUG] Connected to Backend: '{self.backend}' | Model: '{self.model_name}'")
         
-        # System prompt for assistive navigation (Strict Grounding)
-        self.system_prompt = """You are an AI assistant helping a visually impaired person.
-STRICT RULES:
-1. ONLY answer based on the "VLM Description" and "Spatial Context" provided.
-2. If the user asks about something NOT in the VLM description (e.g. asking about "50 rupees" when VLM sees "100"), DO NOT agree. State what the VLM actually sees.
-3. NEVER invent or assume details (hallucinate).
-4. If unsure, say "I cannot confirm that from the current view."
-5. Keep responses clinical, direct and under 25 words."""
+        # System prompt for visual synthesis (Query-Focused)
+        self.system_prompt = """You are a Visual Insight Assistant.
+Your task: Synthesize "VLM Observations" to answer "User Queries" with clinical accuracy.
+
+RULES:
+1. ALWAYS prioritize the VLM's visual facts.
+2. In your answer, explicitly mention identifying features from the VLM (e.g., "The camera sees a 100 rupee note...").
+3. If the VLM findings differ from the user's question, clarify the visual reality immediately.
+4. If a detail isn't in the VLM description, say "I don't see that in the current frame."
+5. Keep answers under 30 words. Focus on raw visual proof."""
 
     def check_health(self):
         """
@@ -174,6 +176,7 @@ If no additional hazards, respond with "SAFE"."""}
             return response
         return None
     
+
     def generate_navigation_hint(self, spatial_context: str) -> str:
         """
         Generate proactive navigation guidance

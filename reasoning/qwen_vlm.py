@@ -90,10 +90,15 @@ class QwenVLM:
             # Encode image
             image_base64 = self._encode_image_base64(frame)
             
-            # Create fused prompt
-            prompt = "Describe this scene briefly for a visually impaired person. Focus on obstacles, people, and navigation hazards. Keep it under 30 words."
-            if context:
-                prompt = f"Object Detections: {context}. {prompt}"
+            # Determine primary task
+            if "USER QUESTION:" in context:
+                query_part = context.split("USER QUESTION:")[1].strip()
+                det_part = context.split("USER QUESTION:")[0].strip()
+                prompt = f"Look closely at the image. User asks: '{query_part}'. Answer this question based ONLY on the visual evidence. Detect these objects too: {det_part}. Keep it under 40 words."
+            else:
+                prompt = "Describe this scene briefly for a visually impaired person. Focus on obstacles, people, and navigation hazards. Keep it under 30 words."
+                if context:
+                    prompt = f"Object Detections: {context}. {prompt}"
             
             # Prepare request
             payload = {
@@ -142,10 +147,15 @@ class QwenVLM:
         rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         pil_image = Image.fromarray(rgb_frame)
         
-        # Create fused prompt
-        prompt = "Describe this scene briefly for a visually impaired person. Focus on obstacles, people, and navigation hazards."
-        if context:
-            prompt = f"Known objects: {context}. {prompt}"
+        # Determine primary task
+        if "USER QUESTION:" in context:
+            query_part = context.split("USER QUESTION:")[1].strip()
+            det_part = context.split("USER QUESTION:")[0].strip()
+            prompt = f"Look closely at the image. User asks: '{query_part}'. Answer this question based ONLY on visual evidence. Objects known: {det_part}. Keep it under 40 words."
+        else:
+            prompt = "Describe this scene briefly for a visually impaired person. Focus on obstacles, people, and navigation hazards."
+            if context:
+                prompt = f"Known objects: {context}. {prompt}"
         
         # Prepare messages in Qwen2-VL format
         messages = [
