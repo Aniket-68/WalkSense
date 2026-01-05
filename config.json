@@ -78,7 +78,7 @@
             },
             "whisper_local": {
                 "model_size": "base",
-                "device": "cpu",
+                "device": "cuda",
                 "language": "en",
                 "timeout": 10,
                 "phrase_time_limit": 15
@@ -96,6 +96,15 @@
             "video_path": "test_walk.mp4",
             "loop": true
         }
+    },
+    "detector": {
+        "active_model": "yolov8n",
+        "models": {
+            "yolov8n": "models/yolo/yolov8n.pt",
+            "yolo11m": "models/yolo/yolo11m.pt"
+        },
+        "confidence_threshold": 0.25,
+        "device": "cuda"
     },
     "perception": {
         "sampling_interval": 150,

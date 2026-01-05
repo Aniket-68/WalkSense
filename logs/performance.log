@@ -1,0 +1,1294 @@
+2026-01-05 01:41:59.997 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.68s
+2026-01-05 01:42:00.627 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 1.31s
+2026-01-05 01:42:02.973 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.63s
+2026-01-05 01:42:19.257 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.62s
+2026-01-05 01:42:29.013 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 1.26s
+2026-01-05 01:42:43.354 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 1.26s
+2026-01-05 01:42:49.553 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.59s
+2026-01-05 01:42:50.987 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.61s
+2026-01-05 01:42:52.844 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.61s
+2026-01-05 01:42:59.385 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.61s
+2026-01-05 01:43:01.897 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 1.26s
+2026-01-05 01:43:09.339 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.61s
+2026-01-05 01:43:24.371 | WARNING  | __main__:main:314 - Safety Alert: Danger! car detected ahead. Stop immediately.
+2026-01-05 01:43:26.637 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.61s
+2026-01-05 01:43:49.603 | INFO     | __main__:threaded_listen:290 - Listening thread started...
+2026-01-05 01:44:02.118 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.66s
+2026-01-05 01:44:02.122 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.67s
+2026-01-05 01:44:03.964 | INFO     | utils.performance_tracker:stop_timer:32 - STT took 14.36s
+2026-01-05 01:44:03.964 | INFO     | __main__:threaded_listen:295 - User asked: Oh, don't move, let's get it.
+2026-01-05 01:44:04.904 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 277.68328454759387, 'max_ms': 683.9842796325684, 'min_ms': 234.84492301940918, 'count': 333}, 'frame_total': {'avg_ms': 371.23812139929237, 'max_ms': 1313.291311264038, 'min_ms': 253.79681587219238, 'count': 333}, 'stt': {'avg_ms': 14361.534357070923, 'max_ms': 14361.534357070923, 'min_ms': 14361.534357070923, 'count': 1}}
+2026-01-05 01:44:08.106 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.55s
+2026-01-05 01:44:08.110 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.55s
+2026-01-05 01:44:20.318 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.52s
+2026-01-05 01:44:20.322 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.53s
+2026-01-05 01:44:23.482 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.51s
+2026-01-05 01:44:23.486 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.51s
+2026-01-05 01:44:24.299 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.80s
+2026-01-05 01:44:24.301 | INFO     | __main__:main:330 - VLM Description: Three people lie on the bed. A laptop sits nearby. The scene is dimly lit, with a fan and kitchen visible in the background. No movement detected.
+2026-01-05 01:44:26.645 | INFO     | utils.performance_tracker:stop_timer:32 - LLM_REASONING took 2.34s
+2026-01-05 01:44:26.645 | INFO     | __main__:main:340 - LLM Answer: The laptop is located in the center of the scene, far away from the people.
+2026-01-05 01:44:26.650 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 3.15s
+2026-01-05 01:44:27.444 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.78s
+2026-01-05 01:44:27.676 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 1.02s
+2026-01-05 01:44:28.482 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.80s
+2026-01-05 01:44:28.486 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.80s
+2026-01-05 01:44:29.316 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:44:29.322 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:44:30.157 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:44:30.162 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:44:30.974 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.80s
+2026-01-05 01:44:30.979 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.81s
+2026-01-05 01:44:31.855 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:44:31.857 | INFO     | __main__:main:330 - VLM Description: Two people sit in dimly lit room. A large TV screen displays code. A fan stands nearby. Open doorway leads to brightly lit kitchen.
+2026-01-05 01:44:31.860 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:44:32.678 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.81s
+2026-01-05 01:44:32.683 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.81s
+2026-01-05 01:44:33.499 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.81s
+2026-01-05 01:44:33.504 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.81s
+2026-01-05 01:44:34.326 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.81s
+2026-01-05 01:44:34.330 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:44:35.170 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:44:35.173 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:44:36.003 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:44:36.007 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:44:36.868 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:44:36.871 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:44:37.745 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:44:37.748 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:44:38.566 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.81s
+2026-01-05 01:44:38.570 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.81s
+2026-01-05 01:44:39.413 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:44:39.433 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:44:40.296 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:44:40.300 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:44:41.176 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:44:41.181 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:44:42.075 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:44:42.079 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.89s
+2026-01-05 01:44:42.967 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:44:42.971 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:44:43.853 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:44:43.857 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:44:44.710 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:44:44.713 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:44:45.555 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:44:45.558 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:44:46.412 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:44:46.414 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:44:47.290 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:44:47.293 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:44:48.168 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:44:48.171 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:44:49.012 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:44:49.016 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:44:49.870 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:44:49.872 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:44:50.726 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:44:50.736 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:44:51.573 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:44:51.578 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:44:52.443 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:44:52.446 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:44:53.317 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:44:53.471 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 1.01s
+2026-01-05 01:44:54.320 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:44:54.324 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:44:55.160 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:44:55.164 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:44:55.983 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.81s
+2026-01-05 01:44:55.987 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:44:56.854 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:44:56.858 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:44:57.698 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:44:57.700 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:44:58.532 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:44:58.535 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:44:59.387 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:44:59.390 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:45:00.262 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:45:00.268 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:45:01.113 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:45:01.113 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:45:02.024 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:45:02.026 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:45:02.882 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:45:02.885 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:45:03.733 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:45:03.736 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:45:04.582 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:45:04.585 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:45:05.437 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:45:05.444 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:45:06.300 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:45:06.302 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:45:07.165 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:45:07.172 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:45:08.019 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:45:08.021 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:45:08.863 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:45:08.864 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:45:09.699 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:45:09.703 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:45:10.553 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:45:10.558 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:45:11.420 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:45:11.421 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:45:12.291 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:45:12.293 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:45:13.158 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:45:13.159 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:45:14.030 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:45:14.033 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:45:14.899 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:45:14.903 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:45:15.746 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:45:15.747 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:45:16.607 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:45:16.611 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:45:17.521 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.91s
+2026-01-05 01:45:17.524 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.91s
+2026-01-05 01:45:18.366 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:45:18.366 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:45:19.209 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:45:19.279 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:45:20.120 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:45:20.122 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:45:20.972 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:45:20.974 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:45:21.842 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:45:21.845 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:45:22.735 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:45:22.737 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:45:23.594 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:45:23.597 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:45:24.438 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:45:24.441 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:45:25.299 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:45:25.302 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:45:26.162 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:45:26.165 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:45:26.999 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:45:27.002 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:45:27.884 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:45:27.887 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:45:28.773 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:45:28.776 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:45:29.653 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:45:29.656 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:45:30.478 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.81s
+2026-01-05 01:45:30.488 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:45:31.330 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:45:31.344 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:45:32.196 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:45:32.200 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:45:33.098 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:45:33.100 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.89s
+2026-01-05 01:45:33.986 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:45:33.990 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:45:34.840 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:45:34.845 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:45:35.754 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.90s
+2026-01-05 01:45:35.758 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:45:36.732 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.96s
+2026-01-05 01:45:36.737 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.97s
+2026-01-05 01:45:38.681 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 1.93s
+2026-01-05 01:45:38.683 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 1.94s
+2026-01-05 01:45:39.559 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:45:39.562 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:45:40.469 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:45:40.471 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:45:41.317 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:45:41.320 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:45:42.203 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:45:42.207 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:45:43.094 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:45:43.097 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:45:43.991 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:45:43.995 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.89s
+2026-01-05 01:45:44.844 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:45:44.849 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:45:45.722 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:45:45.727 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:45:46.598 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:45:46.622 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:45:47.487 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:45:47.491 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:45:48.365 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:45:48.367 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:45:49.253 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:45:49.258 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:45:50.123 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:45:50.128 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:45:50.966 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:45:50.969 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:45:51.849 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:45:51.853 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:45:52.710 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:45:52.713 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:45:53.613 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:45:53.614 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.89s
+2026-01-05 01:45:54.487 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:45:54.489 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:45:55.353 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:45:55.360 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:45:55.360 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 410.2518119180178, 'max_ms': 1933.2618713378906, 'min_ms': 234.84492301940918, 'count': 483}, 'frame_total': {'avg_ms': 481.8532299057544, 'max_ms': 3154.223918914795, 'min_ms': 248.38614463806152, 'count': 483}, 'stt': {'avg_ms': 14361.534357070923, 'max_ms': 14361.534357070923, 'min_ms': 14361.534357070923, 'count': 1}, 'llm_reasoning': {'avg_ms': 2343.601942062378, 'max_ms': 2343.601942062378, 'min_ms': 2343.601942062378, 'count': 1}}
+2026-01-05 01:45:56.193 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:45:56.198 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:45:57.059 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:45:57.063 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:45:57.907 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:45:57.912 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:45:58.827 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.91s
+2026-01-05 01:45:58.831 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.91s
+2026-01-05 01:45:59.722 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:45:59.726 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.89s
+2026-01-05 01:46:00.593 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:46:00.597 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:46:01.464 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:46:01.489 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:46:02.351 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:02.356 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:46:03.293 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.93s
+2026-01-05 01:46:03.297 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.93s
+2026-01-05 01:46:04.184 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:46:04.188 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:46:05.052 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:05.055 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:46:05.910 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:05.914 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:46:06.765 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:46:06.769 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:46:07.596 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:46:07.600 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:46:08.481 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:46:08.485 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:46:09.384 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:46:09.389 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.89s
+2026-01-05 01:46:10.218 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:46:10.221 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:46:11.086 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:11.088 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:46:11.976 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:46:11.980 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:46:12.843 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:12.939 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.95s
+2026-01-05 01:46:13.842 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:46:13.847 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:46:14.706 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:14.708 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:46:15.591 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:46:15.595 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:46:16.444 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:46:16.455 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:46:17.282 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:46:17.288 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:46:18.145 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:18.149 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:46:19.038 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:46:19.042 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:46:19.911 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:46:19.913 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:46:20.766 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:46:20.772 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:46:21.630 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:21.637 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:46:22.516 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:46:22.519 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:46:23.353 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:46:23.355 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:46:24.257 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:46:24.262 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:46:25.157 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:46:25.159 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.89s
+2026-01-05 01:46:26.021 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:26.027 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:46:26.863 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:46:26.875 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:46:27.716 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:46:27.719 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:46:28.568 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:46:28.572 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:46:29.432 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:29.438 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:46:30.280 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:46:30.283 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:46:31.126 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:46:31.130 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:46:31.974 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:46:31.979 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:46:32.837 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:32.842 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:46:33.681 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:46:33.686 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:46:34.577 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:46:34.581 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.89s
+2026-01-05 01:46:35.421 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:46:35.426 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:46:36.289 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:36.309 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:46:37.149 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:46:37.154 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:46:38.004 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:46:38.008 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:46:38.860 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:46:39.073 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 1.05s
+2026-01-05 01:46:39.967 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:46:39.972 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.89s
+2026-01-05 01:46:40.828 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:40.831 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:46:41.686 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:46:41.689 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:46:42.494 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.79s
+2026-01-05 01:46:42.499 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.80s
+2026-01-05 01:46:43.326 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:46:43.331 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:46:44.241 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.90s
+2026-01-05 01:46:44.245 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:46:45.105 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:45.110 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:46:45.964 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:46:45.968 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:46:46.819 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:46:46.825 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:46:47.677 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:46:47.681 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:46:48.525 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:46:48.529 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:46:49.426 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:46:49.430 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.89s
+2026-01-05 01:46:50.276 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:46:50.281 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:46:51.112 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:46:51.117 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:46:51.958 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:46:51.962 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:46:52.800 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:46:52.803 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:46:53.657 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:46:53.658 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:46:54.537 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:46:54.541 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:46:55.414 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:46:55.417 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:46:56.268 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:46:56.273 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:46:57.130 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:46:57.131 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:46:57.984 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:46:57.988 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:46:58.814 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:46:58.818 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:46:59.669 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:46:59.671 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:47:00.517 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:00.521 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:47:01.356 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:47:01.358 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:47:02.207 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:02.211 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:47:03.026 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.80s
+2026-01-05 01:47:03.028 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.81s
+2026-01-05 01:47:03.855 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:47:03.859 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:47:04.734 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:47:04.774 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.91s
+2026-01-05 01:47:05.636 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:47:05.642 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:47:06.476 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:47:06.482 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:47:07.354 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:47:07.365 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:47:08.241 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:47:08.244 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:47:09.106 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:47:09.112 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:47:10.022 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.90s
+2026-01-05 01:47:10.025 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:47:10.936 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.90s
+2026-01-05 01:47:10.940 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:47:11.815 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:47:11.818 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:47:12.665 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:12.668 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:47:13.537 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:47:13.540 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:47:14.359 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.81s
+2026-01-05 01:47:14.362 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.81s
+2026-01-05 01:47:15.237 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:47:15.240 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:47:16.123 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:47:16.126 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:47:16.983 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:16.987 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:47:17.832 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:17.839 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:47:18.696 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:47:18.700 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:47:19.604 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:47:19.609 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:47:20.492 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:47:20.495 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:47:21.353 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:47:21.356 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:47:22.195 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:47:22.199 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:47:23.037 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:47:23.042 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:47:23.897 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:47:23.901 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:47:24.793 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:47:24.796 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:47:25.661 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:47:25.665 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:47:26.514 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:26.519 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:47:27.373 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:27.378 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:47:28.229 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:28.233 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:47:29.097 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:47:29.101 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:47:29.989 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:47:29.995 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:47:30.852 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:47:30.882 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:47:31.723 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:47:31.729 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:47:32.577 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:32.581 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:47:33.430 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:33.440 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:47:34.283 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:47:34.287 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:47:35.187 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:47:35.191 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.89s
+2026-01-05 01:47:36.055 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:47:36.059 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:47:36.878 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.81s
+2026-01-05 01:47:36.882 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.81s
+2026-01-05 01:47:37.683 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.79s
+2026-01-05 01:47:37.687 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.80s
+2026-01-05 01:47:38.539 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:38.555 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:47:39.429 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:47:39.432 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:47:40.338 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.90s
+2026-01-05 01:47:40.343 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:47:41.194 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:41.199 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:47:42.066 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:47:42.071 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:47:42.924 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:42.928 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:47:43.765 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:47:43.768 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:47:44.630 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:47:44.636 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:47:45.527 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:47:45.533 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.89s
+2026-01-05 01:47:46.395 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:47:46.399 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:47:47.233 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:47:47.239 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:47:48.100 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:47:48.104 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:47:48.963 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:47:48.967 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:47:49.816 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:49.821 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:47:50.715 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:47:50.718 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.89s
+2026-01-05 01:47:51.607 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.88s
+2026-01-05 01:47:51.610 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.88s
+2026-01-05 01:47:52.467 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:47:52.472 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:47:53.317 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:53.323 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:47:54.176 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:54.182 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:47:55.033 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:55.037 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:47:55.933 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:47:55.939 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.89s
+2026-01-05 01:47:56.792 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:47:56.880 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.93s
+2026-01-05 01:47:57.724 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:47:57.729 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:47:58.565 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:47:58.569 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:47:59.412 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:47:59.417 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:48:00.283 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:48:00.287 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:48:01.203 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.91s
+2026-01-05 01:48:01.207 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.91s
+2026-01-05 01:48:02.064 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:48:02.069 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:48:02.973 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:48:02.977 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:48:03.842 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:48:03.847 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:48:04.703 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:48:04.707 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:48:05.613 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.90s
+2026-01-05 01:48:05.617 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:48:05.617 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 514.5437551712349, 'max_ms': 1933.2618713378906, 'min_ms': 234.84492301940918, 'count': 633}, 'frame_total': {'avg_ms': 571.005368496381, 'max_ms': 3154.223918914795, 'min_ms': 248.38614463806152, 'count': 633}, 'stt': {'avg_ms': 14361.534357070923, 'max_ms': 14361.534357070923, 'min_ms': 14361.534357070923, 'count': 1}, 'llm_reasoning': {'avg_ms': 2343.601942062378, 'max_ms': 2343.601942062378, 'min_ms': 2343.601942062378, 'count': 1}}
+2026-01-05 01:48:06.449 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:48:06.454 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:48:07.302 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:48:07.305 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:48:08.137 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:48:08.142 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:48:08.971 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:48:08.996 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:48:09.854 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:48:09.858 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:48:10.771 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.90s
+2026-01-05 01:48:10.774 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:48:11.653 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.87s
+2026-01-05 01:48:11.658 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.87s
+2026-01-05 01:48:12.490 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:48:12.495 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:48:13.357 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:48:13.361 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:48:14.202 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:48:14.206 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:48:15.037 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:48:15.041 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:48:15.943 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:48:15.947 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:48:16.812 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.86s
+2026-01-05 01:48:16.816 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:48:17.662 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:48:17.666 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:48:18.383 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.71s
+2026-01-05 01:48:18.386 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.71s
+2026-01-05 01:48:19.622 | WARNING  | __main__:main:314 - Safety Alert: Warning! dog ahead. Proceed carefully.
+2026-01-05 01:48:19.959 | WARNING  | __main__:main:314 - Safety Alert: Warning! dog ahead. Proceed carefully.
+2026-01-05 01:48:20.780 | WARNING  | __main__:main:314 - Safety Alert: Warning! dog ahead. Proceed carefully.
+2026-01-05 01:48:21.321 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.53s
+2026-01-05 01:48:21.324 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.53s
+2026-01-05 01:48:22.229 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.89s
+2026-01-05 01:48:22.233 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.90s
+2026-01-05 01:48:23.069 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:48:23.073 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:48:23.901 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:48:23.904 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:48:24.719 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.80s
+2026-01-05 01:48:24.720 | WARNING  | __main__:main:314 - Safety Alert: Warning! dog ahead. Proceed carefully.
+2026-01-05 01:48:24.722 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.81s
+2026-01-05 01:48:25.533 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.80s
+2026-01-05 01:48:25.535 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.80s
+2026-01-05 01:48:26.394 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:48:26.397 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:48:27.229 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:48:27.232 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:48:28.039 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.80s
+2026-01-05 01:48:28.043 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.80s
+2026-01-05 01:48:28.889 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:48:28.892 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:48:29.693 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.79s
+2026-01-05 01:48:29.696 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.80s
+2026-01-05 01:48:30.482 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.78s
+2026-01-05 01:48:30.486 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.78s
+2026-01-05 01:48:31.347 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:48:31.350 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:48:32.178 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:48:32.184 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:48:33.015 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:48:33.018 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:48:33.863 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:48:33.866 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:48:34.671 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.79s
+2026-01-05 01:48:34.676 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.80s
+2026-01-05 01:48:35.465 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.78s
+2026-01-05 01:48:35.466 | WARNING  | __main__:main:314 - Safety Alert: Warning! dog ahead. Proceed carefully.
+2026-01-05 01:48:35.469 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.78s
+2026-01-05 01:48:36.252 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.78s
+2026-01-05 01:48:36.254 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.78s
+2026-01-05 01:48:37.076 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.81s
+2026-01-05 01:48:37.079 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.81s
+2026-01-05 01:48:37.875 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.79s
+2026-01-05 01:48:37.878 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.79s
+2026-01-05 01:48:38.678 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.79s
+2026-01-05 01:48:38.681 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.79s
+2026-01-05 01:48:39.491 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.80s
+2026-01-05 01:48:39.494 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.80s
+2026-01-05 01:48:40.287 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.78s
+2026-01-05 01:48:40.290 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.79s
+2026-01-05 01:48:41.105 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.80s
+2026-01-05 01:48:41.107 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.81s
+2026-01-05 01:48:41.933 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.81s
+2026-01-05 01:48:41.936 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:48:42.768 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:48:42.771 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.82s
+2026-01-05 01:48:43.601 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.82s
+2026-01-05 01:48:43.785 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 1.00s
+2026-01-05 01:48:44.636 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:48:44.641 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:48:45.476 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:48:45.483 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:48:46.331 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:48:46.335 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:48:47.185 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:48:47.188 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:48:48.039 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:48:48.041 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:48:48.905 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:48:48.908 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:48:49.765 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:48:49.768 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.85s
+2026-01-05 01:48:50.630 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.85s
+2026-01-05 01:48:50.633 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.86s
+2026-01-05 01:48:51.444 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.80s
+2026-01-05 01:48:51.447 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.80s
+2026-01-05 01:48:52.298 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.84s
+2026-01-05 01:48:52.300 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.84s
+2026-01-05 01:48:53.109 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.80s
+2026-01-05 01:48:53.113 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.80s
+2026-01-05 01:48:53.909 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.79s
+2026-01-05 01:48:53.911 | WARNING  | __main__:main:314 - Safety Alert: Warning! dog ahead. Proceed carefully.
+2026-01-05 01:48:53.920 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.80s
+2026-01-05 01:48:54.761 | INFO     | utils.performance_tracker:stop_timer:32 - YOLO took 0.83s
+2026-01-05 01:48:54.763 | INFO     | utils.performance_tracker:stop_timer:32 - FRAME_TOTAL took 0.83s
+2026-01-05 01:49:06.146 | WARNING  | safety.yolo_detector:__init__:22 - CUDA requested but not available. Falling back to CPU.
+2026-01-05 01:49:06.147 | INFO     | safety.yolo_detector:__init__:27 - YOLO loading model on: cpu
+2026-01-05 01:49:06.155 | INFO     | __main__:main:248 - Creating Enhanced Fusion Engine...
+2026-01-05 01:49:06.155 | INFO     | inference.llm_reasoner:__init__:25 - Connected to Backend: 'ollama' | Model: 'gemma3:270m'
+2026-01-05 01:49:06.424 | INFO     | interaction.listening_layer:__init__:29 - Initialized Microphone ID: 2 (Microphone Array (Realtek(R) Au)
+2026-01-05 01:49:06.424 | INFO     | __main__:main:259 - Loading Qwen VLM...
+2026-01-05 01:49:06.424 | INFO     | reasoning.qwen_vlm:_init_lm_studio:57 - Using LM Studio backend: http://localhost:1234/v1
+2026-01-05 01:49:08.492 | INFO     | reasoning.qwen_vlm:_init_lm_studio:65 - Connected. Active: qwen/qwen3-vl-4b
+2026-01-05 01:49:23.618 | INFO     | __main__:threaded_listen:290 - Listening thread started...
+2026-01-05 01:49:26.423 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 01:49:29.576 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 01:49:29.913 | INFO     | interaction.listening_layer:_recognize_faster_whisper:130 - Loading faster-whisper model: base into models/whisper
+2026-01-05 01:49:31.290 | INFO     | utils.performance_tracker:stop_timer:39 - FRAME_TOTAL took 0.58s
+2026-01-05 01:49:35.843 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: I don't know if I am going to be able to do it or not.
+2026-01-05 01:49:35.843 | INFO     | utils.performance_tracker:stop_timer:39 - STT took 12.22s
+2026-01-05 01:49:35.843 | INFO     | __main__:threaded_listen:295 - User asked: I don't know if I am going to be able to do it or not.
+2026-01-05 01:50:00.586 | INFO     | __main__:threaded_listen:290 - Listening thread started...
+2026-01-05 01:50:02.444 | INFO     | __main__:main:398 - System Started
+2026-01-05 01:50:03.252 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 01:50:06.263 | INFO     | __main__:main:330 - VLM Description: Three people on bed: one sleeping, one using laptop, one lying. Bed occupies full frame. No visible text or objects indicate user’s uncertainty.
+2026-01-05 01:50:08.154 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 01:50:08.369 | INFO     | utils.performance_tracker:stop_timer:39 - LLM_REASONING took 2.11s
+2026-01-05 01:50:08.369 | INFO     | __main__:main:340 - LLM Answer: I don't see that in the current frame.
+2026-01-05 01:50:08.371 | INFO     | utils.performance_tracker:stop_timer:39 - FRAME_TOTAL took 2.20s
+2026-01-05 01:50:10.098 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: person very close to your center.
+2026-01-05 01:50:10.098 | INFO     | utils.performance_tracker:stop_timer:39 - STT took 9.51s
+2026-01-05 01:50:10.098 | INFO     | __main__:threaded_listen:295 - User asked: person very close to your center.
+2026-01-05 01:50:13.570 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 74.34465632092353, 'max_ms': 268.6502933502197, 'min_ms': 46.18358612060547, 'count': 537}, 'frame_total': {'avg_ms': 114.35977751094313, 'max_ms': 2195.4100131988525, 'min_ms': 52.745819091796875, 'count': 537}, 'stt': {'avg_ms': 10868.103623390198, 'max_ms': 12224.34949874878, 'min_ms': 9511.857748031616, 'count': 2}, 'llm_reasoning': {'avg_ms': 2105.6301593780518, 'max_ms': 2105.6301593780518, 'min_ms': 2105.6301593780518, 'count': 1}}
+2026-01-05 01:50:13.759 | INFO     | __main__:main:330 - VLM Description: Center shows person with laptop. Other people: one lying, one sitting. Two beds detected. All persons and beds labeled with confidence scores.
+2026-01-05 01:50:14.624 | INFO     | utils.performance_tracker:stop_timer:39 - LLM_REASONING took 0.86s
+2026-01-05 01:50:14.624 | INFO     | __main__:main:340 - LLM Answer: The person is very close to your center, with the laptop visible.
+2026-01-05 01:50:14.625 | INFO     | utils.performance_tracker:stop_timer:39 - FRAME_TOTAL took 0.97s
+2026-01-05 01:50:20.623 | INFO     | __main__:threaded_listen:290 - Listening thread started...
+2026-01-05 01:50:22.231 | INFO     | __main__:main:330 - VLM Description: Two people lie on a bed; one uses a laptop. A fan and bed frame are nearby. Be cautious of the bed’s edge and cluttered space.
+2026-01-05 01:50:23.259 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 01:50:24.659 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 01:50:27.039 | INFO     | interaction.listening_layer:listen_once:108 - No text transcribed.
+2026-01-05 01:50:27.040 | INFO     | utils.performance_tracker:stop_timer:39 - STT took 6.42s
+2026-01-05 01:50:27.373 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 74.46340945436792, 'max_ms': 268.6502933502197, 'min_ms': 46.18358612060547, 'count': 687}, 'frame_total': {'avg_ms': 108.1436329359918, 'max_ms': 2195.4100131988525, 'min_ms': 46.51641845703125, 'count': 687}, 'stt': {'avg_ms': 9384.24571355184, 'max_ms': 12224.34949874878, 'min_ms': 6416.529893875122, 'count': 3}, 'llm_reasoning': {'avg_ms': 1484.4131469726562, 'max_ms': 2105.6301593780518, 'min_ms': 863.1961345672607, 'count': 2}}
+2026-01-05 01:50:36.838 | INFO     | __main__:threaded_listen:290 - Listening thread started...
+2026-01-05 01:50:39.003 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 73.26336459589403, 'max_ms': 268.6502933502197, 'min_ms': 46.18358612060547, 'count': 837}, 'frame_total': {'avg_ms': 101.59092052008516, 'max_ms': 2195.4100131988525, 'min_ms': 46.51641845703125, 'count': 837}, 'stt': {'avg_ms': 9384.24571355184, 'max_ms': 12224.34949874878, 'min_ms': 6416.529893875122, 'count': 3}, 'llm_reasoning': {'avg_ms': 1484.4131469726562, 'max_ms': 2105.6301593780518, 'min_ms': 863.1961345672607, 'count': 2}}
+2026-01-05 01:50:39.442 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 01:50:44.538 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 01:50:46.806 | INFO     | __main__:main:330 - VLM Description: Two people sit on a bed with patterned sheets. A fan is nearby. Avoid the bed’s edge and cluttered area to navigate safely.
+2026-01-05 01:50:50.523 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: It's been such a long time.
+2026-01-05 01:50:50.523 | INFO     | utils.performance_tracker:stop_timer:39 - STT took 13.68s
+2026-01-05 01:50:50.524 | INFO     | __main__:threaded_listen:295 - User asked: It's been such a long time.
+2026-01-05 01:50:52.491 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 74.10019146997516, 'max_ms': 268.6502933502197, 'min_ms': 46.18358612060547, 'count': 987}, 'frame_total': {'avg_ms': 98.76460314038556, 'max_ms': 2195.4100131988525, 'min_ms': 46.51641845703125, 'count': 987}, 'stt': {'avg_ms': 10459.214329719543, 'max_ms': 13684.120178222656, 'min_ms': 6416.529893875122, 'count': 4}, 'llm_reasoning': {'avg_ms': 1484.4131469726562, 'max_ms': 2105.6301593780518, 'min_ms': 863.1961345672607, 'count': 2}}
+2026-01-05 01:50:54.250 | INFO     | __main__:main:330 - VLM Description: A person sits on a bed, holding a phone. The bed is covered with sheets and a red blanket. The person appears tired or contemplative, possibly reflecting on time.
+2026-01-05 01:50:54.962 | INFO     | utils.performance_tracker:stop_timer:39 - LLM_REASONING took 0.71s
+2026-01-05 01:50:54.962 | INFO     | __main__:main:340 - LLM Answer: The person is sitting on a bed, holding a phone, and appears tired or contemplative.
+2026-01-05 01:50:54.963 | INFO     | utils.performance_tracker:stop_timer:39 - FRAME_TOTAL took 0.80s
+2026-01-05 01:51:00.904 | INFO     | __main__:main:330 - VLM Description: Dark, indistinct scene. A vertical black cable hangs near a wall. No people visible. Potential hazard: uneven floor or low-hanging object. Poor visibility.
+2026-01-05 01:51:05.310 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 73.80937187946357, 'max_ms': 268.6502933502197, 'min_ms': 46.18358612060547, 'count': 1137}, 'frame_total': {'avg_ms': 96.22553072168624, 'max_ms': 2195.4100131988525, 'min_ms': 46.51641845703125, 'count': 1137}, 'stt': {'avg_ms': 10459.214329719543, 'max_ms': 13684.120178222656, 'min_ms': 6416.529893875122, 'count': 4}, 'llm_reasoning': {'avg_ms': 1227.2405624389648, 'max_ms': 2105.6301593780518, 'min_ms': 712.895393371582, 'count': 3}}
+2026-01-05 01:51:29.655 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 82.5862584414182, 'max_ms': 268.6502933502197, 'min_ms': 46.18358612060547, 'count': 1287}, 'frame_total': {'avg_ms': 102.98182840206499, 'max_ms': 2195.4100131988525, 'min_ms': 46.51641845703125, 'count': 1287}, 'stt': {'avg_ms': 10459.214329719543, 'max_ms': 13684.120178222656, 'min_ms': 6416.529893875122, 'count': 4}, 'llm_reasoning': {'avg_ms': 1227.2405624389648, 'max_ms': 2105.6301593780518, 'min_ms': 712.895393371582, 'count': 3}}
+2026-01-05 01:51:58.238 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 92.31964896433703, 'max_ms': 268.6502933502197, 'min_ms': 46.18358612060547, 'count': 1437}, 'frame_total': {'avg_ms': 111.1454470919169, 'max_ms': 2195.4100131988525, 'min_ms': 46.51641845703125, 'count': 1437}, 'stt': {'avg_ms': 10459.214329719543, 'max_ms': 13684.120178222656, 'min_ms': 6416.529893875122, 'count': 4}, 'llm_reasoning': {'avg_ms': 1227.2405624389648, 'max_ms': 2105.6301593780518, 'min_ms': 712.895393371582, 'count': 3}}
+2026-01-05 01:52:10.953 | INFO     | __main__:main:330 - VLM Description: Dark room with a vertical cable hanging near a wall. No visible people or obstacles. Caution: cable may be tripping hazard. Minimal navigation risk.
+2026-01-05 01:52:20.542 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 96.36307393670758, 'max_ms': 268.6502933502197, 'min_ms': 46.18358612060547, 'count': 1587}, 'frame_total': {'avg_ms': 113.8744563070873, 'max_ms': 2195.4100131988525, 'min_ms': 46.51641845703125, 'count': 1587}, 'stt': {'avg_ms': 10459.214329719543, 'max_ms': 13684.120178222656, 'min_ms': 6416.529893875122, 'count': 4}, 'llm_reasoning': {'avg_ms': 1227.2405624389648, 'max_ms': 2105.6301593780518, 'min_ms': 712.895393371582, 'count': 3}}
+2026-01-05 01:52:27.995 | INFO     | __main__:main:330 - VLM Description: Dark, blurry scene with indistinct obstacles. No visible people. Navigation hazard: glowing light source ahead, possibly a vehicle or object, creating disorientation and caution.
+2026-01-05 01:52:32.962 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 94.18153515751497, 'max_ms': 268.6502933502197, 'min_ms': 45.34173011779785, 'count': 1737}, 'frame_total': {'avg_ms': 110.68223616688431, 'max_ms': 2195.4100131988525, 'min_ms': 46.51641845703125, 'count': 1737}, 'stt': {'avg_ms': 10459.214329719543, 'max_ms': 13684.120178222656, 'min_ms': 6416.529893875122, 'count': 4}, 'llm_reasoning': {'avg_ms': 1227.2405624389648, 'max_ms': 2105.6301593780518, 'min_ms': 712.895393371582, 'count': 3}}
+2026-01-05 01:52:35.136 | WARNING  | __main__:main:314 - Safety Alert: Warning! dog ahead. Proceed carefully.
+2026-01-05 01:52:40.688 | INFO     | __main__:main:330 - VLM Description: Four people sit or lie on a bed. One person is partially obscured. Beware of legs and limbs in close proximity. Keep a safe distance from the bed’s edges.
+2026-01-05 01:52:45.366 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 92.41029568052065, 'max_ms': 268.6502933502197, 'min_ms': 45.34173011779785, 'count': 1887}, 'frame_total': {'avg_ms': 107.98493856845485, 'max_ms': 2195.4100131988525, 'min_ms': 46.50378227233887, 'count': 1887}, 'stt': {'avg_ms': 10459.214329719543, 'max_ms': 13684.120178222656, 'min_ms': 6416.529893875122, 'count': 4}, 'llm_reasoning': {'avg_ms': 1227.2405624389648, 'max_ms': 2105.6301593780518, 'min_ms': 712.895393371582, 'count': 3}}
+2026-01-05 01:52:53.978 | INFO     | __main__:threaded_listen:290 - Listening thread started...
+2026-01-05 01:52:56.533 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 01:52:57.619 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 90.82202684311639, 'max_ms': 268.6502933502197, 'min_ms': 45.34173011779785, 'count': 2037}, 'frame_total': {'avg_ms': 105.5950290968328, 'max_ms': 2195.4100131988525, 'min_ms': 46.50378227233887, 'count': 2037}, 'stt': {'avg_ms': 10459.214329719543, 'max_ms': 13684.120178222656, 'min_ms': 6416.529893875122, 'count': 4}, 'llm_reasoning': {'avg_ms': 1227.2405624389648, 'max_ms': 2105.6301593780518, 'min_ms': 712.895393371582, 'count': 3}}
+2026-01-05 01:52:58.295 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 01:53:00.641 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: Can you tell me?
+2026-01-05 01:53:00.642 | INFO     | utils.performance_tracker:stop_timer:39 - STT took 6.66s
+2026-01-05 01:53:00.642 | INFO     | __main__:threaded_listen:295 - User asked: Can you tell me?
+2026-01-05 01:53:04.154 | INFO     | __main__:main:330 - VLM Description: Three people: one in light clothes, another in dark attire, third partially visible. All on bed. Labels indicate their detection confidence scores.
+2026-01-05 01:53:04.932 | INFO     | utils.performance_tracker:stop_timer:39 - LLM_REASONING took 0.78s
+2026-01-05 01:53:04.932 | INFO     | __main__:main:340 - LLM Answer: Yes, I can tell you.
+2026-01-05 01:53:04.933 | INFO     | utils.performance_tracker:stop_timer:39 - FRAME_TOTAL took 0.85s
+2026-01-05 01:53:11.706 | INFO     | __main__:main:389 - Performance Stats: {'yolo': {'avg_ms': 89.89967534571518, 'max_ms': 273.8490104675293, 'min_ms': 45.34173011779785, 'count': 2187}, 'frame_total': {'avg_ms': 104.36797305553212, 'max_ms': 2195.4100131988525, 'min_ms': 46.50378227233887, 'count': 2187}, 'stt': {'avg_ms': 9699.929285049438, 'max_ms': 13684.120178222656, 'min_ms': 6416.529893875122, 'count': 5}, 'llm_reasoning': {'avg_ms': 1115.031898021698, 'max_ms': 2105.6301593780518, 'min_ms': 712.895393371582, 'count': 4}}
+2026-01-05 01:53:19.336 | INFO     | __main__:main:330 - VLM Description: Two people sit on a bed. One gestures, the other uses a laptop. Bedding and legs pose minor obstacles. No sharp hazards.
+2026-01-05 01:53:29.392 | WARNING  | safety.yolo_detector:__init__:22 - CUDA requested but not available. Falling back to CPU.
+2026-01-05 01:53:29.392 | INFO     | safety.yolo_detector:__init__:27 - YOLO loading model on: cpu
+2026-01-05 01:53:29.393 | INFO     | __main__:main:260 - Creating Enhanced Fusion Engine...
+2026-01-05 01:53:29.393 | INFO     | inference.llm_reasoner:__init__:25 - Connected to Backend: 'ollama' | Model: 'gemma3:270m'
+2026-01-05 01:53:29.676 | INFO     | interaction.listening_layer:__init__:29 - Initialized Microphone ID: 2 (Microphone Array (Realtek(R) Au)
+2026-01-05 01:53:29.676 | INFO     | __main__:main:271 - Loading Qwen VLM...
+2026-01-05 01:53:29.676 | INFO     | reasoning.qwen_vlm:_init_lm_studio:57 - Using LM Studio backend: http://localhost:1234/v1
+2026-01-05 01:53:31.750 | INFO     | reasoning.qwen_vlm:_init_lm_studio:65 - Connected. Active: qwen/qwen3-vl-4b
+2026-01-05 01:53:35.231 | INFO     | __main__:main:408 - System Started
+2026-01-05 01:53:35.231 | INFO     | audio.tts:speak:25 - TTS: System Started
+2026-01-05 01:53:35.325 | INFO     | audio.tts:speak:25 - TTS: Warning! person very close to your right
+2026-01-05 01:53:43.276 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.04221425315207, 'max_ms': 238.97194862365723, 'min_ms': 45.73249816894531, 'count': 129}, 'frame_total': {'avg_ms': 82.33100129652394, 'max_ms': 268.01443099975586, 'min_ms': 45.73249816894531, 'count': 129}}
+2026-01-05 01:53:45.519 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 01:53:48.129 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 01:53:50.727 | INFO     | __main__:main:344 - VLM Description: Two people lie on a bed. One wears glasses, the other holds a laptop. Bed occupies most space. Avoid falling onto it.
+2026-01-05 01:53:50.728 | INFO     | audio.tts:speak:25 - TTS: Two people lie on a bed. One wears glasses, the other holds a laptop. Bed occupies most space. Avoid falling onto it.
+2026-01-05 01:53:55.403 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 70.89522577101185, 'max_ms': 238.97194862365723, 'min_ms': 45.73249816894531, 'count': 279}, 'frame_total': {'avg_ms': 77.81695806851951, 'max_ms': 268.01443099975586, 'min_ms': 45.73249816894531, 'count': 279}}
+2026-01-05 01:53:56.501 | INFO     | audio.tts:speak:25 - TTS: Warning! person very close to your center
+2026-01-05 01:53:59.166 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 01:53:59.488 | INFO     | interaction.listening_layer:_recognize_faster_whisper:130 - Loading faster-whisper model: base into models/whisper
+2026-01-05 01:54:03.130 | INFO     | __main__:main:344 - VLM Description: Two people lie on a bed. One person is partially obscured by the bed’s edge. Avoid the bed’s edge; it’s a soft, low obstacle.
+2026-01-05 01:54:03.131 | INFO     | audio.tts:speak:25 - TTS: Two people lie on a bed. One person is partially obscured by the bed’s edge. Avoid the bed’s edge; it’s a soft, low obstacle.
+2026-01-05 01:54:03.428 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: Two people lie out a bit, one wears glasses, the other holds a left warning.
+2026-01-05 01:54:03.428 | INFO     | utils.performance_tracker:stop_timer:39 - STT took 17.91s
+2026-01-05 01:54:03.429 | INFO     | __main__:threaded_listen:308 - User asked: Two people lie out a bit, one wears glasses, the other holds a left warning.
+2026-01-05 01:54:03.431 | INFO     | audio.tts:speak:25 - TTS: Checking on: Two people lie out a bit, one wears glasses, the other holds a left warning.
+2026-01-05 01:54:07.179 | INFO     | __main__:main:344 - VLM Description: Two people lie on bed. One wears glasses, the other holds left warning. All three labeled: person, person, person, bed. Confirmed by bounding boxes and labels.
+2026-01-05 01:54:07.882 | INFO     | audio.tts:speak:25 - TTS: The two people are lying on a bed, one wearing glasses and the other holding a left warning.
+2026-01-05 01:54:07.888 | INFO     | utils.performance_tracker:stop_timer:39 - LLM_REASONING took 0.71s
+2026-01-05 01:54:07.888 | INFO     | __main__:main:355 - LLM Answer: The two people are lying on a bed, one wearing glasses and the other holding a left warning.
+2026-01-05 01:54:07.888 | INFO     | utils.performance_tracker:stop_timer:39 - FRAME_TOTAL took 0.78s
+2026-01-05 01:54:09.374 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 72.72121011516153, 'max_ms': 244.7488307952881, 'min_ms': 45.73249816894531, 'count': 429}, 'frame_total': {'avg_ms': 81.12750575814769, 'max_ms': 780.9009552001953, 'min_ms': 45.73249816894531, 'count': 429}, 'stt': {'avg_ms': 17908.34641456604, 'max_ms': 17908.34641456604, 'min_ms': 17908.34641456604, 'count': 1}, 'llm_reasoning': {'avg_ms': 706.5610885620117, 'max_ms': 706.5610885620117, 'min_ms': 706.5610885620117, 'count': 1}}
+2026-01-05 01:54:16.577 | INFO     | audio.tts:speak:25 - TTS: Warning! person very close to your center
+2026-01-05 01:54:17.109 | INFO     | __main__:main:344 - VLM Description: Two people on a bed; one sleeps, one sits. Bed occupies most space. Avoid falling onto it or stepping on exposed wires nearby.
+2026-01-05 01:54:17.111 | INFO     | audio.tts:speak:25 - TTS: Two people on a bed; one sleeps, one sits. Bed occupies most space. Avoid falling onto it or stepping on exposed wires nearby.
+2026-01-05 01:54:17.494 | INFO     | audio.tts:speak:25 - TTS: Warning! person close to your center
+2026-01-05 01:54:21.753 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 72.3628623086142, 'max_ms': 244.7488307952881, 'min_ms': 45.73249816894531, 'count': 579}, 'frame_total': {'avg_ms': 80.04894446008976, 'max_ms': 780.9009552001953, 'min_ms': 45.73249816894531, 'count': 579}, 'stt': {'avg_ms': 17908.34641456604, 'max_ms': 17908.34641456604, 'min_ms': 17908.34641456604, 'count': 1}, 'llm_reasoning': {'avg_ms': 706.5610885620117, 'max_ms': 706.5610885620117, 'min_ms': 706.5610885620117, 'count': 1}}
+2026-01-05 01:54:29.322 | INFO     | __main__:main:344 - VLM Description: Two people sit on a bed. One person is partially obscured. Bed occupies most space. Avoid stepping on bedding or tripping over limbs.
+2026-01-05 01:54:29.323 | INFO     | audio.tts:speak:25 - TTS: Two people sit on a bed. One person is partially obscured. Bed occupies most space. Avoid stepping on bedding or tripping over limbs.
+2026-01-05 01:54:31.678 | INFO     | audio.tts:speak:25 - TTS: Warning! person very close to your center
+2026-01-05 01:54:33.952 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 72.04979273844485, 'max_ms': 244.7488307952881, 'min_ms': 45.73249816894531, 'count': 729}, 'frame_total': {'avg_ms': 79.16299305825567, 'max_ms': 780.9009552001953, 'min_ms': 45.73249816894531, 'count': 729}, 'stt': {'avg_ms': 17908.34641456604, 'max_ms': 17908.34641456604, 'min_ms': 17908.34641456604, 'count': 1}, 'llm_reasoning': {'avg_ms': 706.5610885620117, 'max_ms': 706.5610885620117, 'min_ms': 706.5610885620117, 'count': 1}}
+2026-01-05 01:54:45.952 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.50049828018345, 'max_ms': 244.7488307952881, 'min_ms': 45.73249816894531, 'count': 879}, 'frame_total': {'avg_ms': 78.29347296922009, 'max_ms': 780.9009552001953, 'min_ms': 45.73249816894531, 'count': 879}, 'stt': {'avg_ms': 17908.34641456604, 'max_ms': 17908.34641456604, 'min_ms': 17908.34641456604, 'count': 1}, 'llm_reasoning': {'avg_ms': 706.5610885620117, 'max_ms': 706.5610885620117, 'min_ms': 706.5610885620117, 'count': 1}}
+2026-01-05 01:54:58.151 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.14174715863257, 'max_ms': 244.7488307952881, 'min_ms': 45.73249816894531, 'count': 1029}, 'frame_total': {'avg_ms': 77.82901642505583, 'max_ms': 780.9009552001953, 'min_ms': 45.73249816894531, 'count': 1029}, 'stt': {'avg_ms': 17908.34641456604, 'max_ms': 17908.34641456604, 'min_ms': 17908.34641456604, 'count': 1}, 'llm_reasoning': {'avg_ms': 706.5610885620117, 'max_ms': 706.5610885620117, 'min_ms': 706.5610885620117, 'count': 1}}
+2026-01-05 01:55:01.814 | INFO     | audio.tts:speak:25 - TTS: Warning! person very close to your center
+2026-01-05 01:55:10.114 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 70.74188397434224, 'max_ms': 244.7488307952881, 'min_ms': 45.73249816894531, 'count': 1179}, 'frame_total': {'avg_ms': 77.37420998557934, 'max_ms': 780.9009552001953, 'min_ms': 45.73249816894531, 'count': 1179}, 'stt': {'avg_ms': 17908.34641456604, 'max_ms': 17908.34641456604, 'min_ms': 17908.34641456604, 'count': 1}, 'llm_reasoning': {'avg_ms': 706.5610885620117, 'max_ms': 706.5610885620117, 'min_ms': 706.5610885620117, 'count': 1}}
+2026-01-05 01:55:22.149 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 70.56736820528074, 'max_ms': 244.7488307952881, 'min_ms': 45.73249816894531, 'count': 1329}, 'frame_total': {'avg_ms': 77.04639793608402, 'max_ms': 780.9009552001953, 'min_ms': 45.73249816894531, 'count': 1329}, 'stt': {'avg_ms': 17908.34641456604, 'max_ms': 17908.34641456604, 'min_ms': 17908.34641456604, 'count': 1}, 'llm_reasoning': {'avg_ms': 706.5610885620117, 'max_ms': 706.5610885620117, 'min_ms': 706.5610885620117, 'count': 1}}
+2026-01-05 01:55:31.937 | INFO     | audio.tts:speak:25 - TTS: Warning! person very close to your center
+2026-01-05 01:55:34.031 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 70.44017580895105, 'max_ms': 244.7488307952881, 'min_ms': 45.73249816894531, 'count': 1479}, 'frame_total': {'avg_ms': 76.68336296984278, 'max_ms': 780.9009552001953, 'min_ms': 45.73249816894531, 'count': 1479}, 'stt': {'avg_ms': 17908.34641456604, 'max_ms': 17908.34641456604, 'min_ms': 17908.34641456604, 'count': 1}, 'llm_reasoning': {'avg_ms': 706.5610885620117, 'max_ms': 706.5610885620117, 'min_ms': 706.5610885620117, 'count': 1}}
+2026-01-05 01:55:36.572 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 01:55:39.100 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 01:55:42.254 | INFO     | __main__:main:344 - VLM Description: Two people on a bed. Laptop on lap. Bed covers, pillows, and legs create clutter. Avoid stepping on wires or bed edges. Keep hands clear of electronics.
+2026-01-05 01:55:42.254 | INFO     | audio.tts:speak:25 - TTS: Two people on a bed. Laptop on lap. Bed covers, pillows, and legs create clutter. Avoid stepping on wires or bed edges. Keep hands clear of electronics.
+2026-01-05 01:55:43.359 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 01:55:44.331 | INFO     | audio.tts:speak:25 - TTS: Warning! bed very close to your center
+2026-01-05 01:55:45.528 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: Use any money
+2026-01-05 01:55:45.528 | INFO     | utils.performance_tracker:stop_timer:39 - STT took 8.96s
+2026-01-05 01:55:45.529 | INFO     | __main__:threaded_listen:308 - User asked: Use any money
+2026-01-05 01:55:45.531 | INFO     | audio.tts:speak:25 - TTS: Checking on: Use any money
+2026-01-05 01:55:47.875 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.2182256910536, 'max_ms': 244.7488307952881, 'min_ms': 45.73249816894531, 'count': 1629}, 'frame_total': {'avg_ms': 77.53275815075054, 'max_ms': 780.9009552001953, 'min_ms': 45.73249816894531, 'count': 1629}, 'stt': {'avg_ms': 13432.429432868958, 'max_ms': 17908.34641456604, 'min_ms': 8956.512451171875, 'count': 2}, 'llm_reasoning': {'avg_ms': 706.5610885620117, 'max_ms': 706.5610885620117, 'min_ms': 706.5610885620117, 'count': 1}}
+2026-01-05 01:55:49.519 | INFO     | __main__:main:344 - VLM Description: Laptop: 0.88. Person: 0.83, 0.57. Bed: 0.66, 0.47. Money: visible in person’s hand. All detected.
+2026-01-05 01:55:50.271 | INFO     | audio.tts:speak:25 - TTS: The laptop was on the lap, and the person was holding the money.
+2026-01-05 01:55:50.277 | INFO     | utils.performance_tracker:stop_timer:39 - LLM_REASONING took 0.76s
+2026-01-05 01:55:50.277 | INFO     | __main__:main:355 - LLM Answer: The laptop was on the lap, and the person was holding the money.
+2026-01-05 01:55:50.277 | INFO     | utils.performance_tracker:stop_timer:39 - FRAME_TOTAL took 0.88s
+2026-01-05 01:55:56.433 | INFO     | __main__:main:344 - VLM Description: Two people lie on a bed. One uses a laptop. Bedsides are pillows. Be cautious of legs and feet near edges.
+2026-01-05 01:56:01.001 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.2235903994564, 'max_ms': 244.7488307952881, 'min_ms': 45.73249816894531, 'count': 1779}, 'frame_total': {'avg_ms': 77.86119875444194, 'max_ms': 878.0961036682129, 'min_ms': 45.73249816894531, 'count': 1779}, 'stt': {'avg_ms': 13432.429432868958, 'max_ms': 17908.34641456604, 'min_ms': 8956.512451171875, 'count': 2}, 'llm_reasoning': {'avg_ms': 732.3577404022217, 'max_ms': 758.1543922424316, 'min_ms': 706.5610885620117, 'count': 2}}
+2026-01-05 01:56:01.500 | INFO     | audio.tts:speak:25 - TTS: Warning! person very close to your center
+2026-01-05 01:56:08.692 | INFO     | __main__:main:344 - VLM Description: Two people on a bed: one uses a laptop, another holds a phone. Bed has pillows and a blanket. No immediate hazards visible.
+2026-01-05 01:56:08.693 | INFO     | audio.tts:speak:25 - TTS: Two people on a bed: one uses a laptop, another holds a phone. Bed has pillows and a blanket. No immediate hazards visible.
+2026-01-05 01:56:11.534 | INFO     | audio.tts:speak:25 - TTS: Warning! person very close to your center
+2026-01-05 01:56:13.391 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.20316655231672, 'max_ms': 244.7488307952881, 'min_ms': 45.73249816894531, 'count': 1929}, 'frame_total': {'avg_ms': 77.73514137544923, 'max_ms': 878.0961036682129, 'min_ms': 45.73249816894531, 'count': 1929}, 'stt': {'avg_ms': 13432.429432868958, 'max_ms': 17908.34641456604, 'min_ms': 8956.512451171875, 'count': 2}, 'llm_reasoning': {'avg_ms': 732.3577404022217, 'max_ms': 758.1543922424316, 'min_ms': 706.5610885620117, 'count': 2}}
+2026-01-05 01:56:30.857 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 73.60323958238654, 'max_ms': 244.7488307952881, 'min_ms': 45.73249816894531, 'count': 2079}, 'frame_total': {'avg_ms': 79.96778100542635, 'max_ms': 878.0961036682129, 'min_ms': 45.73249816894531, 'count': 2079}, 'stt': {'avg_ms': 13432.429432868958, 'max_ms': 17908.34641456604, 'min_ms': 8956.512451171875, 'count': 2}, 'llm_reasoning': {'avg_ms': 732.3577404022217, 'max_ms': 758.1543922424316, 'min_ms': 706.5610885620117, 'count': 2}}
+2026-01-05 01:56:43.559 | INFO     | audio.tts:speak:25 - TTS: Warning! person close to your right
+2026-01-05 01:56:58.747 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 80.09954983474643, 'max_ms': 244.7488307952881, 'min_ms': 45.73249816894531, 'count': 2229}, 'frame_total': {'avg_ms': 86.47614051644285, 'max_ms': 878.0961036682129, 'min_ms': 45.73249816894531, 'count': 2229}, 'stt': {'avg_ms': 13432.429432868958, 'max_ms': 17908.34641456604, 'min_ms': 8956.512451171875, 'count': 2}, 'llm_reasoning': {'avg_ms': 732.3577404022217, 'max_ms': 758.1543922424316, 'min_ms': 706.5610885620117, 'count': 2}}
+2026-01-05 01:57:03.182 | INFO     | utils.performance_tracker:stop_timer:39 - FRAME_TOTAL took 0.81s
+2026-01-05 01:57:12.290 | INFO     | __main__:main:344 - VLM Description: Two people on a bed: one uses a laptop, another holds a remote. Bed has pillows and a blanket. No immediate hazards.
+2026-01-05 01:57:12.290 | INFO     | audio.tts:speak:25 - TTS: Two people on a bed: one uses a laptop, another holds a remote. Bed has pillows and a blanket. No immediate hazards.
+2026-01-05 01:57:12.826 | INFO     | audio.tts:speak:25 - TTS: Warning! couch very close to your center
+2026-01-05 01:57:28.010 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 85.92886060864647, 'max_ms': 244.7488307952881, 'min_ms': 45.73249816894531, 'count': 2379}, 'frame_total': {'avg_ms': 92.75423202658962, 'max_ms': 878.0961036682129, 'min_ms': 45.73249816894531, 'count': 2379}, 'stt': {'avg_ms': 13432.429432868958, 'max_ms': 17908.34641456604, 'min_ms': 8956.512451171875, 'count': 2}, 'llm_reasoning': {'avg_ms': 732.3577404022217, 'max_ms': 758.1543922424316, 'min_ms': 706.5610885620117, 'count': 2}}
+2026-01-05 01:57:40.627 | INFO     | __main__:main:344 - VLM Description: A person sits on a bed with a laptop, near stacked blankets and a book. Be cautious of the laptop, person, and bedding—no sharp edges or hazards.
+2026-01-05 01:57:40.628 | INFO     | audio.tts:speak:25 - TTS: A person sits on a bed with a laptop, near stacked blankets and a book. Be cautious of the laptop, person, and bedding—no sharp edges or hazards.
+2026-01-05 01:57:47.013 | INFO     | audio.tts:speak:25 - TTS: Warning! bed very close to your center
+2026-01-05 01:57:56.217 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 91.05787177291394, 'max_ms': 261.51227951049805, 'min_ms': 45.73249816894531, 'count': 2529}, 'frame_total': {'avg_ms': 97.84595840954884, 'max_ms': 878.0961036682129, 'min_ms': 45.73249816894531, 'count': 2529}, 'stt': {'avg_ms': 13432.429432868958, 'max_ms': 17908.34641456604, 'min_ms': 8956.512451171875, 'count': 2}, 'llm_reasoning': {'avg_ms': 732.3577404022217, 'max_ms': 758.1543922424316, 'min_ms': 706.5610885620117, 'count': 2}}
+2026-01-05 01:58:09.447 | INFO     | __main__:main:344 - VLM Description: A person sits on a bed with a laptop, surrounded by blankets. Be mindful of the bed’s edge and scattered wires near the foot.
+2026-01-05 01:58:09.449 | INFO     | audio.tts:speak:25 - TTS: A person sits on a bed with a laptop, surrounded by blankets. Be mindful of the bed’s edge and scattered wires near the foot.
+2026-01-05 01:58:16.741 | INFO     | audio.tts:speak:25 - TTS: Warning! person close to your right
+2026-01-05 01:58:25.134 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 95.81146946857562, 'max_ms': 261.51227951049805, 'min_ms': 45.73249816894531, 'count': 2679}, 'frame_total': {'avg_ms': 102.64667302381196, 'max_ms': 878.0961036682129, 'min_ms': 45.73249816894531, 'count': 2679}, 'stt': {'avg_ms': 13432.429432868958, 'max_ms': 17908.34641456604, 'min_ms': 8956.512451171875, 'count': 2}, 'llm_reasoning': {'avg_ms': 732.3577404022217, 'max_ms': 758.1543922424316, 'min_ms': 706.5610885620117, 'count': 2}}
+2026-01-05 01:58:37.750 | INFO     | __main__:main:344 - VLM Description: A person sits on a bed with a laptop, surrounded by pillows and blankets. Avoid the cluttered edges and cords near the bed’s foot.
+2026-01-05 01:58:37.751 | INFO     | audio.tts:speak:25 - TTS: A person sits on a bed with a laptop, surrounded by pillows and blankets. Avoid the cluttered edges and cords near the bed’s foot.
+2026-01-05 01:58:40.732 | INFO     | audio.tts:speak:25 - TTS: Warning! bed very close to your center
+2026-01-05 01:58:53.240 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 99.89254219281712, 'max_ms': 261.51227951049805, 'min_ms': 45.73249816894531, 'count': 2829}, 'frame_total': {'avg_ms': 106.65648663663409, 'max_ms': 878.0961036682129, 'min_ms': 45.73249816894531, 'count': 2829}, 'stt': {'avg_ms': 13432.429432868958, 'max_ms': 17908.34641456604, 'min_ms': 8956.512451171875, 'count': 2}, 'llm_reasoning': {'avg_ms': 732.3577404022217, 'max_ms': 758.1543922424316, 'min_ms': 706.5610885620117, 'count': 2}}
+2026-01-05 01:59:12.710 | INFO     | audio.tts:speak:25 - TTS: Warning! bed very close to your center
+2026-01-05 01:59:21.735 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 103.55393299923603, 'max_ms': 261.51227951049805, 'min_ms': 45.73249816894531, 'count': 2979}, 'frame_total': {'avg_ms': 110.38910578304828, 'max_ms': 878.0961036682129, 'min_ms': 45.73249816894531, 'count': 2979}, 'stt': {'avg_ms': 13432.429432868958, 'max_ms': 17908.34641456604, 'min_ms': 8956.512451171875, 'count': 2}, 'llm_reasoning': {'avg_ms': 732.3577404022217, 'max_ms': 758.1543922424316, 'min_ms': 706.5610885620117, 'count': 2}}
+2026-01-05 01:59:34.343 | INFO     | __main__:main:344 - VLM Description: Two people on a bed; one uses a laptop. Bed covers pose minor hazards. Avoid cluttered areas near limbs and electronics. Stay clear of moving limbs and laptops.
+2026-01-05 01:59:34.344 | INFO     | audio.tts:speak:25 - TTS: Two people on a bed; one uses a laptop. Bed covers pose minor hazards. Avoid cluttered areas near limbs and electronics. Stay clear of moving limbs and laptops.
+2026-01-05 01:59:39.011 | INFO     | audio.tts:speak:25 - TTS: Warning! person very close to your right
+2026-01-05 01:59:49.595 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 106.62769364563944, 'max_ms': 261.51227951049805, 'min_ms': 45.73249816894531, 'count': 3129}, 'frame_total': {'avg_ms': 113.57302991831101, 'max_ms': 878.0961036682129, 'min_ms': 45.73249816894531, 'count': 3129}, 'stt': {'avg_ms': 13432.429432868958, 'max_ms': 17908.34641456604, 'min_ms': 8956.512451171875, 'count': 2}, 'llm_reasoning': {'avg_ms': 732.3577404022217, 'max_ms': 758.1543922424316, 'min_ms': 706.5610885620117, 'count': 2}}
+2026-01-05 02:00:02.465 | INFO     | __main__:main:344 - VLM Description: Two people relax on a bed, one drinking, one using a laptop. Bed covers and feet are obstacles. Avoid falling on soft surfaces or tripping over cords.
+2026-01-05 02:00:02.467 | INFO     | audio.tts:speak:25 - TTS: Two people relax on a bed, one drinking, one using a laptop. Bed covers and feet are obstacles. Avoid falling on soft surfaces or tripping over cords.
+2026-01-05 02:00:03.245 | INFO     | audio.tts:speak:25 - TTS: Warning! bed very close to your center
+2026-01-05 02:00:18.288 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 109.74615272424249, 'max_ms': 261.51227951049805, 'min_ms': 45.73249816894531, 'count': 3279}, 'frame_total': {'avg_ms': 116.7136244964367, 'max_ms': 878.0961036682129, 'min_ms': 45.73249816894531, 'count': 3279}, 'stt': {'avg_ms': 13432.429432868958, 'max_ms': 17908.34641456604, 'min_ms': 8956.512451171875, 'count': 2}, 'llm_reasoning': {'avg_ms': 732.3577404022217, 'max_ms': 758.1543922424316, 'min_ms': 706.5610885620117, 'count': 2}}
+2026-01-05 02:00:33.586 | INFO     | audio.tts:speak:25 - TTS: Warning! bed very close to your center
+2026-01-05 02:00:54.335 | WARNING  | safety.yolo_detector:__init__:22 - CUDA requested but not available. Falling back to CPU.
+2026-01-05 02:00:54.336 | INFO     | safety.yolo_detector:__init__:27 - YOLO loading model on: cpu
+2026-01-05 02:00:54.340 | INFO     | __main__:main:260 - Creating Enhanced Fusion Engine...
+2026-01-05 02:00:54.340 | INFO     | inference.llm_reasoner:__init__:25 - Connected to Backend: 'ollama' | Model: 'gemma3:270m'
+2026-01-05 02:00:54.579 | INFO     | interaction.listening_layer:__init__:29 - Initialized Microphone ID: 2 (Microphone Array (Realtek(R) Au)
+2026-01-05 02:00:54.579 | INFO     | __main__:main:271 - Loading Qwen VLM...
+2026-01-05 02:00:54.579 | INFO     | reasoning.qwen_vlm:_init_lm_studio:57 - Using LM Studio backend: http://localhost:1234/v1
+2026-01-05 02:00:56.639 | INFO     | reasoning.qwen_vlm:_init_lm_studio:65 - Connected. Active: qwen/qwen3-vl-4b
+2026-01-05 02:01:00.111 | INFO     | __main__:main:408 - System Started
+2026-01-05 02:01:00.111 | INFO     | audio.tts:speak:25 - AI: System Started
+2026-01-05 02:01:00.197 | INFO     | audio.tts:speak:25 - AI: Warning! person very close to your center
+2026-01-05 02:01:08.122 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:01:08.637 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 73.47959425391221, 'max_ms': 168.22075843811035, 'min_ms': 46.4324951171875, 'count': 123}, 'frame_total': {'avg_ms': 90.59744152596326, 'max_ms': 319.5974826812744, 'min_ms': 47.435760498046875, 'count': 123}}
+2026-01-05 02:01:10.708 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:01:12.248 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:01:12.594 | INFO     | interaction.listening_layer:_recognize_faster_whisper:130 - Loading faster-whisper model: base into models/whisper
+2026-01-05 02:01:16.454 | INFO     | __main__:main:344 - VLM Description: Two people sit on a bed with a laptop. Beds are soft and low. No sharp obstacles. Be cautious of feet and cords near the bed edges.
+2026-01-05 02:01:16.454 | INFO     | audio.tts:speak:25 - AI: Two people sit on a bed with a laptop. Beds are soft and low. No sharp obstacles. Be cautious of feet and cords near the bed edges.
+2026-01-05 02:01:16.985 | INFO     | audio.tts:speak:25 - AI: Warning! person very close to your center
+2026-01-05 02:01:17.663 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: Record.
+2026-01-05 02:01:17.663 | INFO     | utils.performance_tracker:stop_timer:47 - STT took 9.54s
+2026-01-05 02:01:17.664 | INFO     | __main__:threaded_listen:308 - USER: Record.
+2026-01-05 02:01:17.667 | INFO     | audio.tts:speak:25 - AI: Checking on: Record.
+2026-01-05 02:01:21.659 | INFO     | __main__:main:344 - VLM Description: Two people on a bed: one with laptop, one holding cloth. Both labeled as “person.” Bed and laptop detected. Labels: person 0.54, person 0.49, laptop 0.75, bed 0.54.
+2026-01-05 02:01:23.852 | INFO     | audio.tts:speak:25 - AI: The laptop is in the right side, and the cloth is on the bed.
+2026-01-05 02:01:23.857 | INFO     | utils.performance_tracker:stop_timer:47 - LLM_REASONING took 2.20s
+2026-01-05 02:01:23.857 | INFO     | __main__:main:355 - LLM Answer: The laptop is in the right side, and the cloth is on the bed.
+2026-01-05 02:01:23.857 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 2.28s
+2026-01-05 02:01:24.420 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 75.20107209900797, 'max_ms': 291.83363914489746, 'min_ms': 46.4324951171875, 'count': 273}, 'frame_total': {'avg_ms': 94.28190224336618, 'max_ms': 2276.9417762756348, 'min_ms': 47.435760498046875, 'count': 273}, 'stt': {'avg_ms': 9541.289567947388, 'max_ms': 9541.289567947388, 'min_ms': 9541.289567947388, 'count': 1}, 'llm_reasoning': {'avg_ms': 2198.686122894287, 'max_ms': 2198.686122894287, 'min_ms': 2198.686122894287, 'count': 1}}
+2026-01-05 02:01:32.248 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:01:34.343 | INFO     | audio.tts:speak:25 - AI: Warning! person very close to your center
+2026-01-05 02:01:34.775 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:01:37.114 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 73.95059842589899, 'max_ms': 291.83363914489746, 'min_ms': 46.4324951171875, 'count': 423}, 'frame_total': {'avg_ms': 88.65558340194377, 'max_ms': 2276.9417762756348, 'min_ms': 47.435760498046875, 'count': 423}, 'stt': {'avg_ms': 9541.289567947388, 'max_ms': 9541.289567947388, 'min_ms': 9541.289567947388, 'count': 1}, 'llm_reasoning': {'avg_ms': 2198.686122894287, 'max_ms': 2198.686122894287, 'min_ms': 2198.686122894287, 'count': 1}}
+2026-01-05 02:01:37.180 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:01:39.392 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: Tell me about it.  Morning.
+2026-01-05 02:01:39.392 | INFO     | utils.performance_tracker:stop_timer:47 - STT took 7.14s
+2026-01-05 02:01:39.392 | INFO     | __main__:threaded_listen:308 - USER: Tell me about it.  Morning.
+2026-01-05 02:01:39.395 | INFO     | audio.tts:speak:25 - AI: Checking on: Tell me about it.  Morning.
+2026-01-05 02:01:40.496 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:01:42.959 | INFO     | __main__:main:344 - VLM Description: Two people on a bed: one uses a laptop, the other holds a pillow. Both appear relaxed. Bed and laptop detected. No morning context visible in image.
+2026-01-05 02:01:42.984 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:01:43.725 | INFO     | audio.tts:speak:25 - AI: Okay, I'm ready. Let's start with the VLM observations.
+2026-01-05 02:01:43.729 | INFO     | utils.performance_tracker:stop_timer:47 - LLM_REASONING took 0.77s
+2026-01-05 02:01:43.729 | INFO     | __main__:main:355 - LLM Answer: Okay, I'm ready. Let's start with the VLM observations.
+2026-01-05 02:01:43.729 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 0.85s
+2026-01-05 02:01:45.098 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:01:47.143 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: you tell me about the work.
+2026-01-05 02:01:47.144 | INFO     | utils.performance_tracker:stop_timer:47 - STT took 6.65s
+2026-01-05 02:01:47.144 | INFO     | __main__:threaded_listen:308 - USER: you tell me about the work.
+2026-01-05 02:01:47.147 | INFO     | audio.tts:speak:25 - AI: Checking on: you tell me about the work.
+2026-01-05 02:01:50.855 | INFO     | __main__:main:344 - VLM Description: Two people on a bed: one uses a laptop, the other holds a pillow. Both wear glasses. Laptop, persons, and bed detected. No explicit work shown; activity appears casual or relaxed.
+2026-01-05 02:01:51.602 | INFO     | audio.tts:speak:25 - AI: The laptop is currently used to work on the laptop, and the person is holding a pillow.
+2026-01-05 02:01:51.611 | INFO     | utils.performance_tracker:stop_timer:47 - LLM_REASONING took 0.76s
+2026-01-05 02:01:51.611 | INFO     | __main__:main:355 - LLM Answer: The laptop is currently used to work on the laptop, and the person is holding a pillow.
+2026-01-05 02:01:51.612 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 0.83s
+2026-01-05 02:01:51.854 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 74.74896296156639, 'max_ms': 291.83363914489746, 'min_ms': 46.4324951171875, 'count': 573}, 'frame_total': {'avg_ms': 89.66591886616918, 'max_ms': 2276.9417762756348, 'min_ms': 47.435760498046875, 'count': 573}, 'stt': {'avg_ms': 7777.746041615804, 'max_ms': 9541.289567947388, 'min_ms': 6647.600889205933, 'count': 3}, 'llm_reasoning': {'avg_ms': 1241.105079650879, 'max_ms': 2198.686122894287, 'min_ms': 756.1981678009033, 'count': 3}}
+2026-01-05 02:02:00.712 | INFO     | audio.tts:speak:25 - AI: Warning! bed very close to your center
+2026-01-05 02:02:04.381 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 1.07s
+2026-01-05 02:02:05.101 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 73.80290644792106, 'max_ms': 291.83363914489746, 'min_ms': 45.94922065734863, 'count': 723}, 'frame_total': {'avg_ms': 87.62724930484924, 'max_ms': 2276.9417762756348, 'min_ms': 46.948909759521484, 'count': 723}, 'stt': {'avg_ms': 7777.746041615804, 'max_ms': 9541.289567947388, 'min_ms': 6647.600889205933, 'count': 3}, 'llm_reasoning': {'avg_ms': 1241.105079650879, 'max_ms': 2198.686122894287, 'min_ms': 756.1981678009033, 'count': 3}}
+2026-01-05 02:02:11.882 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:02:14.458 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:02:17.233 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:02:18.103 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 73.61741437398554, 'max_ms': 291.83363914489746, 'min_ms': 45.94922065734863, 'count': 873}, 'frame_total': {'avg_ms': 86.01699962375636, 'max_ms': 2276.9417762756348, 'min_ms': 46.948909759521484, 'count': 873}, 'stt': {'avg_ms': 7777.746041615804, 'max_ms': 9541.289567947388, 'min_ms': 6647.600889205933, 'count': 3}, 'llm_reasoning': {'avg_ms': 1241.105079650879, 'max_ms': 2198.686122894287, 'min_ms': 756.1981678009033, 'count': 3}}
+2026-01-05 02:02:19.428 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: What's the question?
+2026-01-05 02:02:19.428 | INFO     | utils.performance_tracker:stop_timer:47 - STT took 7.55s
+2026-01-05 02:02:19.428 | INFO     | __main__:threaded_listen:308 - USER: What's the question?
+2026-01-05 02:02:19.428 | INFO     | audio.tts:speak:25 - AI: Checking on: What's the question?
+2026-01-05 02:02:23.155 | INFO     | __main__:main:344 - VLM Description: Two people on a bed: one drinking, one using laptop. Bed is large. All objects detected: person, laptop, bed. Labels indicate confidence scores.
+2026-01-05 02:02:23.850 | INFO     | audio.tts:speak:25 - AI: The user is asking about the person's activity on the bed.
+2026-01-05 02:02:23.854 | INFO     | utils.performance_tracker:stop_timer:47 - LLM_REASONING took 0.70s
+2026-01-05 02:02:23.854 | INFO     | __main__:main:355 - LLM Answer: The user is asking about the person's activity on the bed.
+2026-01-05 02:02:23.855 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 0.79s
+2026-01-05 02:02:24.646 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:02:27.271 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:02:29.389 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:02:31.928 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 73.78546793090284, 'max_ms': 291.83363914489746, 'min_ms': 45.94922065734863, 'count': 1023}, 'frame_total': {'avg_ms': 85.89465434017535, 'max_ms': 2276.9417762756348, 'min_ms': 46.948909759521484, 'count': 1023}, 'stt': {'avg_ms': 7719.739675521851, 'max_ms': 9541.289567947388, 'min_ms': 6647.600889205933, 'count': 4}, 'llm_reasoning': {'avg_ms': 1105.54039478302, 'max_ms': 2198.686122894287, 'min_ms': 698.8463401794434, 'count': 4}}
+2026-01-05 02:02:33.306 | INFO     | audio.tts:speak:25 - AI: Warning! person very close to your left
+2026-01-05 02:02:36.724 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: I don't know if I should be out of here.
+2026-01-05 02:02:36.725 | INFO     | utils.performance_tracker:stop_timer:47 - STT took 12.08s
+2026-01-05 02:02:36.725 | INFO     | __main__:threaded_listen:308 - USER: I don't know if I should be out of here.
+2026-01-05 02:02:36.729 | INFO     | audio.tts:speak:25 - AI: Checking on: I don't know if I should be out of here.
+2026-01-05 02:02:40.304 | INFO     | __main__:main:344 - VLM Description: Two people on separate beds. One uses a laptop. Both are seated. Beds labeled with confidence scores. No indication of urgency or need to leave.
+2026-01-05 02:02:40.966 | INFO     | audio.tts:speak:25 - AI: The person is likely staying in the bed, as the laptop is currently in use.
+2026-01-05 02:02:40.971 | INFO     | utils.performance_tracker:stop_timer:47 - LLM_REASONING took 0.67s
+2026-01-05 02:02:40.971 | INFO     | __main__:main:355 - LLM Answer: The person is likely staying in the bed, as the laptop is currently in use.
+2026-01-05 02:02:40.971 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 0.73s
+2026-01-05 02:02:45.835 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 73.82090906759458, 'max_ms': 291.83363914489746, 'min_ms': 45.94922065734863, 'count': 1173}, 'frame_total': {'avg_ms': 85.98928317389525, 'max_ms': 2276.9417762756348, 'min_ms': 46.948909759521484, 'count': 1173}, 'stt': {'avg_ms': 8591.429090499878, 'max_ms': 12078.186750411987, 'min_ms': 6647.600889205933, 'count': 5}, 'llm_reasoning': {'avg_ms': 1017.7811145782471, 'max_ms': 2198.686122894287, 'min_ms': 666.7439937591553, 'count': 5}}
+2026-01-05 02:02:51.096 | INFO     | audio.tts:speak:25 - AI: Warning! bed very close to your center
+2026-01-05 02:02:58.311 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 73.56165740315156, 'max_ms': 291.83363914489746, 'min_ms': 45.94922065734863, 'count': 1323}, 'frame_total': {'avg_ms': 84.79126456643448, 'max_ms': 2276.9417762756348, 'min_ms': 46.948909759521484, 'count': 1323}, 'stt': {'avg_ms': 8591.429090499878, 'max_ms': 12078.186750411987, 'min_ms': 6647.600889205933, 'count': 5}, 'llm_reasoning': {'avg_ms': 1017.7811145782471, 'max_ms': 2198.686122894287, 'min_ms': 666.7439937591553, 'count': 5}}
+2026-01-05 02:03:10.171 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 73.11589768041337, 'max_ms': 291.83363914489746, 'min_ms': 45.94922065734863, 'count': 1473}, 'frame_total': {'avg_ms': 83.57646492817575, 'max_ms': 2276.9417762756348, 'min_ms': 46.948909759521484, 'count': 1473}, 'stt': {'avg_ms': 8591.429090499878, 'max_ms': 12078.186750411987, 'min_ms': 6647.600889205933, 'count': 5}, 'llm_reasoning': {'avg_ms': 1017.7811145782471, 'max_ms': 2198.686122894287, 'min_ms': 666.7439937591553, 'count': 5}}
+2026-01-05 02:03:21.184 | INFO     | audio.tts:speak:25 - AI: Warning! bed very close to your center
+2026-01-05 02:03:21.984 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 72.67628065686276, 'max_ms': 291.83363914489746, 'min_ms': 45.94922065734863, 'count': 1623}, 'frame_total': {'avg_ms': 82.5974687116791, 'max_ms': 2276.9417762756348, 'min_ms': 46.948909759521484, 'count': 1623}, 'stt': {'avg_ms': 8591.429090499878, 'max_ms': 12078.186750411987, 'min_ms': 6647.600889205933, 'count': 5}, 'llm_reasoning': {'avg_ms': 1017.7811145782471, 'max_ms': 2198.686122894287, 'min_ms': 666.7439937591553, 'count': 5}}
+2026-01-05 02:03:29.470 | INFO     | __main__:main:344 - VLM Description: Two people on a bed: one uses laptop, another holds a phone. Bed is central. Be mindful of feet and cords near bed edges.
+2026-01-05 02:03:29.471 | INFO     | audio.tts:speak:25 - AI: Two people on a bed: one uses laptop, another holds a phone. Bed is central. Be mindful of feet and cords near bed edges.
+2026-01-05 02:03:32.456 | INFO     | audio.tts:speak:25 - AI: Warning! bed close to your center
+2026-01-05 02:03:34.379 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 72.58225522737885, 'max_ms': 291.83363914489746, 'min_ms': 45.94922065734863, 'count': 1773}, 'frame_total': {'avg_ms': 82.11806878758499, 'max_ms': 2276.9417762756348, 'min_ms': 46.948909759521484, 'count': 1773}, 'stt': {'avg_ms': 8591.429090499878, 'max_ms': 12078.186750411987, 'min_ms': 6647.600889205933, 'count': 5}, 'llm_reasoning': {'avg_ms': 1017.7811145782471, 'max_ms': 2198.686122894287, 'min_ms': 666.7439937591553, 'count': 5}}
+2026-01-05 02:03:58.661 | WARNING  | safety.yolo_detector:__init__:22 - CUDA requested but not available. Falling back to CPU.
+2026-01-05 02:03:58.662 | INFO     | safety.yolo_detector:__init__:27 - YOLO loading model on: cpu
+2026-01-05 02:03:58.662 | INFO     | __main__:main:260 - Creating Enhanced Fusion Engine...
+2026-01-05 02:03:58.662 | INFO     | inference.llm_reasoner:__init__:25 - Connected to Backend: 'ollama' | Model: 'gemma3:270m'
+2026-01-05 02:03:58.945 | INFO     | interaction.listening_layer:__init__:29 - Initialized Microphone ID: 2 (Microphone Array (Realtek(R) Au)
+2026-01-05 02:03:58.946 | INFO     | __main__:main:271 - Loading Qwen VLM...
+2026-01-05 02:03:58.946 | INFO     | reasoning.qwen_vlm:_init_lm_studio:57 - Using LM Studio backend: http://localhost:1234/v1
+2026-01-05 02:04:01.009 | INFO     | reasoning.qwen_vlm:_init_lm_studio:65 - Connected. Active: qwen/qwen3-vl-4b
+2026-01-05 02:04:06.254 | INFO     | __main__:main:408 - System Started
+2026-01-05 02:04:06.255 | INFO     | audio.tts:speak:25 - AI: System Started
+2026-01-05 02:04:06.356 | INFO     | audio.tts:speak:25 - AI: Warning! bottle close to your center
+2026-01-05 02:04:09.976 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:04:12.475 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:04:14.151 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:04:14.459 | INFO     | interaction.listening_layer:_recognize_faster_whisper:130 - Loading faster-whisper model: base into models/whisper
+2026-01-05 02:04:14.507 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 70.53098579247792, 'max_ms': 227.54645347595215, 'min_ms': 46.24795913696289, 'count': 144}, 'frame_total': {'avg_ms': 86.89949082003699, 'max_ms': 450.9692192077637, 'min_ms': 47.250986099243164, 'count': 144}}
+2026-01-05 02:04:18.025 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: in front of you.
+2026-01-05 02:04:18.026 | INFO     | utils.performance_tracker:stop_timer:47 - STT took 8.05s
+2026-01-05 02:04:18.026 | INFO     | __main__:threaded_listen:308 - USER: in front of you.
+2026-01-05 02:04:18.027 | INFO     | audio.tts:speak:25 - AI: Checking on: in front of you.
+2026-01-05 02:04:21.757 | INFO     | __main__:main:344 - VLM Description: Laptop in front of person. Two people on bed. One uses laptop; other sits nearby. Bed occupies entire frame. Objects: laptop, person, person, bed, bed.
+2026-01-05 02:04:22.516 | INFO     | audio.tts:speak:25 - AI: The laptop is in front of the person.
+2026-01-05 02:04:22.521 | INFO     | utils.performance_tracker:stop_timer:47 - LLM_REASONING took 0.76s
+2026-01-05 02:04:22.521 | INFO     | __main__:main:355 - LLM Answer: The laptop is in front of the person.
+2026-01-05 02:04:22.521 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 0.84s
+2026-01-05 02:04:22.723 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:04:25.344 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:04:28.220 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 72.49151038474777, 'max_ms': 227.54645347595215, 'min_ms': 45.68624496459961, 'count': 294}, 'frame_total': {'avg_ms': 85.61579872961758, 'max_ms': 836.4689350128174, 'min_ms': 46.68593406677246, 'count': 294}, 'stt': {'avg_ms': 8050.649404525757, 'max_ms': 8050.649404525757, 'min_ms': 8050.649404525757, 'count': 1}, 'llm_reasoning': {'avg_ms': 762.3660564422607, 'max_ms': 762.3660564422607, 'min_ms': 762.3660564422607, 'count': 1}}
+2026-01-05 02:04:28.957 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:04:30.822 | INFO     | audio.tts:speak:25 - AI: Warning! bed very close to your center
+2026-01-05 02:04:31.425 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: What do you see in front of you?
+2026-01-05 02:04:31.427 | INFO     | utils.performance_tracker:stop_timer:47 - STT took 8.70s
+2026-01-05 02:04:31.428 | INFO     | __main__:threaded_listen:308 - USER: What do you see in front of you?
+2026-01-05 02:04:31.431 | INFO     | audio.tts:speak:25 - AI: Checking on: What do you see in front of you?
+2026-01-05 02:04:35.039 | INFO     | __main__:main:344 - VLM Description: Laptop, two people, bottle, and bed. One person uses laptop; another holds bottle. Bed occupies entire frame. Multiple bed detections overlap.
+2026-01-05 02:04:35.933 | INFO     | audio.tts:speak:25 - AI: The laptop is in front of the person. Two people are on the bed. The bed occupies the entire frame.
+2026-01-05 02:04:35.940 | INFO     | utils.performance_tracker:stop_timer:47 - LLM_REASONING took 0.90s
+2026-01-05 02:04:35.941 | INFO     | __main__:main:355 - LLM Answer: The laptop is in front of the person. Two people are on the bed. The bed occupies the entire frame.
+2026-01-05 02:04:35.951 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 1.00s
+2026-01-05 02:04:41.529 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 72.01372556858234, 'max_ms': 227.54645347595215, 'min_ms': 45.68624496459961, 'count': 444}, 'frame_total': {'avg_ms': 84.73691693297377, 'max_ms': 1002.2711753845215, 'min_ms': 46.68593406677246, 'count': 444}, 'stt': {'avg_ms': 8377.365112304688, 'max_ms': 8704.080820083618, 'min_ms': 8050.649404525757, 'count': 2}, 'llm_reasoning': {'avg_ms': 831.5454721450806, 'max_ms': 900.7248878479004, 'min_ms': 762.3660564422607, 'count': 2}}
+2026-01-05 02:04:47.427 | INFO     | audio.tts:speak:25 - AI: Warning! bed close to your center
+2026-01-05 02:04:49.138 | INFO     | __main__:main:344 - VLM Description: Two people sit on a bed. A laptop rests on one person’s lap. Be mindful of the bed’s edges and the laptop’s position near the feet.
+2026-01-05 02:04:49.141 | INFO     | audio.tts:speak:25 - AI: Two people sit on a bed. A laptop rests on one person’s lap. Be mindful of the bed’s edges and the laptop’s position near the feet.
+2026-01-05 02:04:49.954 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:04:50.876 | INFO     | audio.tts:speak:25 - AI: Warning! bed very close to your center
+2026-01-05 02:04:52.511 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:04:53.832 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.99127866764262, 'max_ms': 227.54645347595215, 'min_ms': 45.68624496459961, 'count': 594}, 'frame_total': {'avg_ms': 82.61603257471464, 'max_ms': 1002.2711753845215, 'min_ms': 46.68593406677246, 'count': 594}, 'stt': {'avg_ms': 8377.365112304688, 'max_ms': 8704.080820083618, 'min_ms': 8050.649404525757, 'count': 2}, 'llm_reasoning': {'avg_ms': 831.5454721450806, 'max_ms': 900.7248878479004, 'min_ms': 762.3660564422607, 'count': 2}}
+2026-01-05 02:04:56.185 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:04:58.441 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: We've been very close to your sedard.
+2026-01-05 02:04:58.441 | INFO     | utils.performance_tracker:stop_timer:47 - STT took 8.49s
+2026-01-05 02:04:58.443 | INFO     | __main__:threaded_listen:308 - USER: We've been very close to your sedard.
+2026-01-05 02:04:58.444 | INFO     | audio.tts:speak:25 - AI: Checking on: We've been very close to your sedard.
+2026-01-05 02:05:02.136 | INFO     | __main__:main:344 - VLM Description: Two people on a bed: one holding a bottle, another using a laptop. Both labeled as 'person' and 'laptop'. Bed is labeled twice. All objects detected.
+2026-01-05 02:05:02.863 | INFO     | audio.tts:speak:25 - AI: The bed is approaching from the center.
+2026-01-05 02:05:02.869 | INFO     | utils.performance_tracker:stop_timer:47 - LLM_REASONING took 0.73s
+2026-01-05 02:05:02.869 | INFO     | __main__:main:355 - LLM Answer: The bed is approaching from the center.
+2026-01-05 02:05:02.869 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 0.82s
+2026-01-05 02:05:06.841 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.77647339400424, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 744}, 'frame_total': {'avg_ms': 82.3679284382892, 'max_ms': 1002.2711753845215, 'min_ms': 46.68593406677246, 'count': 744}, 'stt': {'avg_ms': 8414.041757583618, 'max_ms': 8704.080820083618, 'min_ms': 8050.649404525757, 'count': 3}, 'llm_reasoning': {'avg_ms': 797.7863152821859, 'max_ms': 900.7248878479004, 'min_ms': 730.2680015563965, 'count': 3}}
+2026-01-05 02:05:13.068 | INFO     | audio.tts:speak:25 - AI: Warning! bed very close to your center
+2026-01-05 02:05:19.004 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.15014394124348, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 894}, 'frame_total': {'avg_ms': 81.13192498550586, 'max_ms': 1002.2711753845215, 'min_ms': 46.68593406677246, 'count': 894}, 'stt': {'avg_ms': 8414.041757583618, 'max_ms': 8704.080820083618, 'min_ms': 8050.649404525757, 'count': 3}, 'llm_reasoning': {'avg_ms': 797.7863152821859, 'max_ms': 900.7248878479004, 'min_ms': 730.2680015563965, 'count': 3}}
+2026-01-05 02:05:21.720 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:05:24.247 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:05:28.485 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:05:30.794 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: Hi how are you?
+2026-01-05 02:05:30.794 | INFO     | utils.performance_tracker:stop_timer:47 - STT took 9.07s
+2026-01-05 02:05:30.794 | INFO     | __main__:threaded_listen:308 - USER: Hi how are you?
+2026-01-05 02:05:30.795 | INFO     | audio.tts:speak:25 - AI: Checking on: Hi how are you?
+2026-01-05 02:05:31.402 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.27427004306253, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 1044}, 'frame_total': {'avg_ms': 80.51206691055006, 'max_ms': 1002.2711753845215, 'min_ms': 46.68593406677246, 'count': 1044}, 'stt': {'avg_ms': 8579.058170318604, 'max_ms': 9074.10740852356, 'min_ms': 8050.649404525757, 'count': 4}, 'llm_reasoning': {'avg_ms': 797.7863152821859, 'max_ms': 900.7248878479004, 'min_ms': 730.2680015563965, 'count': 3}}
+2026-01-05 02:05:34.665 | INFO     | __main__:main:344 - VLM Description: Both individuals appear relaxed. One uses a laptop, the other holds a cup. All objects detected: laptop, person, person, bed, cup. Visuals confirm presence of these items without explicit emotional response to the query.
+2026-01-05 02:05:35.619 | INFO     | audio.tts:speak:25 - AI: "Hi, how are you?"
+2026-01-05 02:05:35.624 | INFO     | utils.performance_tracker:stop_timer:47 - LLM_REASONING took 0.96s
+2026-01-05 02:05:35.624 | INFO     | __main__:main:355 - LLM Answer: "Hi, how are you?"
+2026-01-05 02:05:35.624 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 1.03s
+2026-01-05 02:05:41.453 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:05:44.057 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:05:45.093 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.63333014227837, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 1194}, 'frame_total': {'avg_ms': 81.12659446358481, 'max_ms': 1033.3642959594727, 'min_ms': 46.68593406677246, 'count': 1194}, 'stt': {'avg_ms': 8579.058170318604, 'max_ms': 9074.10740852356, 'min_ms': 8050.649404525757, 'count': 4}, 'llm_reasoning': {'avg_ms': 838.194727897644, 'max_ms': 959.4199657440186, 'min_ms': 730.2680015563965, 'count': 4}}
+2026-01-05 02:05:49.433 | INFO     | audio.tts:speak:25 - AI: Warning! person very close to your center
+2026-01-05 02:05:52.325 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:05:54.948 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: What's your question boost now, sir?  Listening better than the question boost now.  More late.
+2026-01-05 02:05:54.949 | INFO     | utils.performance_tracker:stop_timer:47 - STT took 13.50s
+2026-01-05 02:05:54.949 | INFO     | __main__:threaded_listen:308 - USER: What's your question boost now, sir?  Listening better than the question boost now.  More late.
+2026-01-05 02:05:54.950 | INFO     | audio.tts:speak:25 - AI: Checking on: What's your question boost now, sir?  Listening better than the question boost now.  More late.
+2026-01-05 02:05:57.917 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.92910852886382, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 1344}, 'frame_total': {'avg_ms': 80.95139779505276, 'max_ms': 1033.3642959594727, 'min_ms': 46.68593406677246, 'count': 1344}, 'stt': {'avg_ms': 9562.601613998413, 'max_ms': 13496.775388717651, 'min_ms': 8050.649404525757, 'count': 5}, 'llm_reasoning': {'avg_ms': 838.194727897644, 'max_ms': 959.4199657440186, 'min_ms': 730.2680015563965, 'count': 4}}
+2026-01-05 02:05:58.775 | INFO     | __main__:main:344 - VLM Description: Two people on a bed: one holds a bottle, the other uses a laptop. Bed, person, laptop, bottle detected. Confusion in query—clarify intent. Visual evidence confirms these objects.
+2026-01-05 02:05:59.394 | INFO     | utils.performance_tracker:stop_timer:47 - LLM_REASONING took 0.62s
+2026-01-05 02:05:59.396 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 0.72s
+2026-01-05 02:06:03.260 | INFO     | __main__:main:344 - VLM Description: Two people on a bed: one holds a bottle, the other uses a laptop. Both are seated. Bed, laptop, bottle, and two persons detected. No question boost relevant to visual content.
+2026-01-05 02:06:03.260 | INFO     | __main__:main:355 - LLM Answer: Two people on a bed: one holds a bottle, the other uses a laptop. Both are seated. Bed, laptop, bottle, and two persons detected. No question boost relevant to visual content.
+2026-01-05 02:06:10.902 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.98792863562404, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 1494}, 'frame_total': {'avg_ms': 80.95431726779964, 'max_ms': 1033.3642959594727, 'min_ms': 46.68593406677246, 'count': 1494}, 'stt': {'avg_ms': 9562.601613998413, 'max_ms': 13496.775388717651, 'min_ms': 8050.649404525757, 'count': 5}, 'llm_reasoning': {'avg_ms': 661.9330644607544, 'max_ms': 959.4199657440186, 'min_ms': 0.0, 'count': 6}}
+2026-01-05 02:06:15.321 | INFO     | audio.tts:speak:25 - AI: Warning! bed very close to your center
+2026-01-05 02:06:23.232 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.85856573773127, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 1644}, 'frame_total': {'avg_ms': 80.52178107909043, 'max_ms': 1033.3642959594727, 'min_ms': 46.68593406677246, 'count': 1644}, 'stt': {'avg_ms': 9562.601613998413, 'max_ms': 13496.775388717651, 'min_ms': 8050.649404525757, 'count': 5}, 'llm_reasoning': {'avg_ms': 661.9330644607544, 'max_ms': 959.4199657440186, 'min_ms': 0.0, 'count': 6}}
+2026-01-05 02:06:30.802 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:06:33.361 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:06:35.409 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.75195177263241, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 1794}, 'frame_total': {'avg_ms': 80.11182840319647, 'max_ms': 1033.3642959594727, 'min_ms': 46.68593406677246, 'count': 1794}, 'stt': {'avg_ms': 9562.601613998413, 'max_ms': 13496.775388717651, 'min_ms': 8050.649404525757, 'count': 5}, 'llm_reasoning': {'avg_ms': 661.9330644607544, 'max_ms': 959.4199657440186, 'min_ms': 0.0, 'count': 6}}
+2026-01-05 02:06:39.260 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:06:41.629 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: Let's think that I got on the floor.
+2026-01-05 02:06:41.629 | INFO     | utils.performance_tracker:stop_timer:47 - STT took 10.83s
+2026-01-05 02:06:41.629 | INFO     | __main__:threaded_listen:308 - USER: Let's think that I got on the floor.
+2026-01-05 02:06:41.629 | INFO     | audio.tts:speak:25 - AI: Checking on: Let's think that I got on the floor.
+2026-01-05 02:06:45.443 | INFO     | __main__:main:344 - VLM Description: Two people on bed: one holds bottle, other uses laptop. Bed, bottle, laptop, and person labels visible. No cell phone detected. All objects within frame.
+2026-01-05 02:06:46.192 | INFO     | audio.tts:speak:25 - AI: I don't see that in the current frame.
+2026-01-05 02:06:46.197 | INFO     | utils.performance_tracker:stop_timer:47 - LLM_REASONING took 0.75s
+2026-01-05 02:06:46.197 | INFO     | __main__:main:355 - LLM Answer: I don't see that in the current frame.
+2026-01-05 02:06:46.197 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 0.83s
+2026-01-05 02:06:48.671 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.77946462062161, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 1944}, 'frame_total': {'avg_ms': 80.28203052748378, 'max_ms': 1033.3642959594727, 'min_ms': 46.68593406677246, 'count': 1944}, 'stt': {'avg_ms': 9773.263851801554, 'max_ms': 13496.775388717651, 'min_ms': 8050.649404525757, 'count': 6}, 'llm_reasoning': {'avg_ms': 674.9216488429478, 'max_ms': 959.4199657440186, 'min_ms': 0.0, 'count': 7}}
+2026-01-05 02:06:52.320 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:06:54.906 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:06:56.674 | INFO     | audio.tts:speak:25 - AI: Warning! bed very close to your center
+2026-01-05 02:06:59.608 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:07:01.043 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.75200204111444, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 2094}, 'frame_total': {'avg_ms': 80.01879748551187, 'max_ms': 1033.3642959594727, 'min_ms': 46.68593406677246, 'count': 2094}, 'stt': {'avg_ms': 9773.263851801554, 'max_ms': 13496.775388717651, 'min_ms': 8050.649404525757, 'count': 6}, 'llm_reasoning': {'avg_ms': 674.9216488429478, 'max_ms': 959.4199657440186, 'min_ms': 0.0, 'count': 7}}
+2026-01-05 02:07:01.699 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: What do you see in my eyes?  Morning.
+2026-01-05 02:07:01.699 | INFO     | utils.performance_tracker:stop_timer:47 - STT took 9.38s
+2026-01-05 02:07:01.699 | INFO     | __main__:threaded_listen:308 - USER: What do you see in my eyes?  Morning.
+2026-01-05 02:07:01.702 | INFO     | audio.tts:speak:25 - AI: Checking on: What do you see in my eyes?  Morning.
+2026-01-05 02:07:05.428 | INFO     | __main__:main:344 - VLM Description: I see two people on a bed. One holds a bottle. The other uses a laptop. All objects detected: person, laptop, bottle, bed (multiple instances).
+2026-01-05 02:07:06.248 | INFO     | audio.tts:speak:25 - AI: The person is holding a bottle. The laptop is used by the person. The bed is visible.
+2026-01-05 02:07:06.252 | INFO     | utils.performance_tracker:stop_timer:47 - LLM_REASONING took 0.82s
+2026-01-05 02:07:06.252 | INFO     | __main__:main:355 - LLM Answer: The person is holding a bottle. The laptop is used by the person. The bed is visible.
+2026-01-05 02:07:06.253 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 0.89s
+2026-01-05 02:07:13.740 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.52856363119713, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 2244}, 'frame_total': {'avg_ms': 79.94590723578305, 'max_ms': 1033.3642959594727, 'min_ms': 46.68593406677246, 'count': 2244}, 'stt': {'avg_ms': 9716.789620263236, 'max_ms': 13496.775388717651, 'min_ms': 8050.649404525757, 'count': 7}, 'llm_reasoning': {'avg_ms': 693.5514807701111, 'max_ms': 959.4199657440186, 'min_ms': 0.0, 'count': 8}}
+2026-01-05 02:07:14.752 | INFO     | audio.tts:speak:25 - AI: Warning! person very close to your center
+2026-01-05 02:07:20.613 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:07:23.229 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:07:25.855 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.49996912867802, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 2394}, 'frame_total': {'avg_ms': 79.61736147664644, 'max_ms': 1033.3642959594727, 'min_ms': 46.68593406677246, 'count': 2394}, 'stt': {'avg_ms': 9716.789620263236, 'max_ms': 13496.775388717651, 'min_ms': 8050.649404525757, 'count': 7}, 'llm_reasoning': {'avg_ms': 693.5514807701111, 'max_ms': 959.4199657440186, 'min_ms': 0.0, 'count': 8}}
+2026-01-05 02:07:31.379 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:07:33.867 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: What is the color of my day?
+2026-01-05 02:07:33.867 | INFO     | utils.performance_tracker:stop_timer:47 - STT took 13.25s
+2026-01-05 02:07:33.869 | INFO     | __main__:threaded_listen:308 - USER: What is the color of my day?
+2026-01-05 02:07:33.870 | INFO     | audio.tts:speak:25 - AI: Checking on: What is the color of my day?
+2026-01-05 02:07:37.577 | INFO     | __main__:main:344 - VLM Description: Your day’s color: neutral tones. Objects: two people, one laptop, three beds. All items visible within the frame. No specific color assigned to “your day” beyond the scene’s muted palette.
+2026-01-05 02:07:38.487 | INFO     | audio.tts:speak:25 - AI: The color of your day is neutral tones. Objects: two people, one laptop, three beds. All items visible within the frame. No specific color assigned to “your day” beyond the scene’s muted palette.
+2026-01-05 02:07:38.491 | INFO     | utils.performance_tracker:stop_timer:47 - LLM_REASONING took 0.91s
+2026-01-05 02:07:38.491 | INFO     | __main__:main:355 - LLM Answer: The color of your day is neutral tones. Objects: two people, one laptop, three beds. All items visible within the frame. No specific color assigned to “your day” beyond the scene’s muted palette.
+2026-01-05 02:07:38.492 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 1.01s
+2026-01-05 02:07:39.494 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.64038146066966, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 2544}, 'frame_total': {'avg_ms': 79.95035897635813, 'max_ms': 1033.3642959594727, 'min_ms': 46.68593406677246, 'count': 2544}, 'stt': {'avg_ms': 10159.036576747894, 'max_ms': 13496.775388717651, 'min_ms': 8050.649404525757, 'count': 8}, 'llm_reasoning': {'avg_ms': 718.0317242940267, 'max_ms': 959.4199657440186, 'min_ms': 0.0, 'count': 9}}
+2026-01-05 02:07:49.739 | INFO     | audio.tts:speak:25 - AI: Warning! bed close to your center
+2026-01-05 02:07:51.875 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.50175975000938, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 2694}, 'frame_total': {'avg_ms': 79.7664721806844, 'max_ms': 1033.3642959594727, 'min_ms': 46.68593406677246, 'count': 2694}, 'stt': {'avg_ms': 10159.036576747894, 'max_ms': 13496.775388717651, 'min_ms': 8050.649404525757, 'count': 8}, 'llm_reasoning': {'avg_ms': 718.0317242940267, 'max_ms': 959.4199657440186, 'min_ms': 0.0, 'count': 9}}
+2026-01-05 02:07:55.568 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:07:58.009 | INFO     | interaction.listening_layer:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:08:04.203 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.46352881620705, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 2844}, 'frame_total': {'avg_ms': 79.5685214667716, 'max_ms': 1033.3642959594727, 'min_ms': 46.68593406677246, 'count': 2844}, 'stt': {'avg_ms': 10159.036576747894, 'max_ms': 13496.775388717651, 'min_ms': 8050.649404525757, 'count': 8}, 'llm_reasoning': {'avg_ms': 718.0317242940267, 'max_ms': 959.4199657440186, 'min_ms': 0.0, 'count': 9}}
+2026-01-05 02:08:05.153 | INFO     | interaction.listening_layer:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:08:10.354 | INFO     | interaction.listening_layer:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: Once the panel is on to board it.
+2026-01-05 02:08:10.355 | INFO     | utils.performance_tracker:stop_timer:47 - STT took 14.79s
+2026-01-05 02:08:10.355 | INFO     | __main__:threaded_listen:308 - USER: Once the panel is on to board it.
+2026-01-05 02:08:10.356 | INFO     | audio.tts:speak:25 - AI: Checking on: Once the panel is on to board it.
+2026-01-05 02:08:14.169 | INFO     | __main__:main:344 - VLM Description: Laptop on bed. Two people: one holding bottle, other using laptop. Bed covers both. No panel visible. All objects detected: laptop, person, person, bottle, bed, bed.
+2026-01-05 02:08:15.143 | INFO     | audio.tts:speak:25 - AI: The laptop is on the bed. Two people are present, one holding a bottle and the other using a laptop. The bed covers both.
+2026-01-05 02:08:15.146 | INFO     | utils.performance_tracker:stop_timer:47 - LLM_REASONING took 0.98s
+2026-01-05 02:08:15.147 | INFO     | __main__:main:355 - LLM Answer: The laptop is on the bed. Two people are present, one holding a bottle and the other using a laptop. The bed covers both.
+2026-01-05 02:08:15.147 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 1.03s
+2026-01-05 02:08:17.915 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 71.50869355173053, 'max_ms': 264.48917388916016, 'min_ms': 45.68624496459961, 'count': 2994}, 'frame_total': {'avg_ms': 79.88366741455629, 'max_ms': 1033.3642959594727, 'min_ms': 46.68593406677246, 'count': 2994}, 'stt': {'avg_ms': 10673.203574286566, 'max_ms': 14786.539554595947, 'min_ms': 8050.649404525757, 'count': 9}, 'llm_reasoning': {'avg_ms': 743.9613819122314, 'max_ms': 977.3283004760742, 'min_ms': 0.0, 'count': 10}}
+2026-01-05 02:09:14.965 | WARNING  | safety.yolo_detector:__init__:22 - CUDA requested but not available. Falling back to CPU.
+2026-01-05 02:09:14.965 | INFO     | safety.yolo_detector:__init__:27 - YOLO loading model on: cpu
+2026-01-05 02:09:14.973 | INFO     | __main__:main:260 - Creating Enhanced Fusion Engine...
+2026-01-05 02:09:14.973 | INFO     | inference.llm_reasoner:__init__:25 - Connected to Backend: 'ollama' | Model: 'gemma3:270m'
+2026-01-05 02:09:15.235 | INFO     | interaction.listening_layer:__init__:29 - Initialized Microphone ID: 2 (Microphone Array (Realtek(R) Au)
+2026-01-05 02:09:15.235 | INFO     | __main__:main:271 - Loading Qwen VLM...
+2026-01-05 02:09:15.235 | INFO     | reasoning.qwen_vlm:_init_lm_studio:57 - Using LM Studio backend: http://localhost:1234/v1
+2026-01-05 02:09:17.308 | INFO     | reasoning.qwen_vlm:_init_lm_studio:65 - Connected. Active: qwen/qwen3-vl-4b
+2026-01-05 02:09:18.924 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 1.05s
+2026-01-05 02:09:19.993 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 1.07s
+2026-01-05 02:09:24.758 | INFO     | utils.performance_tracker:stop_timer:47 - FRAME_TOTAL took 1.08s
+2026-01-05 02:21:36.565 | WARNING  | perception_layer.detector:__init__:22 - CUDA requested but not available. Falling back to CPU.
+2026-01-05 02:21:36.565 | INFO     | perception_layer.detector:__init__:27 - YOLO loading model on: cpu
+2026-01-05 02:21:36.568 | INFO     | __main__:main:260 - Creating Enhanced Fusion Engine...
+2026-01-05 02:21:36.568 | INFO     | reasoning_layer.llm:__init__:25 - Connected to Backend: 'ollama' | Model: 'gemma3:270m'
+2026-01-05 02:21:36.812 | INFO     | interaction_layer.stt:__init__:29 - Initialized Microphone ID: 2 (Microphone Array (Realtek(R) Au)
+2026-01-05 02:21:36.812 | INFO     | __main__:main:271 - Loading Qwen VLM...
+2026-01-05 02:21:36.812 | INFO     | reasoning_layer.vlm:_init_lm_studio:57 - Using LM Studio backend: http://localhost:1234/v1
+2026-01-05 02:21:38.871 | INFO     | reasoning_layer.vlm:_init_lm_studio:65 - Connected. Active: qwen/qwen3-vl-4b
+2026-01-05 02:21:52.834 | WARNING  | perception_layer.detector:__init__:22 - CUDA requested but not available. Falling back to CPU.
+2026-01-05 02:21:52.834 | INFO     | perception_layer.detector:__init__:27 - YOLO loading model on: cpu
+2026-01-05 02:21:52.838 | INFO     | __main__:main:260 - Creating Enhanced Fusion Engine...
+2026-01-05 02:21:52.838 | INFO     | reasoning_layer.llm:__init__:25 - Connected to Backend: 'ollama' | Model: 'gemma3:270m'
+2026-01-05 02:21:53.043 | INFO     | interaction_layer.stt:__init__:29 - Initialized Microphone ID: 2 (Microphone Array (Realtek(R) Au)
+2026-01-05 02:21:53.043 | INFO     | __main__:main:271 - Loading Qwen VLM...
+2026-01-05 02:21:53.043 | INFO     | reasoning_layer.vlm:_init_lm_studio:57 - Using LM Studio backend: http://localhost:1234/v1
+2026-01-05 02:21:55.101 | INFO     | reasoning_layer.vlm:_init_lm_studio:65 - Connected. Active: qwen/qwen3-vl-4b
+2026-01-05 02:22:11.384 | INFO     | __main__:main:408 - System Started
+2026-01-05 02:22:11.385 | INFO     | interaction_layer.tts:speak:25 - AI: System Started
+2026-01-05 02:22:11.420 | INFO     | interaction_layer.tts:speak:25 - AI: Warning! bed very close to your center
+2026-01-05 02:22:17.112 | INFO     | infrastructure.performance:stop_timer:47 - FRAME_TOTAL took 0.99s
+2026-01-05 02:22:17.114 | INFO     | __main__:threaded_listen:303 - Listening thread started...
+2026-01-05 02:22:17.603 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 32.00891472044445, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 252}, 'frame_total': {'avg_ms': 80.1814908073062, 'max_ms': 985.3506088256836, 'min_ms': 28.224706649780273, 'count': 252}}
+2026-01-05 02:22:19.633 | INFO     | interaction_layer.stt:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:22:23.977 | INFO     | infrastructure.performance:stop_timer:47 - FRAME_TOTAL took 0.58s
+2026-01-05 02:22:26.261 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 32.477920328206686, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 402}, 'frame_total': {'avg_ms': 65.42108130099169, 'max_ms': 985.3506088256836, 'min_ms': 26.861190795898438, 'count': 402}}
+2026-01-05 02:22:29.063 | INFO     | interaction_layer.stt:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:22:29.348 | INFO     | interaction_layer.stt:_recognize_faster_whisper:130 - Loading faster-whisper model: base into models/whisper
+2026-01-05 02:22:29.795 | INFO     | __main__:main:344 - VLM Description: A person sits on a bed with a laptop, surrounded by multiple people and a bottle. Be cautious of the cluttered bed and nearby fan.
+2026-01-05 02:22:29.796 | INFO     | interaction_layer.tts:speak:25 - AI: A person sits on a bed with a laptop, surrounded by multiple people and a bottle. Be cautious of the cluttered bed and nearby fan.
+2026-01-05 02:22:31.593 | INFO     | interaction_layer.tts:speak:25 - AI: Warning! person close to your center
+2026-01-05 02:22:32.928 | INFO     | interaction_layer.stt:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: What do you see in front of you?
+2026-01-05 02:22:32.929 | INFO     | infrastructure.performance:stop_timer:47 - STT took 15.81s
+2026-01-05 02:22:32.929 | INFO     | __main__:threaded_listen:308 - USER: What do you see in front of you?
+2026-01-05 02:22:32.930 | INFO     | interaction_layer.tts:speak:25 - AI: Checking on: What do you see in front of you?
+2026-01-05 02:22:34.697 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 33.18314880564593, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 552}, 'frame_total': {'avg_ms': 58.758039837298185, 'max_ms': 985.3506088256836, 'min_ms': 26.861190795898438, 'count': 552}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}}
+2026-01-05 02:22:41.676 | INFO     | interaction_layer.tts:speak:25 - AI: Warning! person very close to your center
+2026-01-05 02:22:43.011 | INFO     | __main__:main:344 - VLM Description: Laptop, bottle, and multiple person detections on bed. Person uses laptop, bottle nearby. Bed occupies most space. Multiple person boxes overlap, indicating same person.
+2026-01-05 02:22:45.174 | INFO     | interaction_layer.tts:speak:25 - AI: The laptop, bottle, and multiple person detections on the bed suggest the person is seated on the bed, with the laptop, bottle, and multiple person boxes overlapping.
+2026-01-05 02:22:45.178 | INFO     | infrastructure.performance:stop_timer:47 - LLM_REASONING took 2.17s
+2026-01-05 02:22:45.178 | INFO     | __main__:main:355 - LLM Answer: The laptop, bottle, and multiple person detections on the bed suggest the person is seated on the bed, with the laptop, bottle, and multiple person boxes overlapping.
+2026-01-05 02:22:45.179 | INFO     | infrastructure.performance:stop_timer:47 - FRAME_TOTAL took 2.21s
+2026-01-05 02:22:45.467 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 33.4669426295832, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 702}, 'frame_total': {'avg_ms': 57.401904353389035, 'max_ms': 2207.2153091430664, 'min_ms': 26.861190795898438, 'count': 702}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:22:53.333 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 33.36028705740199, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 852}, 'frame_total': {'avg_ms': 53.70559938636744, 'max_ms': 2207.2153091430664, 'min_ms': 26.861190795898438, 'count': 852}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:22:58.558 | INFO     | __main__:main:344 - VLM Description: A person lies on a floral bed. Avoid the bed’s edge and nearby clutter. Be cautious of cables and the person’s legs. Keep clear of the adjacent patterned bedspread.
+2026-01-05 02:22:58.559 | INFO     | interaction_layer.tts:speak:25 - AI: A person lies on a floral bed. Avoid the bed’s edge and nearby clutter. Be cautious of cables and the person’s legs. Keep clear of the adjacent patterned bedspread.
+2026-01-05 02:22:59.340 | INFO     | interaction_layer.tts:speak:25 - AI: Warning! person close to your right
+2026-01-05 02:23:01.325 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 33.54120230722332, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 1002}, 'frame_total': {'avg_ms': 51.45297221794814, 'max_ms': 2207.2153091430664, 'min_ms': 26.861190795898438, 'count': 1002}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:23:04.726 | INFO     | infrastructure.performance:stop_timer:47 - FRAME_TOTAL took 0.52s
+2026-01-05 02:23:12.964 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 37.1364899393585, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 1152}, 'frame_total': {'avg_ms': 53.62433070937792, 'max_ms': 2207.2153091430664, 'min_ms': 26.60202980041504, 'count': 1152}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:23:13.876 | INFO     | __main__:main:344 - VLM Description: No visible obstacles, people, or hazards. Scene is entirely dark with no discernible features for navigation. No visual cues to aid movement or orientation.
+2026-01-05 02:23:13.876 | INFO     | interaction_layer.tts:speak:25 - AI: No visible obstacles, people, or hazards. Scene is entirely dark with no discernible features for navigation. No visual cues to aid movement or orientation.
+2026-01-05 02:23:24.366 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 39.83848600343625, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 1302}, 'frame_total': {'avg_ms': 55.17218171543057, 'max_ms': 2207.2153091430664, 'min_ms': 25.815248489379883, 'count': 1302}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:23:36.357 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 43.1615894162622, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 1452}, 'frame_total': {'avg_ms': 57.20824824220221, 'max_ms': 2207.2153091430664, 'min_ms': 25.815248489379883, 'count': 1452}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:23:48.738 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 45.93107971210456, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 1602}, 'frame_total': {'avg_ms': 59.07979708039359, 'max_ms': 2207.2153091430664, 'min_ms': 25.815248489379883, 'count': 1602}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:24:01.143 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 48.22821105451889, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 1752}, 'frame_total': {'avg_ms': 60.65329922933012, 'max_ms': 2207.2153091430664, 'min_ms': 25.815248489379883, 'count': 1752}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:24:13.498 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 50.17086346442767, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 1902}, 'frame_total': {'avg_ms': 61.93283955506847, 'max_ms': 2207.2153091430664, 'min_ms': 25.815248489379883, 'count': 1902}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:24:25.813 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 51.758573650151895, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 2052}, 'frame_total': {'avg_ms': 62.991259274659335, 'max_ms': 2207.2153091430664, 'min_ms': 25.815248489379883, 'count': 2052}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:24:38.082 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 53.137055209936825, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 2202}, 'frame_total': {'avg_ms': 63.88334530683997, 'max_ms': 2207.2153091430664, 'min_ms': 25.815248489379883, 'count': 2202}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:24:49.630 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 53.81251496522605, 'max_ms': 100.22950172424316, 'min_ms': 25.043487548828125, 'count': 2352}, 'frame_total': {'avg_ms': 64.22451969717636, 'max_ms': 2207.2153091430664, 'min_ms': 25.815248489379883, 'count': 2352}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:25:02.338 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 54.97145462188599, 'max_ms': 126.7082691192627, 'min_ms': 25.043487548828125, 'count': 2502}, 'frame_total': {'avg_ms': 65.10327702803578, 'max_ms': 2207.2153091430664, 'min_ms': 25.815248489379883, 'count': 2502}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:25:13.535 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 55.287262702959154, 'max_ms': 126.7082691192627, 'min_ms': 24.921894073486328, 'count': 2652}, 'frame_total': {'avg_ms': 65.09327358070362, 'max_ms': 2207.2153091430664, 'min_ms': 25.815248489379883, 'count': 2652}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:25:25.517 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 55.99131616501192, 'max_ms': 126.7082691192627, 'min_ms': 24.921894073486328, 'count': 2802}, 'frame_total': {'avg_ms': 65.51942393066712, 'max_ms': 2207.2153091430664, 'min_ms': 25.815248489379883, 'count': 2802}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:25:38.103 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 56.7662519652669, 'max_ms': 353.2547950744629, 'min_ms': 24.921894073486328, 'count': 2952}, 'frame_total': {'avg_ms': 66.12407725031782, 'max_ms': 2207.2153091430664, 'min_ms': 25.815248489379883, 'count': 2952}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:25:50.184 | INFO     | __main__:main:399 - Performance Stats: {'yolo': {'avg_ms': 57.35813518403654, 'max_ms': 353.2547950744629, 'min_ms': 24.921894073486328, 'count': 3102}, 'frame_total': {'avg_ms': 66.47731510767393, 'max_ms': 2207.2153091430664, 'min_ms': 25.815248489379883, 'count': 3102}, 'stt': {'avg_ms': 15814.874172210693, 'max_ms': 15814.874172210693, 'min_ms': 15814.874172210693, 'count': 1}, 'llm_reasoning': {'avg_ms': 2166.800022125244, 'max_ms': 2166.800022125244, 'min_ms': 2166.800022125244, 'count': 1}}
+2026-01-05 02:30:46.242 | WARNING  | perception_layer.detector:__init__:22 - CUDA requested but not available. Falling back to CPU.
+2026-01-05 02:30:46.242 | INFO     | perception_layer.detector:__init__:27 - YOLO loading model on: cpu
+2026-01-05 02:30:46.244 | INFO     | __main__:main:283 - Creating Enhanced Fusion Engine...
+2026-01-05 02:30:46.245 | INFO     | reasoning_layer.llm:__init__:25 - Connected to Backend: 'ollama' | Model: 'gemma3:270m'
+2026-01-05 02:30:46.465 | INFO     | interaction_layer.stt:__init__:29 - Initialized Microphone ID: 2 (Microphone Array (Realtek(R) Au)
+2026-01-05 02:30:46.465 | INFO     | __main__:main:294 - Loading Qwen VLM...
+2026-01-05 02:30:46.465 | INFO     | reasoning_layer.vlm:_init_lm_studio:57 - Using LM Studio backend: http://localhost:1234/v1
+2026-01-05 02:30:48.538 | INFO     | reasoning_layer.vlm:_init_lm_studio:65 - Connected. Active: qwen/qwen3-vl-4b
+2026-01-05 02:31:04.348 | INFO     | __main__:main:435 - System Started
+2026-01-05 02:31:04.348 | INFO     | interaction_layer.tts:speak:25 - AI: System Started
+2026-01-05 02:31:04.388 | INFO     | interaction_layer.tts:speak:25 - AI: Warning! person very close to your center
+2026-01-05 02:31:09.738 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 30.937985984646545, 'max_ms': 115.56577682495117, 'min_ms': 24.209260940551758, 'count': 245}, 'frame_total': {'avg_ms': 76.49477647275341, 'max_ms': 400.7914066314697, 'min_ms': 25.30360221862793, 'count': 245}}
+2026-01-05 02:31:09.845 | INFO     | __main__:threaded_listen:329 - Listening thread started...
+2026-01-05 02:31:12.389 | INFO     | interaction_layer.stt:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:31:18.040 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 31.538659711427325, 'max_ms': 115.56577682495117, 'min_ms': 23.908138275146484, 'count': 395}, 'frame_total': {'avg_ms': 61.58913419216494, 'max_ms': 400.7914066314697, 'min_ms': 24.869203567504883, 'count': 395}}
+2026-01-05 02:31:22.252 | INFO     | __main__:main:370 - VLM Description: Dark, barely visible room. A person sits near a fan, possibly obstructed. No clear navigation hazards. Dim lighting makes movement difficult.
+2026-01-05 02:31:22.253 | INFO     | interaction_layer.tts:speak:25 - AI: Dark, barely visible room. A person sits near a fan, possibly obstructed. No clear navigation hazards. Dim lighting makes movement difficult.
+2026-01-05 02:31:24.450 | INFO     | interaction_layer.tts:speak:25 - AI: Warning! person close to your center
+2026-01-05 02:31:26.291 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 31.99742999645548, 'max_ms': 115.56577682495117, 'min_ms': 23.908138275146484, 'count': 545}, 'frame_total': {'avg_ms': 54.459301922299446, 'max_ms': 400.7914066314697, 'min_ms': 24.869203567504883, 'count': 545}}
+2026-01-05 02:31:29.247 | INFO     | interaction_layer.stt:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:31:29.516 | INFO     | interaction_layer.stt:_recognize_faster_whisper:130 - Loading faster-whisper model: base into models/whisper
+2026-01-05 02:31:33.063 | INFO     | interaction_layer.stt:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: They didn't want to translate that.  They're low.  Yark.  They're related.  Warning.  The person close to your center.
+2026-01-05 02:31:33.063 | INFO     | infrastructure.performance:stop_timer:47 - STT took 23.22s
+2026-01-05 02:31:33.064 | INFO     | __main__:threaded_listen:334 - USER: They didn't want to translate that.  They're low.  Yark.  They're related.  Warning.  The person close to your center.
+2026-01-05 02:31:33.064 | INFO     | interaction_layer.tts:speak:25 - AI: Checking on: They didn't want to translate that.  They're low.  Yark.  They're related.  Warning.  The person close to your center.
+2026-01-05 02:31:34.628 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 32.67040630038694, 'max_ms': 122.70951271057129, 'min_ms': 23.908138275146484, 'count': 695}, 'frame_total': {'avg_ms': 51.25134454356681, 'max_ms': 400.7914066314697, 'min_ms': 24.869203567504883, 'count': 695}, 'stt': {'avg_ms': 23217.686891555786, 'max_ms': 23217.686891555786, 'min_ms': 23217.686891555786, 'count': 1}}
+2026-01-05 02:31:42.516 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 32.89399711338021, 'max_ms': 122.70951271057129, 'min_ms': 23.908138275146484, 'count': 845}, 'frame_total': {'avg_ms': 49.05519513688849, 'max_ms': 400.7914066314697, 'min_ms': 24.869203567504883, 'count': 845}, 'stt': {'avg_ms': 23217.686891555786, 'max_ms': 23217.686891555786, 'min_ms': 23217.686891555786, 'count': 1}}
+2026-01-05 02:31:42.986 | INFO     | __main__:main:370 - VLM Description: No discernible objects or visual evidence present. The image is entirely black with no identifiable elements, textures, or signs of any objects or entities.
+2026-01-05 02:31:45.095 | INFO     | interaction_layer.tts:speak:25 - AI: The user is unsure about the context and the location of the person. They are low and related to the person close to their center.
+2026-01-05 02:31:45.101 | INFO     | infrastructure.performance:stop_timer:47 - LLM_REASONING took 2.11s
+2026-01-05 02:31:45.101 | INFO     | __main__:main:381 - LLM Answer: The user is unsure about the context and the location of the person. They are low and related to the person close to their center.
+2026-01-05 02:31:45.102 | INFO     | infrastructure.performance:stop_timer:47 - FRAME_TOTAL took 2.15s
+2026-01-05 02:31:53.765 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 32.66066594339495, 'max_ms': 122.70951271057129, 'min_ms': 23.908138275146484, 'count': 995}, 'frame_total': {'avg_ms': 49.779231823868486, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 995}, 'stt': {'avg_ms': 23217.686891555786, 'max_ms': 23217.686891555786, 'min_ms': 23217.686891555786, 'count': 1}, 'llm_reasoning': {'avg_ms': 2113.3205890655518, 'max_ms': 2113.3205890655518, 'min_ms': 2113.3205890655518, 'count': 1}}
+2026-01-05 02:31:59.883 | INFO     | interaction_layer.tts:speak:25 - AI: Warning! cell phone very close to your right
+2026-01-05 02:32:02.071 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 32.534331525777624, 'max_ms': 122.70951271057129, 'min_ms': 23.908138275146484, 'count': 1145}, 'frame_total': {'avg_ms': 48.22226840856294, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 1145}, 'stt': {'avg_ms': 23217.686891555786, 'max_ms': 23217.686891555786, 'min_ms': 23217.686891555786, 'count': 1}, 'llm_reasoning': {'avg_ms': 2113.3205890655518, 'max_ms': 2113.3205890655518, 'min_ms': 2113.3205890655518, 'count': 1}}
+2026-01-05 02:32:11.351 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 32.38901373962638, 'max_ms': 122.70951271057129, 'min_ms': 23.908138275146484, 'count': 1295}, 'frame_total': {'avg_ms': 46.89004632957193, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 1295}, 'stt': {'avg_ms': 23217.686891555786, 'max_ms': 23217.686891555786, 'min_ms': 23217.686891555786, 'count': 1}, 'llm_reasoning': {'avg_ms': 2113.3205890655518, 'max_ms': 2113.3205890655518, 'min_ms': 2113.3205890655518, 'count': 1}}
+2026-01-05 02:32:19.797 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 32.52551085396209, 'max_ms': 122.70951271057129, 'min_ms': 23.908138275146484, 'count': 1445}, 'frame_total': {'avg_ms': 46.29673429838926, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 1445}, 'stt': {'avg_ms': 23217.686891555786, 'max_ms': 23217.686891555786, 'min_ms': 23217.686891555786, 'count': 1}, 'llm_reasoning': {'avg_ms': 2113.3205890655518, 'max_ms': 2113.3205890655518, 'min_ms': 2113.3205890655518, 'count': 1}}
+2026-01-05 02:32:24.310 | INFO     | __main__:main:370 - VLM Description: A person rests on a bed with a laptop. A fan stands nearby. Be cautious of the bed’s edge and the fan’s base, which pose minor navigation hazards.
+2026-01-05 02:32:24.311 | INFO     | interaction_layer.tts:speak:25 - AI: A person rests on a bed with a laptop. A fan stands nearby. Be cautious of the bed’s edge and the fan’s base, which pose minor navigation hazards.
+2026-01-05 02:32:25.628 | INFO     | __main__:threaded_listen:329 - Listening thread started...
+2026-01-05 02:32:26.468 | INFO     | infrastructure.performance:stop_timer:47 - FRAME_TOTAL took 0.77s
+2026-01-05 02:32:28.015 | INFO     | interaction_layer.stt:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:32:28.591 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 32.68838795748624, 'max_ms': 122.70951271057129, 'min_ms': 23.908138275146484, 'count': 1595}, 'frame_total': {'avg_ms': 46.17865945104521, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 1595}, 'stt': {'avg_ms': 23217.686891555786, 'max_ms': 23217.686891555786, 'min_ms': 23217.686891555786, 'count': 1}, 'llm_reasoning': {'avg_ms': 2113.3205890655518, 'max_ms': 2113.3205890655518, 'min_ms': 2113.3205890655518, 'count': 1}}
+2026-01-05 02:32:30.195 | INFO     | interaction_layer.tts:speak:25 - AI: Warning! bed very close to your center
+2026-01-05 02:32:32.622 | INFO     | interaction_layer.stt:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:32:34.944 | INFO     | interaction_layer.stt:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: What's the color of the fan you see warning?
+2026-01-05 02:32:34.944 | INFO     | infrastructure.performance:stop_timer:47 - STT took 9.32s
+2026-01-05 02:32:34.944 | INFO     | __main__:threaded_listen:334 - USER: What's the color of the fan you see warning?
+2026-01-05 02:32:34.945 | INFO     | interaction_layer.tts:speak:25 - AI: Checking on: What's the color of the fan you see warning?
+2026-01-05 02:32:36.995 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 32.99277067867596, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 1745}, 'frame_total': {'avg_ms': 45.90484160065309, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 1745}, 'stt': {'avg_ms': 16266.872525215149, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 2}, 'llm_reasoning': {'avg_ms': 2113.3205890655518, 'max_ms': 2113.3205890655518, 'min_ms': 2113.3205890655518, 'count': 1}}
+2026-01-05 02:32:44.117 | INFO     | interaction_layer.tts:speak:25 - AI: Warning! chair very close to your center
+2026-01-05 02:32:44.792 | INFO     | __main__:main:370 - VLM Description: The fan is white. Person: wearing glasses, reclining. Laptop: black Acer. Bed: with patterned sheets. No chair visible.
+2026-01-05 02:32:45.327 | INFO     | interaction_layer.tts:speak:25 - AI: The fan is white.
+2026-01-05 02:32:45.334 | INFO     | infrastructure.performance:stop_timer:47 - LLM_REASONING took 0.54s
+2026-01-05 02:32:45.334 | INFO     | __main__:main:381 - LLM Answer: The fan is white.
+2026-01-05 02:32:45.336 | INFO     | infrastructure.performance:stop_timer:47 - FRAME_TOTAL took 0.58s
+2026-01-05 02:32:46.163 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 33.21011022401674, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 1895}, 'frame_total': {'avg_ms': 45.90952201380264, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 1895}, 'stt': {'avg_ms': 16266.872525215149, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 2}, 'llm_reasoning': {'avg_ms': 1327.9012441635132, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 2}}
+2026-01-05 02:32:54.810 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 33.34585926643502, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 2045}, 'frame_total': {'avg_ms': 45.50316059793412, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 2045}, 'stt': {'avg_ms': 16266.872525215149, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 2}, 'llm_reasoning': {'avg_ms': 1327.9012441635132, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 2}}
+2026-01-05 02:32:55.892 | INFO     | interaction_layer.tts:speak:25 - AI: Warning! oven very close to your center
+2026-01-05 02:32:59.387 | INFO     | __main__:main:370 - VLM Description: A sticker reads “DO NOT TOUCH — MY MACHINE IS LEARNING.” It’s on a laptop. No people visible. Obstacle: the device itself. Caution: avoid touching.
+2026-01-05 02:32:59.388 | INFO     | interaction_layer.tts:speak:25 - AI: A sticker reads “DO NOT TOUCH — MY MACHINE IS LEARNING.” It’s on a laptop. No people visible. Obstacle: the device itself. Caution: avoid touching.
+2026-01-05 02:33:03.722 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 33.52689960279878, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 2195}, 'frame_total': {'avg_ms': 45.2578717320818, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 2195}, 'stt': {'avg_ms': 16266.872525215149, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 2}, 'llm_reasoning': {'avg_ms': 1327.9012441635132, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 2}}
+2026-01-05 02:33:08.342 | INFO     | __main__:threaded_listen:329 - Listening thread started...
+2026-01-05 02:33:10.792 | INFO     | interaction_layer.stt:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:33:12.117 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 33.733974184308735, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 2345}, 'frame_total': {'avg_ms': 45.00938356558143, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 2345}, 'stt': {'avg_ms': 16266.872525215149, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 2}, 'llm_reasoning': {'avg_ms': 1327.9012441635132, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 2}}
+2026-01-05 02:33:14.348 | INFO     | interaction_layer.stt:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:33:15.909 | INFO     | __main__:main:370 - VLM Description: No visible obstacles, people, or hazards. Scene is entirely dark, offering no navigational cues or visual references for movement or safety.
+2026-01-05 02:33:15.911 | INFO     | interaction_layer.tts:speak:25 - AI: No visible obstacles, people, or hazards. Scene is entirely dark, offering no navigational cues or visual references for movement or safety.
+2026-01-05 02:33:20.237 | INFO     | interaction_layer.stt:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: I think DTS is all about to say that I need DTS
+2026-01-05 02:33:20.238 | INFO     | infrastructure.performance:stop_timer:47 - STT took 11.90s
+2026-01-05 02:33:20.238 | INFO     | __main__:threaded_listen:334 - USER: I think DTS is all about to say that I need DTS
+2026-01-05 02:33:20.239 | INFO     | interaction_layer.tts:speak:25 - AI: Checking on: I think DTS is all about to say that I need DTS
+2026-01-05 02:33:20.408 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 34.101943167034754, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 2495}, 'frame_total': {'avg_ms': 45.02807246420331, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 2495}, 'stt': {'avg_ms': 14809.744119644165, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 3}, 'llm_reasoning': {'avg_ms': 1327.9012441635132, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 2}}
+2026-01-05 02:33:28.713 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 34.25950183760241, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 2645}, 'frame_total': {'avg_ms': 44.90411610594319, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 2645}, 'stt': {'avg_ms': 14809.744119644165, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 3}, 'llm_reasoning': {'avg_ms': 1327.9012441635132, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 2}}
+2026-01-05 02:33:30.198 | INFO     | __main__:main:370 - VLM Description: No discernible objects or text present. Image is entirely black with no visual cues to indicate DTS, any message, or content. No objects detected.
+2026-01-05 02:33:30.875 | INFO     | interaction_layer.tts:speak:25 - AI: The scene is dark, with no visible objects or text. The image is black with no visual cues to indicate DTS, any message, or content.
+2026-01-05 02:33:30.883 | INFO     | infrastructure.performance:stop_timer:47 - LLM_REASONING took 0.68s
+2026-01-05 02:33:30.883 | INFO     | __main__:main:381 - LLM Answer: The scene is dark, with no visible objects or text. The image is black with no visual cues to indicate DTS, any message, or content.
+2026-01-05 02:33:30.885 | INFO     | infrastructure.performance:stop_timer:47 - FRAME_TOTAL took 0.72s
+2026-01-05 02:33:31.373 | INFO     | __main__:threaded_listen:329 - Listening thread started...
+2026-01-05 02:33:33.833 | INFO     | interaction_layer.stt:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:33:37.519 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 34.43871909262669, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 2795}, 'frame_total': {'avg_ms': 45.01461163829605, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 2795}, 'stt': {'avg_ms': 14809.744119644165, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 3}, 'llm_reasoning': {'avg_ms': 1113.5942141215007, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 3}}
+2026-01-05 02:33:43.749 | INFO     | interaction_layer.tts:speak:25 - AI: Warning! toothbrush very close to your center
+2026-01-05 02:33:44.833 | INFO     | interaction_layer.stt:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:33:45.815 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 34.532275709919695, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 2945}, 'frame_total': {'avg_ms': 44.86306519176438, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 2945}, 'stt': {'avg_ms': 14809.744119644165, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 3}, 'llm_reasoning': {'avg_ms': 1113.5942141215007, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 3}}
+2026-01-05 02:33:47.171 | INFO     | interaction_layer.stt:listen_once:108 - No text transcribed.
+2026-01-05 02:33:47.172 | INFO     | infrastructure.performance:stop_timer:47 - STT took 15.80s
+2026-01-05 02:33:50.127 | INFO     | __main__:threaded_listen:329 - Listening thread started...
+2026-01-05 02:33:52.536 | INFO     | interaction_layer.stt:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:33:53.971 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 34.67429443014265, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 3095}, 'frame_total': {'avg_ms': 44.77855423540599, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 3095}, 'stt': {'avg_ms': 15057.150483131409, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 4}, 'llm_reasoning': {'avg_ms': 1113.5942141215007, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 3}}
+2026-01-05 02:33:58.255 | INFO     | __main__:main:370 - VLM Description: A red cable with a green connector plugs into a white power strip. Avoid the cord; it’s a potential tripping hazard near the wall and pipe.
+2026-01-05 02:33:58.256 | INFO     | interaction_layer.tts:speak:25 - AI: A red cable with a green connector plugs into a white power strip. Avoid the cord; it’s a potential tripping hazard near the wall and pipe.
+2026-01-05 02:33:59.593 | INFO     | interaction_layer.tts:speak:25 - AI: Warning! person very close to your right
+2026-01-05 02:34:00.757 | INFO     | interaction_layer.stt:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:34:02.304 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 34.83974452378754, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 3245}, 'frame_total': {'avg_ms': 44.7291917903765, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 3245}, 'stt': {'avg_ms': 15057.150483131409, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 4}, 'llm_reasoning': {'avg_ms': 1113.5942141215007, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 3}}
+2026-01-05 02:34:03.315 | INFO     | interaction_layer.stt:listen_once:106 - STT | Detected: en (100% prob) | USER SAID: What do you see in front of you, moxins?  Red.
+2026-01-05 02:34:03.317 | INFO     | infrastructure.performance:stop_timer:47 - STT took 13.19s
+2026-01-05 02:34:03.317 | INFO     | __main__:threaded_listen:334 - USER: What do you see in front of you, moxins?  Red.
+2026-01-05 02:34:03.319 | INFO     | interaction_layer.tts:speak:25 - AI: Checking on: What do you see in front of you, moxins?  Red.
+2026-01-05 02:34:10.342 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 34.923275440536294, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 3395}, 'frame_total': {'avg_ms': 44.61203098999383, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 3395}, 'stt': {'avg_ms': 14683.425664901733, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 5}, 'llm_reasoning': {'avg_ms': 1113.5942141215007, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 3}}
+2026-01-05 02:34:12.566 | INFO     | infrastructure.performance:stop_timer:47 - FRAME_TOTAL took 1.04s
+2026-01-05 02:34:13.547 | INFO     | __main__:main:370 - VLM Description: Red cable with green connector plugged into white power strip. Toothbrush label appears near plug. No person visible. Focus: red cable, toothbrush label, power strip.
+2026-01-05 02:34:14.289 | INFO     | interaction_layer.tts:speak:25 - AI: The red cable with the green connector is plugged into a white power strip.
+2026-01-05 02:34:14.295 | INFO     | infrastructure.performance:stop_timer:47 - LLM_REASONING took 0.75s
+2026-01-05 02:34:14.295 | INFO     | __main__:main:381 - LLM Answer: The red cable with the green connector is plugged into a white power strip.
+2026-01-05 02:34:14.296 | INFO     | infrastructure.performance:stop_timer:47 - FRAME_TOTAL took 0.78s
+2026-01-05 02:34:20.412 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 34.90852912827506, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 3545}, 'frame_total': {'avg_ms': 44.92365422807056, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 3545}, 'stt': {'avg_ms': 14683.425664901733, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 5}, 'llm_reasoning': {'avg_ms': 1022.2463011741638, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 4}}
+2026-01-05 02:34:22.423 | INFO     | interaction_layer.tts:speak:25 - AI: Warning! toothbrush very close to your center
+2026-01-05 02:34:28.463 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 34.88695482762483, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 3695}, 'frame_total': {'avg_ms': 44.70517928932613, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 3695}, 'stt': {'avg_ms': 14683.425664901733, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 5}, 'llm_reasoning': {'avg_ms': 1022.2463011741638, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 4}}
+2026-01-05 02:34:39.356 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 35.613375553384095, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 3845}, 'frame_total': {'avg_ms': 45.33880981574288, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 3845}, 'stt': {'avg_ms': 14683.425664901733, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 5}, 'llm_reasoning': {'avg_ms': 1022.2463011741638, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 4}}
+2026-01-05 02:34:39.774 | INFO     | __main__:main:370 - VLM Description: No obstacles, people, or hazards visible. Entire scene is uniformly dark with no discernible features for navigation. No visual cues available.
+2026-01-05 02:34:39.774 | INFO     | interaction_layer.tts:speak:25 - AI: No obstacles, people, or hazards visible. Entire scene is uniformly dark with no discernible features for navigation. No visual cues available.
+2026-01-05 02:34:51.121 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 36.685083207857325, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 3995}, 'frame_total': {'avg_ms': 46.27832930735563, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 3995}, 'stt': {'avg_ms': 14683.425664901733, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 5}, 'llm_reasoning': {'avg_ms': 1022.2463011741638, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 4}}
+2026-01-05 02:35:03.663 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 37.88027573552149, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 4145}, 'frame_total': {'avg_ms': 47.39559010228432, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 4145}, 'stt': {'avg_ms': 14683.425664901733, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 5}, 'llm_reasoning': {'avg_ms': 1022.2463011741638, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 4}}
+2026-01-05 02:35:16.467 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 39.12198035625418, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 4295}, 'frame_total': {'avg_ms': 48.5291980059516, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 4295}, 'stt': {'avg_ms': 14683.425664901733, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 5}, 'llm_reasoning': {'avg_ms': 1022.2463011741638, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 4}}
+2026-01-05 02:35:29.548 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 40.2969273458852, 'max_ms': 170.58110237121582, 'min_ms': 23.908138275146484, 'count': 4445}, 'frame_total': {'avg_ms': 49.6564695081507, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 4445}, 'stt': {'avg_ms': 14683.425664901733, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 5}, 'llm_reasoning': {'avg_ms': 1022.2463011741638, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 4}}
+2026-01-05 02:35:37.448 | INFO     | infrastructure.performance:stop_timer:47 - YOLO took 0.75s
+2026-01-05 02:35:37.451 | INFO     | infrastructure.performance:stop_timer:47 - FRAME_TOTAL took 0.75s
+2026-01-05 02:35:44.712 | INFO     | infrastructure.performance:stop_timer:47 - FRAME_TOTAL took 0.53s
+2026-01-05 02:35:52.956 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 43.45525501861406, 'max_ms': 750.0419616699219, 'min_ms': 23.908138275146484, 'count': 4595}, 'frame_total': {'avg_ms': 52.86233822072292, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 4595}, 'stt': {'avg_ms': 14683.425664901733, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 5}, 'llm_reasoning': {'avg_ms': 1022.2463011741638, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 4}}
+2026-01-05 02:36:23.195 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 47.79065210525304, 'max_ms': 750.0419616699219, 'min_ms': 23.908138275146484, 'count': 4745}, 'frame_total': {'avg_ms': 57.26340678770751, 'max_ms': 2152.3194313049316, 'min_ms': 24.869203567504883, 'count': 4745}, 'stt': {'avg_ms': 14683.425664901733, 'max_ms': 23217.686891555786, 'min_ms': 9316.058158874512, 'count': 5}, 'llm_reasoning': {'avg_ms': 1022.2463011741638, 'max_ms': 2113.3205890655518, 'min_ms': 542.4818992614746, 'count': 4}}
+2026-01-05 02:36:56.314 | WARNING  | perception_layer.detector:__init__:22 - CUDA requested but not available. Falling back to CPU.
+2026-01-05 02:36:56.314 | INFO     | perception_layer.detector:__init__:27 - YOLO loading model on: cpu
+2026-01-05 02:36:56.321 | INFO     | __main__:main:283 - Creating Enhanced Fusion Engine...
+2026-01-05 02:36:56.321 | INFO     | reasoning_layer.llm:__init__:25 - Connected to Backend: 'ollama' | Model: 'gemma3:270m'
+2026-01-05 02:36:56.608 | INFO     | interaction_layer.stt:__init__:29 - Initialized Microphone ID: 2 (Microphone Array (Realtek(R) Au)
+2026-01-05 02:36:56.608 | INFO     | __main__:main:294 - Loading Qwen VLM...
+2026-01-05 02:36:56.608 | INFO     | reasoning_layer.vlm:_init_lm_studio:57 - Using LM Studio backend: http://localhost:1234/v1
+2026-01-05 02:36:58.681 | INFO     | reasoning_layer.vlm:_init_lm_studio:65 - Connected. Active: qwen/qwen3-vl-4b
+2026-01-05 02:37:03.963 | INFO     | __main__:main:435 - System Started
+2026-01-05 02:37:03.964 | INFO     | interaction_layer.tts:speak:25 - AI: System Started
+2026-01-05 02:37:04.079 | INFO     | interaction_layer.tts:speak:25 - AI: Warning! person very close to your center
+2026-01-05 02:37:11.131 | INFO     | __main__:threaded_listen:329 - Listening thread started...
+2026-01-05 02:37:12.010 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 69.74892516236206, 'max_ms': 185.90331077575684, 'min_ms': 45.93467712402344, 'count': 143}, 'frame_total': {'avg_ms': 85.4141095301488, 'max_ms': 249.68814849853516, 'min_ms': 47.1949577331543, 'count': 143}}
+2026-01-05 02:37:13.788 | INFO     | interaction_layer.stt:listen_once:56 - LISTENING NOW (whisper_local). SPEAK IN HINDI OR ENGLISH.
+2026-01-05 02:37:19.411 | INFO     | __main__:main:370 - VLM Description: A person sits on a bed with a laptop, near a fan. Be cautious of the fan, cords, and bedding. Avoid stepping on blankets or tripping over the laptop.
+2026-01-05 02:37:19.411 | INFO     | interaction_layer.tts:speak:25 - AI: A person sits on a bed with a laptop, near a fan. Be cautious of the fan, cords, and bedding. Avoid stepping on blankets or tripping over the laptop.
+2026-01-05 02:37:23.878 | INFO     | __main__:main:426 - Performance Stats: {'yolo': {'avg_ms': 69.71534934060159, 'max_ms': 185.90331077575684, 'min_ms': 45.71247100830078, 'count': 293}, 'frame_total': {'avg_ms': 79.05867644951205, 'max_ms': 249.68814849853516, 'min_ms': 45.71247100830078, 'count': 293}}
+2026-01-05 02:37:25.194 | INFO     | interaction_layer.stt:listen_once:58 - Recording finished. Transcribing...
+2026-01-05 02:37:25.501 | INFO     | interaction_layer.stt:_recognize_faster_whisper:130 - Loading faster-whisper model: base into models/whisper

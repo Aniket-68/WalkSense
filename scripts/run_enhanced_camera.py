@@ -9,38 +9,59 @@ Enhanced WalkSense demo with:
 import cv2
 import time
 
-from safety.frame_capture import Camera
-from safety.yolo_detector import YoloDetector
-from safety.safety_rules import SafetyRules
+from perception_layer.camera import Camera
+from perception_layer.detector import YoloDetector
+from perception_layer.rules import SafetyRules
 
-from inference.fusion_engine import FusionEngine
-from interaction.listening_layer import ListeningLayer
-from audio.tts import TTSEngine
+from fusion_layer.engine import FusionEngine
+from interaction_layer.stt import ListeningLayer
+from interaction_layer.tts import TTSEngine
 
-from reasoning.qwen_vlm import QwenVLM
-from utils.frame_sampler import FrameSampler
-from utils.scene_change import SceneChangeDetector
+from reasoning_layer.vlm import QwenVLM
+from infrastructure.sampler import FrameSampler
+from infrastructure.scene import SceneChangeDetector
 
 import threading
 import queue
+from loguru import logger
+from infrastructure.performance import tracker
 
 
 # =========================================================
 # VISUALIZATION (Same as before)
 # =========================================================
 
-def hazard_color(label):
+def hazard_color(label: str) -> tuple[int, int, int]:
+    """
+    Returns a BGR color based on the object label for visualization.
+    
+    Args:
+        label: The object label string.
+        
+    Returns:
+        A tuple of (B, G, R) integers.
+    """
     label = label.lower()
     if label in {"knife", "gun", "fire", "stairs", "car", "bus", "truck", "bike"}:
-        return (0, 0, 255)
+        return (0, 0, 255)  # Red for high danger
     if label in {"person", "dog", "animal", "bicycle", "wall", "glass"}:
-        return (0, 255, 255)
+        return (0, 255, 255)  # Yellow/Cyan for awareness
     if label in {"chair", "table", "bag"}:
-        return (255, 0, 0)
-    return (0, 255, 0)
+        return (255, 0, 0)  # Blue for static objects
+    return (0, 255, 0)  # Green for others
 
 
-def draw_detections(frame, detections):
+def draw_detections(frame, detections: list[dict]) -> object:
+    """
+    Draws bounding boxes and labels on the image frame.
+    
+    Args:
+        frame: The OpenCV image frame (numpy array).
+        detections: List of detection dictionaries containing 'bbox', 'label', and 'confidence'.
+        
+    Returns:
+        The annotated image frame.
+    """
     for d in detections:
         x1, y1, x2, y2 = map(int, d["bbox"][0])
         label = d["label"]
@@ -55,36 +76,85 @@ def draw_detections(frame, detections):
     return frame
 
 
-def draw_overlay(frame, status, description, spatial_summary, vlm_ok=False, llm_ok=False):
+def draw_overlay(frame, status: str, description: str, spatial_summary: str, vlm_ok: bool = False, llm_ok: bool = False, timeline: list = [], is_listening: bool = False) -> object:
+    """
+    Draws the UI overlay including status, spatial summary, and AI health indicators.
+    
+    Args:
+        frame: The OpenCV image frame.
+        status: Current system status string (e.g., 'RUNNING', 'PAUSED').
+        description: Current scene description or alert message.
+        spatial_summary: Summary of tracked objects in spatial context.
+        vlm_ok: Health status of the VLM engine.
+        llm_ok: Health status of the LLM engine.
+        
+    Returns:
+        The image frame with overlay drawn.
+    """
     h, w, _ = frame.shape
+    import time
+    t = time.time()
     
-    # Status bar
-    cv2.rectangle(frame, (0, 0), (w, 40), (0, 0, 0), -1)
-    cv2.putText(frame, f"STATUS: {status}", (10, 28),
-               cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+    # 1. TOP STATUS BAR (Glassmorphism effect)
+    cv2.rectangle(frame, (0, 0), (w, 50), (15, 15, 15), -1)
+    status_color = (0, 255, 0) if status == "RUNNING" else (0, 165, 255)
+    if is_listening: status_color = (0, 255, 255) # Cyan for listening
     
-    # AI HEALTH INDICATORS (Status Dots)
-    # VLM Indicator
-    vlm_color = (0, 255, 0) if vlm_ok else (0, 0, 255)
-    cv2.circle(frame, (w-40, 20), 8, vlm_color, -1)
-    cv2.putText(frame, "VLM", (w-90, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 1)
+    cv2.putText(frame, f"WALKSENSE OS // {status}", (20, 35),
+               cv2.FONT_HERSHEY_DUPLEX, 0.7, status_color, 1)
+    
+    # 3. AI HEALTH (Right-aligned)
+    vlm_c = (0, 255, 0) if vlm_ok else (0, 0, 255)
+    cv2.circle(frame, (w-40, 25), 6, vlm_c, -1)
+    cv2.putText(frame, "VLM", (w-85, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (200, 200, 200), 1)
 
-    # LLM Indicator
-    llm_color = (0, 255, 0) if llm_ok else (0, 0, 255)
-    cv2.circle(frame, (w-130, 20), 8, llm_color, -1)
-    cv2.putText(frame, "LLM", (w-180, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 1)
+    llm_c = (0, 255, 0) if llm_ok else (0, 0, 255)
+    cv2.circle(frame, (w-120, 25), 6, llm_c, -1)
+    cv2.putText(frame, "LLM", (w-165, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (200, 200, 200), 1)
     
-    # Spatial summary (NEW)
-    cv2.rectangle(frame, (0, 40), (w, 75), (40, 40, 40), -1)
-    cv2.putText(frame, f"Tracking: {spatial_summary}", (10, 63),
-               cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 0), 1)
+    # 4. DIALOGUE TIMELINE (Left Floating Panel)
+    if timeline:
+        start_y = 120
+        panel_h = len(timeline[-3:]) * 40 + 20
+        overlay = frame.copy()
+        cv2.rectangle(overlay, (15, start_y - 30), (int(w*0.45), start_y + panel_h - 30), (30, 30, 30), -1)
+        cv2.addWeighted(overlay, 0.5, frame, 0.5, 0, frame)
+        
+        for entry in timeline[-3:]:
+            prefix = entry.split(":")[0]
+            color = (0, 255, 255) if "USER" in prefix else (100, 255, 100)
+            cv2.circle(frame, (35, start_y - 5), 4, color, -1)
+            cv2.putText(frame, entry, (50, start_y),
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 1)
+            start_y += 40
+
+    # 5. JARVIS CORE (Bottom Right)
+    import math
+    core_x, core_y = w - 100, h - 100
+    pulse = (math.sin(t * 6) + 1) / 2
+    inner_r = 15 + int(pulse * 10)
+    outer_r = 35 + int(pulse * 5)
     
-    # Description + Controls
-    cv2.rectangle(frame, (0, h - 90), (w, h), (0, 0, 0), -1)
-    cv2.putText(frame, f"Description: {description}", (10, h - 35),
-               cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 255), 2)
-    cv2.putText(frame, "S: START | L: ASK QUESTION | M: MUTE | Q: QUIT",
-               (10, h - 65), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (200, 200, 200), 1)
+    core_color = (0, 255, 255) if is_listening else (255, 150, 0) 
+    if "ALERT" in description.upper(): core_color = (0, 0, 255)
+    
+    cv2.circle(frame, (core_x, core_y), outer_r, core_color, 1)
+    cv2.circle(frame, (core_x, core_y), inner_r, core_color, -1)
+    
+    angle = (t * 150) % 360
+    cv2.ellipse(frame, (core_x, core_y), (45, 45), 0, angle, angle + 60, core_color, 2)
+    cv2.ellipse(frame, (core_x, core_y), (45, 45), 0, angle + 180, angle + 240, core_color, 2)
+    
+    if is_listening:
+        cv2.putText(frame, "LISTENING", (core_x - 35, core_y + 60), cv2.FONT_HERSHEY_SIMPLEX, 0.5, core_color, 1)
+    
+    # 6. BOTTOM DESCRIPTION PANEL
+    cv2.rectangle(frame, (0, h - 60), (w, h), (10, 10, 10), -1)
+    cv2.putText(frame, f"SCENE :: {description}", (20, h - 25),
+               cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 255), 1)
+    
+    cv2.putText(frame, f"SPATIAL SENSE: {spatial_summary}", (20, h - 45),
+               cv2.FONT_HERSHEY_SIMPLEX, 0.4, (180, 180, 180), 1)
     
     return frame
 
@@ -94,7 +164,14 @@ def draw_overlay(frame, status, description, spatial_summary, vlm_ok=False, llm_
 # =========================================================
 
 class QwenWorker:
-    def __init__(self, qwen_instance):
+    """
+    Asynchronous worker for handling VLM scene description requests.
+    Prevents blocking the main UI/capture thread during slow VLM inference.
+    """
+    def __init__(self, qwen_instance: object):
+        """
+        Initializes the worker with a QwenVLM instance.
+        """
         self.qwen = qwen_instance
         self.input_queue = queue.Queue(maxsize=1)
         self.output_queue = queue.Queue()
@@ -103,7 +180,10 @@ class QwenWorker:
         self.thread.start()
         self.is_busy = False
         
-    def _run(self):
+    def _run(self) -> None:
+        """
+        Internal worker loop that listens for input frames and triggers VLM inference.
+        """
         while self.running:
             try:
                 item = self.input_queue.get(timeout=0.1)
@@ -123,19 +203,38 @@ class QwenWorker:
             except queue.Empty:
                 continue
                 
-    def process(self, frame, context_str):
+    def process(self, frame, context_str: str) -> bool:
+        """
+        Submits a frame and context for processing if the worker is not busy.
+        
+        Args:
+            frame: The image frame to process.
+            context_str: String containing detection labels and user query.
+            
+        Returns:
+            True if the task was submitted, False if worker was busy or queue full.
+        """
         if not self.is_busy and self.input_queue.empty():
             self.input_queue.put((frame.copy(), context_str))
             return True
         return False
         
-    def get_result(self):
+    def get_result(self) -> tuple[str, float] | None:
+        """
+        Retrieves the latest result from the output queue if available.
+        
+        Returns:
+            A tuple containing (description, duration) or None if no result is ready.
+        """
         try:
             return self.output_queue.get_nowait()
         except queue.Empty:
             return None
             
-    def stop(self):
+    def stop(self) -> None:
+        """
+        Signals the worker thread to stop.
+        """
         self.running = False
 
 
@@ -143,9 +242,13 @@ class QwenWorker:
 # MAIN
 # =========================================================
 
-def main():
+def main() -> None:
+    """
+    Main execution loop for WalkSense Enhanced.
+    Initializes hardware, model engines, and enters the real-time processing loop.
+    """
     # Load central configuration
-    from utils.config_loader import Config
+    from infrastructure.config import Config
     
     # 🟢 Camera Configuration
     CAMERA_SOURCE = Config.get("camera.source", 0)
@@ -177,7 +280,7 @@ def main():
     tts = TTSEngine()
     
     # Enhanced Fusion Engine with LLM
-    print("[INIT] Creating Enhanced Fusion Engine...")
+    logger.info("Creating Enhanced Fusion Engine...")
     fusion = FusionEngine(
         tts, 
         llm_backend=LLM_PROVIDER, 
@@ -188,7 +291,7 @@ def main():
     # Interaction Layer
     listener = ListeningLayer(None, fusion)
     
-    print("[INIT] Loading Qwen VLM...")
+    logger.info("Loading Qwen VLM...")
     qwen = QwenVLM(
         backend=VLM_PROVIDER,
         model_id=VLM_MODEL,
@@ -206,34 +309,49 @@ def main():
     llm_response = ""
     llm_response_timer = 0
     is_listening = False
+    dialogue_history = []  # Stores last few interactions
 
     cv2.namedWindow("WalkSense Enhanced", cv2.WINDOW_NORMAL)
     cv2.resizeWindow("WalkSense Enhanced", WINDOW_WIDTH, WINDOW_HEIGHT)
     
 
     # Threaded Listener Wrapper
-    def threaded_listen():
+    def threaded_listen() -> None:
+        """
+        Runs the speech-to-text listener in a separate thread to avoid UI lag.
+        Updates shared 'current_user_query' upon successful recognition.
+        """
         nonlocal current_user_query, is_listening
         is_listening = True
-        print("[WalkSense] Listening thread started...")
+        # 🔴 STOP TTS IMMEDIATELY to prevent interference
+        tts.stop()
+        
+        logger.info("Listening thread started...")
+        tracker.start_timer("stt")
         query = listener.stt.listen_once()
+        tracker.stop_timer("stt")
         if query:
-            print(f"[WalkSense] User asked: {query}")
+            logger.info(f"USER: {query}")
             current_user_query = query
+            dialogue_history.append(f"USER: {query}")
             fusion.handle_user_query(query)
         is_listening = False
 
     for frame in camera.stream():
         current_time = time.time()
+        tracker.start_timer("frame_total")
         
         # YOLO Detection
+        tracker.start_timer("yolo")
         detections = detector.detect(frame)
+        tracker.stop_timer("yolo")
         frame = draw_detections(frame, detections)
         
         # 🔴 SAFETY LAYER
         safety_result = safety.evaluate(detections)
         if safety_result:
             alert_type, message = safety_result
+            logger.warning(f"Safety Alert: {message}")
             fusion.handle_safety_alert(message, alert_type)
             description = f"ALERT: {message}"
         
@@ -249,22 +367,18 @@ def main():
             result = qwen_worker.get_result()
             if result:
                 new_desc, duration = result
-                print(f"[WalkSense] VLM: {new_desc} ({duration:.1f}s)")
+                logger.info(f"VLM Description: {new_desc}")
                 description = new_desc
                 
-                # Retrieve LLM answer if one was generated during this cycle
-                # We need to ask FusionEngine if it has a pending answer
-                # (Ideally FusionEngine returns it, or we intercept it via a callback)
-                # For now, we'll check if we had a query pending
                 if current_user_query:
-                    # Trigger LLM explicitly here if Fusion doesn't auto-return
-                    # But Fusion.handle_vlm_description calls LLM internally if query exists
+                    tracker.start_timer("llm_reasoning")
                     answer = fusion.handle_vlm_description(new_desc)
+                    tracker.stop_timer("llm_reasoning")
                     if answer:
                         llm_response = f"AI: {answer}"
                         llm_response_timer = time.time() + 10 # Show for 10s
-                        print(f"[WalkSense] LLM Answer: {answer}")
-                        # Clear query now that it's answered
+                        dialogue_history.append(f"AI: {answer}")
+                        logger.info(f"LLM Answer: {answer}")
                         current_user_query = None
                 else:
                     fusion.handle_scene_description(new_desc)
@@ -294,20 +408,22 @@ def main():
         status = "RUNNING" if started else "PAUSED"
         if is_listening: status = "LISTENING..."
         
-        # Show LLM text if fresh
-        display_desc = description
-        if time.time() < llm_response_timer:
-            # Override description or append? Let's draw it distinctly
-            cv2.rectangle(frame, (0, frame.shape[0]-130), (frame.shape[1], frame.shape[0]-90), (50, 50, 0), -1)
-            cv2.putText(frame, llm_response, (10, frame.shape[0]-105), 
-                       cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
-        
-        # Periodic Health check
         vlm_ok = True
         llm_ok = (sampler.counter % 30 != 0) or fusion.llm.check_health()
         
         spatial_summary = fusion.get_spatial_summary()
-        frame = draw_overlay(frame, status, display_desc, spatial_summary, vlm_ok, llm_ok)
+        frame = draw_overlay(
+            frame, status, description, spatial_summary, 
+            vlm_ok, llm_ok, 
+            timeline=dialogue_history,
+            is_listening=is_listening
+        )
+        
+        tracker.stop_timer("frame_total")
+        
+        # Occasional Performance Print
+        if sampler.counter % 100 == 0 and sampler.counter > 0:
+            logger.info(f"Performance Stats: {tracker.get_summary()}")
         
         cv2.imshow("WalkSense Enhanced", frame)
         key = cv2.waitKey(1) & 0xFF
@@ -316,7 +432,7 @@ def main():
         if key in (ord('s'), ord('S')):
             started = not started
             state = "Started" if started else "Paused"
-            print(f"[WalkSense] System {state}")
+            logger.info(f"System {state}")
             tts.speak(f"System {state}")
 
         elif key in (ord('l'), ord('L')):
@@ -325,16 +441,18 @@ def main():
 
         elif key in (ord('k'), ord('K')):
             # HARDCODED TEST QUERY
-            print("[WalkSense] Injecting Hardcoded Query...")
+            logger.info("Injecting Hardcoded Query...")
             current_user_query = "What obstacles are in front of me?"
             fusion.handle_user_query(current_user_query)
             tts.speak("Analyzing obstacles")
 
         elif key in (ord('m'), ord('M')):
             is_muted = fusion.router.toggle_mute()
-            print(f"[WalkSense] Muted: {is_muted}")
+            logger.info(f"Muted: {is_muted}")
 
         elif key in (ord('q'), ord('Q')):
+            logger.info("Quitting system...")
+            tracker.plot_metrics()
             break
     
     qwen_worker.stop()
