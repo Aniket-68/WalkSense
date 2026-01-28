@@ -7,7 +7,8 @@ class YoloDetector:
         self.model = YOLO(model_path)
 
     def detect(self, frame):
-        results = self.model(frame, verbose=False)
+        """Detect objects in the frame using YOLO model"""
+        results = self.model.predict(frame,verbose=False)
         detections = []
 
         for r in results:
