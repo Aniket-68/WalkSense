@@ -1,13 +1,41 @@
+"""Fusion Layer: Central orchestration for WalkSense AI system."""
+
+from typing import Optional, List, Dict, Any
 from perception_layer.alerts import AlertEvent
 from fusion_layer.state import RuntimeState
 from fusion_layer.router import DecisionRouter
 from reasoning_layer.llm import LLMReasoner
 from fusion_layer.context import SpatialContextManager
 
+
 class FusionEngine:
-    def __init__(self, tts_engine, llm_backend="lm_studio", llm_url="http://localhost:1234/v1", llm_model="qwen/qwen3-vl-4b"):
-        """
-        Orchestration layer that handles Safety, Reasoning, and Interaction.
+    """Central coordinator for perception, reasoning, and interaction subsystems.
+    
+    The FusionEngine orchestrates the flow of information between:
+    - Perception Layer (object detection, safety alerts)
+    - Reasoning Layer (VLM scene description, LLM query answering)
+    - Interaction Layer (TTS, haptics)
+    
+    Attributes:
+        router: DecisionRouter for alert prioritization and routing
+        runtime: RuntimeState for managing alert cooldowns
+        llm: LLMReasoner for contextual query answering
+        spatial: SpatialContextManager for object tracking
+        pending_query: Current user query awaiting VLM response
+    """
+    
+    def __init__(self, 
+                 tts_engine: Any,
+                 llm_backend: str = "lm_studio",
+                 llm_url: str = "http://localhost:1234/v1",
+                 llm_model: str = "qwen/qwen3-vl-4b") -> None:
+        """Initialize fusion engine with TTS and LLM configuration.
+        
+        Args:
+            tts_engine: TTSEngine instance for audio output
+            llm_backend: LLM provider ('lm_studio', 'ollama', 'openai')
+            llm_url: API endpoint URL for LLM backend
+            llm_model: Model identifier for LLM
         """
         self.router = DecisionRouter(tts_engine)
         self.runtime = RuntimeState()
@@ -19,16 +47,39 @@ class FusionEngine:
         # State for query handling
         self.pending_query = None
 
-    def handle_safety_alert(self, message, alert_type="CRITICAL_ALERT"):
-        """Handle immediate physical hazards"""
+    def handle_safety_alert(self, message: str, alert_type: str = "CRITICAL_ALERT") -> None:
+        """Process and route immediate safety hazards.
+        
+        Args:
+            message: Human-readable alert description
+            alert_type: Severity level ('CRITICAL_ALERT', 'WARNING', 'INFO')
+            
+        Note:
+            Alerts are subject to cooldown periods managed by RuntimeState
+            to prevent spam. CRITICAL_ALERT typically overrides mute.
+        """
         event = AlertEvent(alert_type, message)
         
         # Only emit if it passes the system-level cooldown (RuntimeState)
         if self.runtime.should_emit(event.type, message):
             self.router.route(event)
 
-    def update_spatial_context(self, detections, timestamp, frame_width=1280):
-        """Update tracking and spatial memory"""
+    def update_spatial_context(self, 
+                                detections: List[Dict[str, Any]], 
+                                timestamp: float, 
+                                frame_width: int = 1280) -> None:
+        """Update object tracking and spatial-temporal awareness.
+        
+        Args:
+            detections: List of detection dicts from YoloDetector
+            timestamp: Current Unix timestamp
+            frame_width: Frame width in pixels for direction calculation
+            
+        Side Effects:
+            - Updates spatial context manager's object tracking
+            - Generates proximity warnings for close objects
+            - Routes warnings through DecisionRouter
+        """
         events = self.spatial.update(detections, timestamp, frame_width)
         
         # If any new/moved objects are 'Close', tell the router
@@ -37,14 +88,32 @@ class FusionEngine:
                 msg = f"{event['label']} {event['distance']} to your {event['direction']}"
                 self.router.route(AlertEvent("WARNING", msg))
 
-    def get_spatial_summary(self):
-        """Brief text for the UI overlay"""
+    def get_spatial_summary(self) -> str:
+        """Get concise spatial state summary for UI display.
+        
+        Returns:
+            Comma-separated string of tracked objects with directions
+            (e.g., 'person left, chair center')
+        """
         return self.spatial.get_summary()
 
-    def handle_vlm_description(self, text):
-        """
-        Receives scene understanding from VLM (Qwen).
-        Decides if this should be spoken or used to answer a query.
+    def handle_vlm_description(self, text: str) -> str:
+        """Process VLM scene description and generate response.
+        
+        Decides whether to:
+        - Answer pending user query (if exists)
+        - Provide passive scene description (normal mode)
+        
+        Args:
+            text: Scene description from Vision-Language Model
+            
+        Returns:
+            LLM-generated answer (if query pending) or original description
+            
+        Side Effects:
+            - Clears pending_query if answered
+            - Updates spatial scene memory
+            - Routes response through DecisionRouter
         """
         # Save to memory
         self.spatial.add_scene_description(text)
@@ -60,14 +129,26 @@ class FusionEngine:
             self.router.route(event)
             return text
 
-    def handle_scene_description(self, text):
-        """Compatibility wrapper"""
+    def handle_scene_description(self, text: str) -> None:
+        """Compatibility wrapper for handle_vlm_description.
+        
+        Args:
+            text: Scene description text
+        """
         self.handle_vlm_description(text)
 
-    def handle_user_query(self, query):
-        """
-        User asked a question. 
-        We acknowledge it, then wait for the next VLM frame to answer accurately.
+    def handle_user_query(self, query: str) -> None:
+        """Process user voice query and prepare for VLM-grounded answer.
+        
+        Sets query as pending and sends immediate acknowledgment.
+        The actual answer is generated when the next VLM description arrives.
+        
+        Args:
+            query: Transcribed user question from STT
+            
+        Side Effects:
+            - Sets self.pending_query
+            - Sends acknowledgment through TTS ('Checking on: ...')
         """
         self.pending_query = query
         
@@ -75,8 +156,27 @@ class FusionEngine:
         ack_event = AlertEvent("RESPONSE", f"Checking on: {query}")
         self.router.route(ack_event)
 
-    def _generate_llm_answer(self, query, vlm_desc):
-        """Internal: Use LLM to fuse spatial context and VLM and solve user query"""
+    def _generate_llm_answer(self, query: str, vlm_desc: str) -> str:
+        """Generate query response using LLM with visual and spatial grounding.
+        
+        Combines:
+        - User query
+        - VLM scene description 
+        - Spatial context (object tracking, recent events)
+        
+        Includes factual grounding check to prevent hallucination.
+        
+        Args:
+            query: User's question
+            vlm_desc: Current VLM scene description
+            
+        Returns:
+            Natural language answer grounded in visual evidence
+            
+        Note:
+            If numeric mismatch detected between query and VLM,
+            overrides LLM response with correction.
+        """
         spatial_ctx = self.spatial.get_context_for_llm()
         
         # Use LLM to reason over everything
@@ -107,7 +207,11 @@ class FusionEngine:
         self.router.route(AlertEvent("RESPONSE", answer))
         return answer
 
-    def handle_user_query_response(self, text):
-        """Manual override or fallback for query response"""
+    def handle_user_query_response(self, text: str) -> None:
+        """Manually inject query response (override or fallback).
+        
+        Args:
+            text: Response text to speak
+        """
         event = AlertEvent("RESPONSE", text)
         self.router.route(event)

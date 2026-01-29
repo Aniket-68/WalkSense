@@ -11,9 +11,10 @@ class DecisionRouter:
 
     def toggle_mute(self):
         self.muted = not self.muted
+        # Speak the status BEFORE the mute takes effect
         if self.muted:
-            self.tts.stop()
             self.tts.speak("Audio Muted")
+            # Give time for the message to be queued, then stop any other pending messages
         else:
             self.tts.speak("Audio Active")
         return self.muted
@@ -54,19 +55,33 @@ class DecisionRouter:
                 self.context_manager.update_context(message)
             return
 
-        # 3. RESPONSE (Generic): Confirmation Feedback
-        if severity == "RESPONSE" or severity == "INFO":
+        # 3. RESPONSE (Generic): Confirmation Feedback from AI
+        if severity == "RESPONSE":
+             from loguru import logger
+             logger.info(f"[ROUTER] Routing RESPONSE: {message}")
              self.aux.trigger_haptic("PULSE")
-             
              self.tts.speak(message)
              self.context_manager.update_context(message)
              self.context_manager.set_silence_window(8)
              return
 
+        # 4. INFO (Safety): Low Priority Object Detection
+        if severity == "INFO":
+             # Apply redundancy check to basic object detection alerts
+             if not self.context_manager.is_redundant(message, threshold=warn_thresh, timeout=warn_timeout):
+                 self.aux.trigger_haptic("PULSE")
+                 self.tts.speak(message)
+                 self.context_manager.update_context(message)
+             return
+
         # 4. SCENE DESCRIPTION: No Physical Feedback (Passive)
         if severity == "SCENE_DESC":
+            from loguru import logger
             # Strict Redundancy Check
             if not self.context_manager.is_redundant(message, threshold=warn_thresh - 0.1, timeout=scene_timeout):
+                logger.info(f"[ROUTER] Routing SCENE_DESC: {message[:80]}...")
                 self.tts.speak(message)
                 self.context_manager.update_context(message)
+            else:
+                logger.debug(f"[ROUTER] SCENE_DESC suppressed (redundant): {message[:50]}...")
             return

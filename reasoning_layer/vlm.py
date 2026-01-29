@@ -194,7 +194,7 @@ class QwenVLM:
         with torch.no_grad():
             generated_ids = self.model.generate(
                 **inputs,
-                max_new_tokens=128,
+                max_new_tokens=64,
                 do_sample=False
             )
         

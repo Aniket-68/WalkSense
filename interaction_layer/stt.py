@@ -31,10 +31,15 @@ class STTListener:
             logger.error(f"Failed to init mic {self.device_index}: {e}")
             self.mic = sr.Microphone() # Fallback
 
+        # Pre-load model to prevent lag on first query
+        self._preload_model()
+
+        from infrastructure.config import Config
+        self.config = Config
+        
     def listen_once(self, timeout=None):
         from infrastructure.config import Config
-        
-        provider = Config.get("stt.active_provider", "google")
+        provider = Config.get("stt.active_provider", "whisper_local")
         config_path = f"stt.providers.{provider}"
         
         if timeout is None:
@@ -44,8 +49,9 @@ class STTListener:
 
         try:
             with self.mic as source:
-                logger.debug(f"Calibrating for environment noise ({self.cal_duration}s)...")
-                self.recognizer.adjust_for_ambient_noise(source, duration=self.cal_duration)
+                # Reduce calibration to 0.5s for faster response
+                logger.debug(f"Calibrating for environment noise (0.5s)...")
+                self.recognizer.adjust_for_ambient_noise(source, duration=0.5)
                 
                 # Apply config settings
                 self.recognizer.energy_threshold = self.energy_thresh
@@ -53,8 +59,9 @@ class STTListener:
                 self.recognizer.pause_threshold = self.pause_thresh
                 self.recognizer.non_speaking_duration = 0.5
                 
-                logger.info(f"LISTENING NOW ({provider}). SPEAK IN HINDI OR ENGLISH.")
-                audio = self.recognizer.listen(source, timeout=timeout, phrase_time_limit=limit)
+                logger.info(f"LISTENING NOW ({provider}). SPEAK...")
+                # Reduce timeout to fail fast if silence. Increase phrase_time_limit for long queries.
+                audio = self.recognizer.listen(source, timeout=5, phrase_time_limit=10)
                 logger.info("Recording finished. Transcribing...")
             
             # Route to appropriate recognition method
@@ -85,18 +92,26 @@ class STTListener:
                     text, lang_info = self._recognize_faster_whisper(
                         audio,
                         model_size=Config.get(f"{config_path}.model_size", "base"),
-                        device=Config.get(f"{config_path}.device", "cpu"),
+                        device=Config.get(f"{config_path}.device", "cuda"),
+                        compute_type=Config.get(f"{config_path}.compute_type", "int8"),
                         language=Config.get(f"{config_path}.language", "en")
                     )
                     detailed_info = lang_info
-                except ImportError:
+                except Exception as e:
                     # Fallback to OpenAI's whisper
-                    text = self._recognize_openai_whisper(
-                        audio,
-                        model_size=Config.get(f"{config_path}.model_size", "base"),
-                        language=Config.get(f"{config_path}.language", "en")
-                    )
-                    detailed_info = lang_info
+                    logger.warning(f"[STT] Faster-Whisper failed ({e}). Falling back to OpenAI Whisper.")
+                    try:
+                        text, lang_info = self._recognize_openai_whisper(
+                            audio,
+                            model_size=Config.get(f"{config_path}.model_size", "base"),
+                            language=Config.get(f"{config_path}.language", "en")
+                        )
+                        detailed_info = lang_info
+                    except Exception as e_openai:
+                        logger.error(f"[STT] OpenAI Whisper failed ({e_openai}). Fallback to Google.")
+                        # Ultimate Fallback: Google
+                        text = self.recognizer.recognize_google(audio)
+                        detailed_info = "Google (Fallback)"
             
             else:
                 print(f"[STT ERROR] Unknown provider: {provider}")
@@ -116,7 +131,44 @@ class STTListener:
             print(f"[STT ERROR] {e}")
             return None
     
-    def _recognize_faster_whisper(self, audio, model_size="base", device="cpu", language="en"):
+            return None
+    
+    def _preload_model(self):
+        """Pre-load and cache the model during initialization"""
+        try:
+            provider = self.config.get("stt.active_provider", "whisper_local")
+            if provider == "whisper_local":
+                path = "stt.providers.whisper_local"
+                size = self.config.get(f"{path}.model_size", "base")
+                dev = self.config.get(f"{path}.device", "cuda")
+                ctype = self.config.get(f"{path}.compute_type", "int8")
+                
+                logger.info(f"[STT] Pre-loading model '{size}' on {dev}...")
+                
+                # Check priority: Faster-Whisper -> OpenAI Whisper
+                project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+                model_dir = os.path.join(project_root, "models", "whisper")
+                
+                try:
+                    from faster_whisper import WhisperModel
+                    self._whisper_model = WhisperModel(size, device=dev, compute_type=ctype, download_root=model_dir)
+                    self._whisper_model_size = size
+                    self._backend = "faster_whisper"
+                    logger.info("[STT] Faster-Whisper Loaded Successfully")
+                except Exception as e:
+                    logger.warning(f"[STT] Faster-Whisper failed ({e}). Falling back to OpenAI Whisper.")
+                    import whisper
+                    
+                    # Ensure we use the local file if it exists
+                    # OpenAI Whisper expects download_root to contain the .pt file
+                    self._whisper_model = whisper.load_model(size, download_root=model_dir)
+                    self._whisper_model_size = size
+                    self._backend = "openai_whisper"
+                    
+        except Exception as e:
+            logger.error(f"[STT] Pre-loading failed: {e}")
+
+    def _recognize_faster_whisper(self, audio, model_size="base", device="cpu", compute_type="int8", language="en"):
         """Use faster-whisper for local transcription (recommended)"""
         from faster_whisper import WhisperModel
         import io
@@ -126,14 +178,21 @@ class STTListener:
         wav_data = io.BytesIO(audio.get_wav_data())
         
         # Load model (cached after first use)
+        
+        # Load model (if not pre-loaded or size changed)
         if not hasattr(self, '_whisper_model') or self._whisper_model_size != model_size:
-            logger.info(f"Loading faster-whisper model: {model_size} into models/whisper")
+            # Re-load using helper logic (simplified here for brevity, usually calls _preload)
+            self._whisper_model_size = model_size
              # Use the local models directory
             project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             model_dir = os.path.join(project_root, "models", "whisper")
-            compute_type = "float16" if device == "cuda" else "int8"
-            self._whisper_model = WhisperModel(model_size, device=device, compute_type=compute_type, download_root=model_dir)
-            self._whisper_model_size = model_size
+            # Use provided compute_type or default logic
+            try:
+                self._whisper_model = WhisperModel(model_size, device=device, compute_type=compute_type, download_root=model_dir)
+            except Exception:
+                # If int8/cuda fails, fallback to cpu/int8 or float32
+                logger.warning("STT: GPU/Int8 failed, falling back to CPU")
+                self._whisper_model = WhisperModel(model_size, device="cpu", compute_type="int8", download_root=model_dir)
         
         # Transcribe
         segments, info = self._whisper_model.transcribe(wav_data, language=language)
@@ -149,13 +208,19 @@ class STTListener:
         import tempfile
         
         # Load model (cached)
-        if not hasattr(self, '_whisper_model') or self._whisper_model_size != model_size:
+        if (not hasattr(self, '_whisper_model') or 
+            self._whisper_model_size != model_size or 
+            getattr(self, '_backend', '') != "openai_whisper"):
+            
             print(f"[STT] Loading whisper model: {model_size} from models/whisper")
             # Use the local models directory
             project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             model_dir = os.path.join(project_root, "models", "whisper")
+            
+            import whisper
             self._whisper_model = whisper.load_model(model_size, download_root=model_dir)
             self._whisper_model_size = model_size
+            self._backend = "openai_whisper"
         
         # Save audio to temp file
         with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as f:
@@ -163,13 +228,29 @@ class STTListener:
             temp_path = f.name
         
         try:
-            result = self._whisper_model.transcribe(temp_path, language=language)
-            text = result["text"].strip()
-            lang_info = f"Detected: {result.get('language', 'unknown')}"
+            # Explicitly cast to FP32 if needed to avoid FP16 warnings on CPU
+            result = self._whisper_model.transcribe(temp_path, language=language, fp16=False)
+            
+            logger.info(f"[STT DEBUG] Whisper Result Type: {type(result)}")
+            if hasattr(result, "keys"):
+                logger.info(f"[STT DEBUG] Keys: {result.keys()}")
+            else:
+                logger.info(f"[STT DEBUG] Result: {result}")
+
+            # Handel Dict vs Object vs Tuple
+            if isinstance(result, dict):
+                text = result["text"].strip()
+                lang_info = f"Detected: {result.get('language', 'unknown')}"
+            else:
+                # If it returns a tuple (unlikely for openai-whisper but possible if version mixup)
+                logger.warning(f"[STT] Unexpected result type: {type(result)}")
+                text = str(result)
+                lang_info = "Unknown"
+
             return text, lang_info
         finally:
-            import os
-            os.unlink(temp_path)
+            if os.path.exists(temp_path):
+                os.unlink(temp_path)
 
 
 class ListeningLayer:

@@ -76,7 +76,7 @@ def draw_detections(frame, detections: list[dict]) -> object:
     return frame
 
 
-def draw_overlay(frame, status: str, description: str, spatial_summary: str, vlm_ok: bool = False, llm_ok: bool = False, timeline: list = [], is_listening: bool = False) -> object:
+def draw_overlay(frame, status: str, description: str, spatial_summary: str, vlm_ok: bool = False, llm_ok: bool = False, timeline: list = [], is_listening: bool = False, current_query: str = None) -> object:
     """
     Draws the UI overlay including status, spatial summary, and AI health indicators.
     
@@ -146,12 +146,31 @@ def draw_overlay(frame, status: str, description: str, spatial_summary: str, vlm
     cv2.ellipse(frame, (core_x, core_y), (45, 45), 0, angle + 180, angle + 240, core_color, 2)
     
     if is_listening:
-        cv2.putText(frame, "LISTENING", (core_x - 35, core_y + 60), cv2.FONT_HERSHEY_SIMPLEX, 0.5, core_color, 1)
-    
+        cv2.putText(frame, "LISTENING...", (w//2 - 100, h//2), cv2.FONT_HERSHEY_DUPLEX, 1.5, (0, 255, 255), 2)
+        
+    # NEW: Show Pending Query Prominently (Unitl fulfilled)
+    if current_query:
+        # Draw a highlight box
+        qh, qw = 50, 800
+        qx, qy = (w - qw)//2, h - 140
+        # Semi-transparent background
+        overlay = frame.copy()
+        cv2.rectangle(overlay, (qx, qy), (qx + qw, qy + qh), (0, 0, 0), -1)
+        cv2.addWeighted(overlay, 0.7, frame, 0.3, 0, frame)
+        
+        cv2.rectangle(frame, (qx, qy), (qx + qw, qy + qh), (0, 255, 255), 2)
+        
+        cv2.putText(frame, f"Query: {current_query}", (qx + 20, qy + 35), 
+                   cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+
     # 6. BOTTOM DESCRIPTION PANEL
     cv2.rectangle(frame, (0, h - 60), (w, h), (10, 10, 10), -1)
-    cv2.putText(frame, f"SCENE :: {description}", (20, h - 25),
-               cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 255), 1)
+    
+    # Use Green color if it's an AI response
+    text_color = (100, 255, 100) if "AI:" in description else (255, 255, 255)
+    
+    cv2.putText(frame, f"WalkSense :: {description}", (20, h - 25),
+               cv2.FONT_HERSHEY_SIMPLEX, 0.55, text_color, 1)
     
     cv2.putText(frame, f"SPATIAL SENSE: {spatial_summary}", (20, h - 45),
                cv2.FONT_HERSHEY_SIMPLEX, 0.4, (180, 180, 180), 1)
@@ -326,16 +345,39 @@ def main() -> None:
         # 🔴 STOP TTS IMMEDIATELY to prevent interference
         tts.stop()
         
-        logger.info("Listening thread started...")
-        tracker.start_timer("stt")
-        query = listener.stt.listen_once()
-        tracker.stop_timer("stt")
-        if query:
-            logger.info(f"USER: {query}")
-            current_user_query = query
-            dialogue_history.append(f"USER: {query}")
-            fusion.handle_user_query(query)
+        max_retries = 2
+        for attempt in range(max_retries):
+            # PROMPT USER
+            if attempt == 0:
+                tts.speak("What do you want to know?")
+            else:
+                tts.speak("I didn't hear you. What do you want to know?")
+                
+            update_status("ASKING...")
+            time.sleep(1.8) # Wait for TTS to finish roughly
+            
+            logger.info(f"Listening thread started (Attempt {attempt+1})...")
+            tracker.start_timer("stt")
+            query = listener.stt.listen_once()
+            tracker.stop_timer("stt")
+            
+            if query:
+                print(f"\n[USER QUERY] >>> {query} <<<\n")
+                logger.info(f"USER: {query}")
+                current_user_query = query
+                dialogue_history.append(f"USER: {query}")
+                fusion.handle_user_query(query)
+                break # Success
+            
+            # If query is None (Timeout), loop continues
+        
         is_listening = False
+    
+    # Helper to update status in the thread if needed (requires thread safety but variables are simple)
+    def update_status(msg):
+        nonlocal description
+        # description = msg # Optional: don't override scene desc
+        pass
 
     for frame in camera.stream():
         current_time = time.time()
@@ -345,6 +387,10 @@ def main() -> None:
         tracker.start_timer("yolo")
         detections = detector.detect(frame)
         tracker.stop_timer("yolo")
+        
+        # Keep clean frame for VLM/Scene detection
+        clean_frame = frame.copy()
+        
         frame = draw_detections(frame, detections)
         
         # 🔴 SAFETY LAYER
@@ -379,6 +425,10 @@ def main() -> None:
                         llm_response_timer = time.time() + 10 # Show for 10s
                         dialogue_history.append(f"AI: {answer}")
                         logger.info(f"LLM Answer: {answer}")
+                        
+                        # TTS is already handled by the router when routing the RESPONSE event
+                        # No need to call tts.speak() here as it would be redundant
+                        
                         current_user_query = None
                 else:
                     fusion.handle_scene_description(new_desc)
@@ -390,7 +440,7 @@ def main() -> None:
             
             if has_query:
                 should_run_qwen = True # Priority
-            elif time_to_sample and scene_detector.has_changed(frame):
+            elif time_to_sample and scene_detector.has_changed(clean_frame):
                 should_run_qwen = True
             
             if should_run_qwen:
@@ -399,7 +449,7 @@ def main() -> None:
                     context_str += f". USER QUESTION: {current_user_query}"
                 
                 # Send to worker (non-blocking)
-                if qwen_worker.process(frame, context_str):
+                if qwen_worker.process(clean_frame, context_str):
                     status_text = "Reasoning..." if has_query else "Scanning..."
                     cv2.putText(frame, status_text, (frame.shape[1]-150, 60),
                               cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
@@ -408,15 +458,26 @@ def main() -> None:
         status = "RUNNING" if started else "PAUSED"
         if is_listening: status = "LISTENING..."
         
+        # Check if we are in the 'prompting' phase (heuristically, if is_listening but mic not open yet/during sleep)
+        # Actually, let's just rely on LISTENING... for now, or add a shared variable.
+        # But for simplicity, let the user see 'LISTENING...' while the AI asks. 
+        # It serves as a 'Attention' signal.
+        
         vlm_ok = True
         llm_ok = (sampler.counter % 30 != 0) or fusion.llm.check_health()
         
+        # Override description with LLM response if active
+        display_text = description
+        if time.time() < llm_response_timer and llm_response:
+             display_text = llm_response
+
         spatial_summary = fusion.get_spatial_summary()
         frame = draw_overlay(
-            frame, status, description, spatial_summary, 
+            frame, status, display_text, spatial_summary, 
             vlm_ok, llm_ok, 
             timeline=dialogue_history,
-            is_listening=is_listening
+            is_listening=is_listening,
+            current_query=current_user_query
         )
         
         tracker.stop_timer("frame_total")

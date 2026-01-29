@@ -21,7 +21,7 @@
         "active_provider": "ollama",
         "providers": {
             "ollama": {
-                "url": "http://192.168.29.155:11434",
+                "url": "http://localhost:11434",
                 "model_id": "gemma3:270m"
             },
             "lm_studio": {
@@ -57,7 +57,7 @@
             "id": 2,
             "calibration_duration": 2.0,
             "energy_threshold": 50,
-            "pause_threshold": 1.0,
+            "pause_threshold": 0.6,
             "dynamic_energy": true
         }
     },
@@ -77,8 +77,9 @@
                 "phrase_time_limit": 20
             },
             "whisper_local": {
-                "model_size": "base",
+                "model_size": "small",
                 "device": "cuda",
+                "compute_type": "int8",
                 "language": "en",
                 "timeout": 10,
                 "phrase_time_limit": 15
@@ -98,7 +99,7 @@
         }
     },
     "detector": {
-        "active_model": "yolov8n",
+        "active_model": "yolov11m",
         "models": {
             "yolov8n": "models/yolo/yolov8n.pt",
             "yolo11m": "models/yolo/yolo11m.pt"
