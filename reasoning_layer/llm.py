@@ -30,9 +30,10 @@ class LLMReasoner:
 Your task: Use 'VLM Observations' and 'Spatial Context' to answer the User's questions.
 
 GUIDELINES:
-1. Be natural, like Jarvis. Don't be overly technical.
-2. ALWAYS prioritize visual proof. If you don't see it, politely say so.
-3. Keep responses brief (under 25 words) and actionable."""
+1. Answer directly. DO NOT repeat the user's question.
+2. Be natural, like Jarvis. Don't be overly technical.
+3. ALWAYS prioritize visual proof. If you don't see it, politely say so.
+4. Keep responses brief (under 25 words) and actionable."""
 
     def check_health(self):
         """
@@ -132,17 +133,25 @@ GUIDELINES:
 
 User Question: {user_query}
 
-Provide a brief, helpful answer (max 30 words):"""}
+Provide a brief, helpful answer (max 30 words). DO NOT repeat the question:"""}
         ]
         
         if self.backend == "lm_studio":
             print(f"[LLM DEBUG] Processing Query via LM Studio: '{user_query}'")
-            return self._call_lm_studio(messages, max_tokens=100, temperature=0.7)
+            response = self._call_lm_studio(messages, max_tokens=100, temperature=0.7)
         elif self.backend == "ollama":
             print(f"[LLM DEBUG] Processing Query via Ollama: '{user_query}'")
-            return self._call_ollama(messages, max_tokens=100, temperature=0.7)
+            response = self._call_ollama(messages, max_tokens=100, temperature=0.7)
         else:
             return "LLM backend not configured"
+            
+        # Post-processing: remove query repetition if present
+        if response and response.lower().startswith(user_query.lower()):
+            response = response[len(user_query):].strip()
+            # Remove leading punctuation like "?" or ":" or "-"
+            response = response.lstrip("?:- ")
+            
+        return response
     
     def analyze_safety(self, spatial_context: str, scene_description: str) -> Optional[str]:
         """

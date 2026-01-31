@@ -164,8 +164,10 @@ The system automatically announces hazards:
 
 ## 📖 Documentation
 
-- **[Architecture Guide](docs/ARCHITECTURE.md)**: System design and data flow
-- **[API Reference](docs/API_REFERENCE.md)**: Complete API documentation
+- **[Architecture Guide](ARCHITECTURE.md)**: System design and data flow
+- **[Performance Metrics](docs/PERFORMANCE_METRICS.md)**: Comprehensive performance benchmarks
+- **[Quality Metrics](docs/QUALITY_METRICS.md)**: User experience and quality analysis
+- **[Latency Analysis](docs/LATENCY.md)**: Detailed latency breakdown and optimization
 - **[Configuration Guide](ENHANCED_SYSTEM.md)**: Detailed config options
 - **[Performance Tuning](#performance-optimization)**: Optimize for your hardware
 

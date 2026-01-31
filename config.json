@@ -66,8 +66,8 @@
         "providers": {
             "google": {
                 "language": "en-US",
-                "timeout": 15,
-                "phrase_time_limit": 15
+                "timeout": 25,
+                "phrase_time_limit": 25
             },
             "whisper_api": {
                 "api_key_env": "OPENAI_API_KEY",
@@ -89,7 +89,7 @@
     "camera": {
         "mode": "hardware",
         "hardware": {
-            "id": 0,
+            "id": 1,
             "width": 1280,
             "height": 720
         },

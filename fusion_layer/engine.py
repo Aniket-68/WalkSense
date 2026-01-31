@@ -125,8 +125,8 @@ class FusionEngine:
             return ans
         else:
             # Regular passive description
-            event = AlertEvent("SCENE_DESC", text)
-            self.router.route(event)
+            # event = AlertEvent("SCENE_DESC", text)
+            # self.router.route(event) # DISABLED: User requested to avoid speaking VLM output (silent context update)
             return text
 
     def handle_scene_description(self, text: str) -> None:
@@ -137,24 +137,51 @@ class FusionEngine:
         """
         self.handle_vlm_description(text)
 
-    def handle_user_query(self, query: str) -> None:
-        """Process user voice query and prepare for VLM-grounded answer.
+    def handle_user_query(self, query: str) -> Optional[str]:
+        """Process user voice query with immediate LLM response.
         
-        Sets query as pending and sends immediate acknowledgment.
-        The actual answer is generated when the next VLM description arrives.
+        Provides two-stage response:
+        1. Immediate LLM answer based on current spatial context
+        2. VLM-grounded refinement when next frame is processed
         
         Args:
             query: Transcribed user question from STT
             
         Side Effects:
-            - Sets self.pending_query
-            - Sends acknowledgment through TTS ('Checking on: ...')
+            - Generates immediate LLM response
+            - Sets self.pending_query for VLM-grounded follow-up
+            - Routes responses through DecisionRouter
         """
-        self.pending_query = query
+        from loguru import logger
         
-        # Immediate acknowledgement
-        ack_event = AlertEvent("RESPONSE", f"Checking on: {query}")
-        self.router.route(ack_event)
+        # Get current spatial context
+        spatial_ctx = self.spatial.get_context_for_llm()
+        
+        # Generate immediate LLM response using available context
+        logger.info(f"[FUSION] Generating immediate LLM response for: {query}")
+        try:
+            immediate_answer = self.llm.answer_query(
+                user_query=query,
+                spatial_context=spatial_ctx,
+                scene_description="Current spatial tracking data only. Visual confirmation pending."
+            )
+            
+            # Send immediate response
+            response_event = AlertEvent("RESPONSE", immediate_answer)
+            # self.router.route(response_event) # DISABLED: User wants only VLM-grounded answer spoken
+            logger.info(f"[FUSION] Immediate answer (Silent): {immediate_answer}")
+            
+        except Exception as e:
+            logger.error(f"[FUSION] Failed to generate immediate answer: {e}")
+            # Fallback acknowledgment
+            ack_event = AlertEvent("RESPONSE", f"Checking on: {query}")
+            # self.router.route(ack_event) # DISABLED
+        
+        # Keep query pending for VLM-grounded refinement
+        self.pending_query = query
+        logger.info(f"[FUSION] Query pending for VLM refinement")
+        
+        return locals().get("immediate_answer", None)
 
     def _generate_llm_answer(self, query: str, vlm_desc: str) -> str:
         """Generate query response using LLM with visual and spatial grounding.

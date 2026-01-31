@@ -76,7 +76,7 @@ def draw_detections(frame, detections: list[dict]) -> object:
     return frame
 
 
-def draw_overlay(frame, status: str, description: str, spatial_summary: str, vlm_ok: bool = False, llm_ok: bool = False, timeline: list = [], is_listening: bool = False, current_query: str = None) -> object:
+def draw_overlay(frame, status: str, description: str, spatial_summary: str, vlm_ok: bool = False, llm_ok: bool = False, timeline: list = [], is_listening: bool = False, current_query: str = None, query_start_time: float = None) -> object:
     """
     Draws the UI overlay including status, spatial summary, and AI health indicators.
     
@@ -148,20 +148,29 @@ def draw_overlay(frame, status: str, description: str, spatial_summary: str, vlm
     if is_listening:
         cv2.putText(frame, "LISTENING...", (w//2 - 100, h//2), cv2.FONT_HERSHEY_DUPLEX, 1.5, (0, 255, 255), 2)
         
-    # NEW: Show Pending Query Prominently (Unitl fulfilled)
-    if current_query:
+    # NEW: Show Pending Query Prominently (Only if NOT currently answering)
+    if current_query and "AI:" not in description:
         # Draw a highlight box
-        qh, qw = 50, 800
-        qx, qy = (w - qw)//2, h - 140
-        # Semi-transparent background
+        qh, qw = 60, 800
+        qx, qy = (w - qw)//2, h - 150
+        
+        # Glassmorphism background
         overlay = frame.copy()
-        cv2.rectangle(overlay, (qx, qy), (qx + qw, qy + qh), (0, 0, 0), -1)
-        cv2.addWeighted(overlay, 0.7, frame, 0.3, 0, frame)
+        cv2.rectangle(overlay, (qx, qy), (qx + qw, qy + qh), (20, 20, 20), -1)
+        cv2.addWeighted(overlay, 0.85, frame, 0.15, 0, frame)
         
-        cv2.rectangle(frame, (qx, qy), (qx + qw, qy + qh), (0, 255, 255), 2)
+        # Border
+        cv2.rectangle(frame, (qx, qy), (qx + qw, qy + qh), (0, 255, 255), 1)
         
-        cv2.putText(frame, f"Query: {current_query}", (qx + 20, qy + 35), 
-                   cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+        # Text with latency indicator
+        elapsed = time.time() - (query_start_time if query_start_time else time.time())
+        cv2.putText(frame, f"QUERY: {current_query}", (qx + 20, qy + 40), 
+                   cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                   
+        # Pulsing processing text
+        if int(time.time() * 2) % 2 == 0:
+            cv2.putText(frame, f"Processing... {elapsed:.1f}s", (qx + qw - 200, qy + 40),
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 1)
 
     # 6. BOTTOM DESCRIPTION PANEL
     cv2.rectangle(frame, (0, h - 60), (w, h), (10, 10, 10), -1)
@@ -327,7 +336,9 @@ def main() -> None:
     current_user_query = None
     llm_response = ""
     llm_response_timer = 0
+    llm_response_timer = 0
     is_listening = False
+    query_start_time = None
     dialogue_history = []  # Stores last few interactions
 
     cv2.namedWindow("WalkSense Enhanced", cv2.WINDOW_NORMAL)
@@ -340,7 +351,7 @@ def main() -> None:
         Runs the speech-to-text listener in a separate thread to avoid UI lag.
         Updates shared 'current_user_query' upon successful recognition.
         """
-        nonlocal current_user_query, is_listening
+        nonlocal current_user_query, is_listening, llm_response, llm_response_timer, query_start_time
         is_listening = True
         # 🔴 STOP TTS IMMEDIATELY to prevent interference
         tts.stop()
@@ -365,8 +376,15 @@ def main() -> None:
                 print(f"\n[USER QUERY] >>> {query} <<<\n")
                 logger.info(f"USER: {query}")
                 current_user_query = query
+                query_start_time = time.time()
                 dialogue_history.append(f"USER: {query}")
-                fusion.handle_user_query(query)
+                
+                # Get immediate answer (Stage 1)
+                immediate_ans = fusion.handle_user_query(query)
+                if immediate_ans:
+                    llm_response = f"AI: {immediate_ans}"
+                    llm_response_timer = time.time() + 10
+                    dialogue_history.append(f"AI: {immediate_ans}")
                 break # Success
             
             # If query is None (Timeout), loop continues
@@ -432,6 +450,7 @@ def main() -> None:
                         current_user_query = None
                 else:
                     fusion.handle_scene_description(new_desc)
+                    logger.info("VLM Update (Silent)")
             
             # 2. Trigger Logic
             has_query = (current_user_query is not None)
@@ -477,7 +496,8 @@ def main() -> None:
             vlm_ok, llm_ok, 
             timeline=dialogue_history,
             is_listening=is_listening,
-            current_query=current_user_query
+            current_query=current_user_query,
+            query_start_time=query_start_time
         )
         
         tracker.stop_timer("frame_total")
