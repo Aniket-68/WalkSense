@@ -1,0 +1,32 @@
+{
+  "data_source": "logs/performance.log",
+  "analysis_timestamp": "2026-01-31T02:38:13.033658",
+  "metrics": {
+    "yolo": {
+      "samples": 0,
+      "mean_ms": null,
+      "median_ms": null,
+      "std_ms": null
+    },
+    "vlm": {
+      "samples": 0,
+      "mean_ms": null,
+      "median_ms": null
+    },
+    "stt": {
+      "samples": 0,
+      "mean_ms": null
+    },
+    "llm": {
+      "samples": 0,
+      "mean_ms": null
+    },
+    "alerts": {
+      "total": 15180,
+      "breakdown": {
+        "INFO": 10320,
+        "WARNING": 4860
+      }
+    }
+  }
+}

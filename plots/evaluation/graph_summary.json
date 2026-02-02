@@ -1,0 +1,20 @@
+{
+  "total_graphs": 14,
+  "output_directory": "D:\\Github\\WalkSense\\plots\\evaluation",
+  "graphs": [
+    "01_confusion_matrix.png - YOLO detection accuracy",
+    "02_latency_comparison.png - GPU vs CPU performance",
+    "03_performance_timeline.png - Real-time frame processing",
+    "04_alert_distribution.png - Alert severity breakdown",
+    "05_stt_accuracy.png - Speech recognition vs noise",
+    "06_gpu_memory.png - VRAM usage over time",
+    "07_query_response_distribution.png - Response time histogram",
+    "08_spatial_accuracy.png - Direction detection accuracy",
+    "09_system_throughput.png - FPS stability",
+    "10_model_tradeoff.png - Size vs accuracy analysis",
+    "11_redundancy_filter.png - Spam prevention effectiveness",
+    "12_threading_performance.png - Multi-threading gains",
+    "13_user_satisfaction.png - User experience metrics",
+    "14_power_consumption.png - Energy usage breakdown"
+  ]
+}
