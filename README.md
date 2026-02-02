@@ -352,8 +352,8 @@ Built with:
 ## 📧 Contact
 
 For questions or feedback:
-- **GitHub Issues**: [github.com/yourusername/WalkSense/issues](https://github.com/yourusername/WalkSense/issues)
-- **Email**: your.email@example.com
+- **GitHub Issues**: [github.com/Aniket-68/WalkSense/issues](https://github.com/Aniket-68/WalkSense/issues)
+- **Email**: aniketchauhan0608@gmail.com
 
 ---
 
