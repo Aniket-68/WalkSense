@@ -2,6 +2,7 @@
 
 import requests
 import json
+import os
 from typing import Optional
 
 class LLMReasoner:
@@ -10,16 +11,30 @@ class LLMReasoner:
     Supports multiple backends: OpenAI API, LM Studio, Ollama
     """
     
-    def __init__(self, backend="lm_studio", api_url="http://localhost:1234/v1", model_name="microsoft/phi-4-mini-reasoning"):
+    def __init__(self, backend="lm_studio", api_url="http://localhost:1234/v1", model_name="microsoft/phi-4-mini-reasoning", api_key=None):
         """
         Args:
-            backend: "lm_studio", "ollama", or "openai"
+            backend: "lm_studio", "ollama", "gemini", or "openai"
             api_url: API endpoint URL
             model_name: Model identifier
+            api_key: API key for Gemini (optional, can use env var)
         """
         self.backend = backend
         self.api_url = api_url
         self.model_name = model_name
+        self.api_key = api_key
+        
+        # Initialize Gemini if needed
+        if self.backend == "gemini":
+            try:
+                import google.generativeai as genai
+                key = self.api_key or os.getenv("GEMINI_API_KEY")
+                if not key:
+                    raise ValueError("Gemini API key not found. Set GEMINI_API_KEY env var or pass api_key parameter.")
+                genai.configure(api_key=key)
+                self.gemini_model = genai.GenerativeModel(self.model_name)
+            except ImportError:
+                raise ImportError("google-generativeai not installed. Run: pip install google-generativeai")
         
         from loguru import logger
         logger.info(f"Connected to Backend: '{self.backend}' | Model: '{self.model_name}'")
@@ -104,6 +119,32 @@ GUIDELINES:
         except Exception as e:
             return f"LLM Error: {str(e)}"
     
+    def _call_gemini(self, messages, max_tokens=100, temperature=0.7):
+        """Call Gemini API"""
+        try:
+            # Convert messages to Gemini format
+            # Gemini expects a single prompt or conversation history
+            system_msg = next((m['content'] for m in messages if m['role'] == 'system'), '')
+            user_msg = next((m['content'] for m in messages if m['role'] == 'user'), '')
+            
+            # Combine system and user messages
+            full_prompt = f"{system_msg}\n\n{user_msg}" if system_msg else user_msg
+            
+            # Generate response
+            response = self.gemini_model.generate_content(
+                full_prompt,
+                generation_config={
+                    'temperature': temperature,
+                    'max_output_tokens': max_tokens,
+                }
+            )
+            
+            return response.text.strip()
+                
+        except Exception as e:
+            return f"LLM Error: {str(e)}"
+
+    
     def answer_query(self, 
                      user_query: str,
                      spatial_context: str,
@@ -142,6 +183,9 @@ Provide a brief, helpful answer (max 30 words). DO NOT repeat the question:"""}
         elif self.backend == "ollama":
             print(f"[LLM DEBUG] Processing Query via Ollama: '{user_query}'")
             response = self._call_ollama(messages, max_tokens=100, temperature=0.7)
+        elif self.backend == "gemini":
+            print(f"[LLM DEBUG] Processing Query via Gemini: '{user_query}'")
+            response = self._call_gemini(messages, max_tokens=100, temperature=0.7)
         else:
             return "LLM backend not configured"
             

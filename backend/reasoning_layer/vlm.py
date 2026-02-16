@@ -16,6 +16,7 @@ class QwenVLM:
     """
     Qwen Vision-Language Model with multiple backend support:
     - 'lm_studio': Use LM Studio local API server
+    - 'ollama': Use Ollama local API server
     - 'huggingface': Use downloaded HuggingFace model
     """
     
@@ -33,6 +34,8 @@ class QwenVLM:
         
         if self.backend == "lm_studio":
             self._init_lm_studio()
+        elif self.backend == "ollama":
+            self._init_ollama()
         elif self.backend == "huggingface":
             self._init_huggingface()
         else:
@@ -70,6 +73,11 @@ class QwenVLM:
         except Exception as e:
             print(f"[QWEN WARNING] API offline: {e}")
             self.active_model_id = self.model_id
+    
+    def _init_ollama(self):
+        """Initialize Ollama backend"""
+        logger.info(f"Using Ollama backend: {self.url} with model {self.model_id}")
+        self.active_model_id = self.model_id
 
     def _encode_image_base64(self, frame):
         """Convert OpenCV frame to base64 string"""
@@ -140,6 +148,47 @@ class QwenVLM:
                 
         except Exception as e:
             return f"Error: {str(e)}"
+    
+    def describe_scene_ollama(self, frame, context=""):
+        """Use Ollama API for scene description"""
+        try:
+            # Encode image to base64
+            image_base64 = self._encode_image_base64(frame).split(",")[1]  # Remove data:image/jpeg;base64, prefix
+            
+            # Determine primary task
+            if "USER QUESTION:" in context:
+                query_part = context.split("USER QUESTION:")[1].strip()
+                det_part = context.split("USER QUESTION:")[0].strip()
+                prompt = f"CRITICALLY IMPORTANT: The user is asking: '{query_part}'. Focus your entire observation on answering this accurately based ONLY on the visual evidence. Detect these objects as well: {det_part}. Keep it under 40 words."
+            else:
+                prompt = "Describe this scene briefly for a visually impaired person. Focus on obstacles, people, and navigation hazards. Keep it under 30 words."
+                if context:
+                    prompt = f"Object Detections: {context}. {prompt}"
+            
+            # Prepare Ollama request
+            payload = {
+                "model": self.active_model_id,
+                "prompt": prompt,
+                "images": [image_base64],
+                "stream": False
+            }
+            
+            response = requests.post(
+                f"{self.url}/api/generate",
+                json=payload,
+                timeout=30
+            )
+            
+            if response.status_code == 200:
+                result = response.json()
+                description = result.get('response', '')
+                return description.strip()
+            else:
+                return f"Ollama error: {response.status_code}"
+                
+        except Exception as e:
+            return f"Error: {str(e)}"
+
     
     def describe_scene_huggingface(self, frame, context=""):
         """Use HuggingFace model for scene description"""
@@ -223,5 +272,7 @@ class QwenVLM:
         """
         if self.backend == "lm_studio":
             return self.describe_scene_lm_studio(frame, context)
+        elif self.backend == "ollama":
+            return self.describe_scene_ollama(frame, context)
         else:
             return self.describe_scene_huggingface(frame, context)

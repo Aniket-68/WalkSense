@@ -28,20 +28,22 @@ class FusionEngine:
                  tts_engine: Any,
                  llm_backend: str = "lm_studio",
                  llm_url: str = "http://localhost:1234/v1",
-                 llm_model: str = "qwen/qwen3-vl-4b") -> None:
+                 llm_model: str = "qwen/qwen3-vl-4b",
+                 llm_api_key: Optional[str] = None) -> None:
         """Initialize fusion engine with TTS and LLM configuration.
         
         Args:
             tts_engine: TTSEngine instance for audio output
-            llm_backend: LLM provider ('lm_studio', 'ollama', 'openai')
+            llm_backend: LLM provider ('lm_studio', 'ollama', 'gemini', 'openai')
             llm_url: API endpoint URL for LLM backend
             llm_model: Model identifier for LLM
+            llm_api_key: API key for Gemini or OpenAI (optional, can use env var)
         """
         self.router = DecisionRouter(tts_engine)
         self.runtime = RuntimeState()
         
         # Enhanced Reasoning Modules
-        self.llm = LLMReasoner(backend=llm_backend, api_url=llm_url, model_name=llm_model)
+        self.llm = LLMReasoner(backend=llm_backend, api_url=llm_url, model_name=llm_model, api_key=llm_api_key)
         self.spatial = SpatialContextManager()
         
         # State for query handling
