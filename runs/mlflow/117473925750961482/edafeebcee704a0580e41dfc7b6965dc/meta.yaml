@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/Github/WalkSense/runs/mlflow/117473925750961482/edafeebcee704a0580e41dfc7b6965dc/artifacts
+end_time: 1771241248851
+entry_point_name: ''
+experiment_id: '117473925750961482'
+lifecycle_stage: active
+run_id: edafeebcee704a0580e41dfc7b6965dc
+run_name: train_stairs_v1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1771241160201
+status: 3
+tags: []
+user_id: Aniket

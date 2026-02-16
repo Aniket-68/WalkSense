@@ -8,6 +8,17 @@ class DecisionRouter:
         self.context_manager = ContextManager()
         self.aux = AuxController() # Initialize Auxiliary Controller
         self.muted = False
+        self.mode = "NORMAL" # Options: NORMAL, CRITICAL_ONLY
+
+    def toggle_mode(self):
+        """Switch between NORMAL and CRITICAL_ONLY modes."""
+        if self.mode == "NORMAL":
+            self.mode = "CRITICAL_ONLY"
+            self.tts.speak("Critical Mode Active. Only hazards will be spoken.")
+        else:
+            self.mode = "NORMAL"
+            self.tts.speak("Normal Mode Active. Full awareness.")
+        return self.mode
 
     def toggle_mute(self):
         self.muted = not self.muted
@@ -43,6 +54,10 @@ class DecisionRouter:
 
         # Check Mute for non-critical events
         if self.muted:
+            return
+
+        # MODE CHECK: If CRITICAL_ONLY, suppress everything except CRITICAL_ALERT and RESPONSE
+        if self.mode == "CRITICAL_ONLY" and severity not in ["CRITICAL_ALERT", "RESPONSE"]:
             return
 
         # 2. WARNINGS: Medium Feedback

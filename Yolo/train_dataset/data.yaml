@@ -1,0 +1,17 @@
+names:
+- Stair Down
+- Stair Up
+- Building
+- Car
+- Chair
+- Door
+- Gate
+- Person
+- Two-wheeler
+- Window-with-grill
+- Window-without-grill
+- speed-bump
+- manhole
+nc: 13
+train: d:\Github\WalkSense\Yolo\train_dataset\train\images
+val: d:\Github\WalkSense\Yolo\train_dataset\valid\images

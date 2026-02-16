@@ -80,14 +80,16 @@ class TTSEngine:
                 try:
                     text = self.text_queue.get(timeout=0.5)
                     if text:
+                        # Add padding to prevent truncation
+                        padded_text = "... " + text
                         logger.info(f"[TTS] 🔊 Speaking: {text}")
                         try:
                             if self.use_win32com:
                                 # Win32com method - more reliable on Windows
-                                self.engine.Speak(text)
+                                self.engine.Speak(padded_text)
                             else:
                                 # pyttsx3 method
-                                self.engine.say(text)
+                                self.engine.say(padded_text)
                                 self.engine.runAndWait()
                             logger.info("[TTS] ✓ Finished speaking")
                         except Exception as speak_error:

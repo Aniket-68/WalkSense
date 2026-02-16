@@ -1,0 +1,707 @@
+{
+  "timestamp": 1769880153.0135226,
+  "accuracy": 27.0,
+  "avg_latency": 0.2924686026573181,
+  "details": [
+    {
+      "id": 1,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.5170090198516846,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 2,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.31175994873046875,
+      "answer": ""
+    },
+    {
+      "id": 3,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.42321062088012695,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 4,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.39632272720336914,
+      "answer": "Yes, there is someone watching me."
+    },
+    {
+      "id": 5,
+      "category": "Perspective",
+      "passed": true,
+      "duration": 0.44951701164245605,
+      "answer": "Yes, the child can see me."
+    },
+    {
+      "id": 6,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.24869632720947266,
+      "answer": ""
+    },
+    {
+      "id": 7,
+      "category": "Spatial",
+      "passed": false,
+      "duration": 0.32649731636047363,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 8,
+      "category": "Spatial",
+      "passed": false,
+      "duration": 0.36151552200317383,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 9,
+      "category": "Spatial",
+      "passed": false,
+      "duration": 0.24585270881652832,
+      "answer": ""
+    },
+    {
+      "id": 10,
+      "category": "Spatial",
+      "passed": false,
+      "duration": 0.31767797470092773,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 11,
+      "category": "Spatial",
+      "passed": false,
+      "duration": 0.32003068923950195,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 12,
+      "category": "Spatial",
+      "passed": false,
+      "duration": 0.30388736724853516,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 13,
+      "category": "Existence",
+      "passed": true,
+      "duration": 0.34452223777770996,
+      "answer": "Yes, there is a chair here."
+    },
+    {
+      "id": 14,
+      "category": "Existence",
+      "passed": false,
+      "duration": 0.3399386405944824,
+      "answer": "Yes, I see a cat."
+    },
+    {
+      "id": 15,
+      "category": "Existence",
+      "passed": false,
+      "duration": 0.23682069778442383,
+      "answer": ""
+    },
+    {
+      "id": 16,
+      "category": "Existence",
+      "passed": false,
+      "duration": 0.31185030937194824,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 17,
+      "category": "Existence",
+      "passed": false,
+      "duration": 0.2531580924987793,
+      "answer": ""
+    },
+    {
+      "id": 18,
+      "category": "Safety",
+      "passed": false,
+      "duration": 0.3401060104370117,
+      "answer": "Yes, it is safe to walk."
+    },
+    {
+      "id": 19,
+      "category": "Safety",
+      "passed": false,
+      "duration": 0.23431777954101562,
+      "answer": ""
+    },
+    {
+      "id": 20,
+      "category": "Safety",
+      "passed": false,
+      "duration": 0.3692343235015869,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 21,
+      "category": "Safety",
+      "passed": false,
+      "duration": 0.2500760555267334,
+      "answer": ""
+    },
+    {
+      "id": 22,
+      "category": "Safety",
+      "passed": false,
+      "duration": 0.35367369651794434,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 23,
+      "category": "Visual Attribute",
+      "passed": false,
+      "duration": 0.2706115245819092,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 24,
+      "category": "Visual Attribute",
+      "passed": true,
+      "duration": 0.28730225563049316,
+      "answer": "Yes, the bottle is full."
+    },
+    {
+      "id": 25,
+      "category": "Visual Attribute",
+      "passed": false,
+      "duration": 0.28169894218444824,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 26,
+      "category": "Visual Attribute",
+      "passed": false,
+      "duration": 0.269040584564209,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 27,
+      "category": "Visual Attribute",
+      "passed": false,
+      "duration": 0.283644437789917,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 28,
+      "category": "Social",
+      "passed": false,
+      "duration": 0.303647518157959,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 29,
+      "category": "Social",
+      "passed": true,
+      "duration": 0.3216068744659424,
+      "answer": "Yes, there is someone looking at me."
+    },
+    {
+      "id": 30,
+      "category": "Social",
+      "passed": false,
+      "duration": 0.29424333572387695,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 31,
+      "category": "Text",
+      "passed": false,
+      "duration": 0.2969789505004883,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 32,
+      "category": "Text",
+      "passed": false,
+      "duration": 0.2249438762664795,
+      "answer": ""
+    },
+    {
+      "id": 33,
+      "category": "General",
+      "passed": true,
+      "duration": 0.32221078872680664,
+      "answer": "A messy bedroom with clothes on the floor."
+    },
+    {
+      "id": 34,
+      "category": "General",
+      "passed": false,
+      "duration": 0.2680056095123291,
+      "answer": "Okay."
+    },
+    {
+      "id": 35,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.3378450870513916,
+      "answer": "Yes, the bike is facing me."
+    },
+    {
+      "id": 36,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.3066844940185547,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 37,
+      "category": "Safety",
+      "passed": false,
+      "duration": 0.29309773445129395,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 38,
+      "category": "Existence",
+      "passed": false,
+      "duration": 0.28748106956481934,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 39,
+      "category": "Visual Attribute",
+      "passed": false,
+      "duration": 0.2873361110687256,
+      "answer": "Yes, the sky is clear."
+    },
+    {
+      "id": 40,
+      "category": "Spatial",
+      "passed": false,
+      "duration": 0.2911083698272705,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 41,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.2705364227294922,
+      "answer": "Okay."
+    },
+    {
+      "id": 42,
+      "category": "Spatial",
+      "passed": true,
+      "duration": 0.2970554828643799,
+      "answer": "Answer: 0.2 meters"
+    },
+    {
+      "id": 43,
+      "category": "Safety",
+      "passed": false,
+      "duration": 0.23559308052062988,
+      "answer": ""
+    },
+    {
+      "id": 44,
+      "category": "Visual Attribute",
+      "passed": false,
+      "duration": 0.3213214874267578,
+      "answer": "Yes, the fruit is fresh."
+    },
+    {
+      "id": 45,
+      "category": "Social",
+      "passed": false,
+      "duration": 0.29156970977783203,
+      "answer": "Yes, they are fighting."
+    },
+    {
+      "id": 46,
+      "category": "Text",
+      "passed": false,
+      "duration": 0.284837007522583,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 47,
+      "category": "General",
+      "passed": false,
+      "duration": 0.2848999500274658,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 48,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.25629115104675293,
+      "answer": "No"
+    },
+    {
+      "id": 49,
+      "category": "Spatial",
+      "passed": false,
+      "duration": 0.256089448928833,
+      "answer": ""
+    },
+    {
+      "id": 50,
+      "category": "Existence",
+      "passed": false,
+      "duration": 0.23802900314331055,
+      "answer": ""
+    },
+    {
+      "id": 51,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.38318848609924316,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 52,
+      "category": "Safety",
+      "passed": true,
+      "duration": 0.30831074714660645,
+      "answer": "Yes, the stove is on."
+    },
+    {
+      "id": 53,
+      "category": "Visual Attribute",
+      "passed": false,
+      "duration": 0.2909379005432129,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 54,
+      "category": "Social",
+      "passed": true,
+      "duration": 0.3945608139038086,
+      "answer": "Yes, the crowd is happy."
+    },
+    {
+      "id": 55,
+      "category": "General",
+      "passed": false,
+      "duration": 0.24893975257873535,
+      "answer": "Yes, I understand."
+    },
+    {
+      "id": 56,
+      "category": "Spatial",
+      "passed": false,
+      "duration": 0.2350931167602539,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 57,
+      "category": "Safety",
+      "passed": false,
+      "duration": 0.24555110931396484,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 58,
+      "category": "Visual Attribute",
+      "passed": true,
+      "duration": 0.27689480781555176,
+      "answer": "Yes, the shoes are dirty."
+    },
+    {
+      "id": 59,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.29178524017333984,
+      "answer": ""
+    },
+    {
+      "id": 60,
+      "category": "Text",
+      "passed": false,
+      "duration": 0.35396337509155273,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 61,
+      "category": "Existence",
+      "passed": false,
+      "duration": 0.3567678928375244,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 62,
+      "category": "Spatial",
+      "passed": false,
+      "duration": 0.3214991092681885,
+      "answer": "Yes, the gap is wide enough."
+    },
+    {
+      "id": 63,
+      "category": "Social",
+      "passed": false,
+      "duration": 0.25925588607788086,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 64,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.26227664947509766,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 65,
+      "category": "Safety",
+      "passed": true,
+      "duration": 0.28472089767456055,
+      "answer": "Yes, there is glass on the floor."
+    },
+    {
+      "id": 66,
+      "category": "Visual Attribute",
+      "passed": false,
+      "duration": 0.2184453010559082,
+      "answer": ""
+    },
+    {
+      "id": 67,
+      "category": "General",
+      "passed": false,
+      "duration": 0.2615079879760742,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 68,
+      "category": "Spatial",
+      "passed": false,
+      "duration": 0.2238774299621582,
+      "answer": ""
+    },
+    {
+      "id": 69,
+      "category": "Existence",
+      "passed": true,
+      "duration": 0.2651793956756592,
+      "answer": "Yes, I can answer the question."
+    },
+    {
+      "id": 70,
+      "category": "Perspective",
+      "passed": true,
+      "duration": 0.28913164138793945,
+      "answer": "Yes, the train is moving away from the camera."
+    },
+    {
+      "id": 71,
+      "category": "Text",
+      "passed": false,
+      "duration": 0.29336023330688477,
+      "answer": "Yes, this is the men's room."
+    },
+    {
+      "id": 72,
+      "category": "Safety",
+      "passed": true,
+      "duration": 0.2509188652038574,
+      "answer": "No."
+    },
+    {
+      "id": 73,
+      "category": "Visual Attribute",
+      "passed": true,
+      "duration": 0.263535737991333,
+      "answer": "Yes, the bread is moldy."
+    },
+    {
+      "id": 74,
+      "category": "Social",
+      "passed": true,
+      "duration": 0.2848999500274658,
+      "answer": "Yes, it is a formal event."
+    },
+    {
+      "id": 75,
+      "category": "General",
+      "passed": false,
+      "duration": 0.24701189994812012,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 76,
+      "category": "Spatial",
+      "passed": false,
+      "duration": 0.2758758068084717,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 77,
+      "category": "Perspective",
+      "passed": true,
+      "duration": 0.2960536479949951,
+      "answer": "Yes, the ball is rolling to me."
+    },
+    {
+      "id": 78,
+      "category": "Existence",
+      "passed": true,
+      "duration": 0.2715108394622803,
+      "answer": "Yes, there is a mirror."
+    },
+    {
+      "id": 79,
+      "category": "Safety",
+      "passed": true,
+      "duration": 0.27765631675720215,
+      "answer": "Yes, the iron is hot."
+    },
+    {
+      "id": 80,
+      "category": "Text",
+      "passed": false,
+      "duration": 0.2350459098815918,
+      "answer": ""
+    },
+    {
+      "id": 81,
+      "category": "Visual Attribute",
+      "passed": true,
+      "duration": 0.2659029960632324,
+      "answer": "Yes, the plant is dead."
+    },
+    {
+      "id": 82,
+      "category": "Social",
+      "passed": false,
+      "duration": 0.25791478157043457,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 83,
+      "category": "General",
+      "passed": true,
+      "duration": 0.2495732307434082,
+      "answer": "Yes, it is raining."
+    },
+    {
+      "id": 84,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.22751879692077637,
+      "answer": ""
+    },
+    {
+      "id": 85,
+      "category": "Spatial",
+      "passed": false,
+      "duration": 0.21697378158569336,
+      "answer": ""
+    },
+    {
+      "id": 86,
+      "category": "Existence",
+      "passed": true,
+      "duration": 0.2807598114013672,
+      "answer": "Yes, there is a taxi."
+    },
+    {
+      "id": 87,
+      "category": "Safety",
+      "passed": false,
+      "duration": 0.21364092826843262,
+      "answer": ""
+    },
+    {
+      "id": 88,
+      "category": "Visual Attribute",
+      "passed": true,
+      "duration": 0.30295729637145996,
+      "answer": "Yes, the towel is dry."
+    },
+    {
+      "id": 89,
+      "category": "Social",
+      "passed": true,
+      "duration": 0.2821202278137207,
+      "answer": "Yes, the queue is long."
+    },
+    {
+      "id": 90,
+      "category": "Text",
+      "passed": false,
+      "duration": 0.21408462524414062,
+      "answer": ""
+    },
+    {
+      "id": 91,
+      "category": "General",
+      "passed": false,
+      "duration": 0.2871425151824951,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 92,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.2277219295501709,
+      "answer": ""
+    },
+    {
+      "id": 93,
+      "category": "Spatial",
+      "passed": true,
+      "duration": 0.2864992618560791,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 94,
+      "category": "Existence",
+      "passed": true,
+      "duration": 0.3427608013153076,
+      "answer": "Yes, there is a path."
+    },
+    {
+      "id": 95,
+      "category": "Safety",
+      "passed": false,
+      "duration": 0.30542588233947754,
+      "answer": "Yes, the bridge is safe."
+    },
+    {
+      "id": 96,
+      "category": "Visual Attribute",
+      "passed": false,
+      "duration": 0.21638989448547363,
+      "answer": ""
+    },
+    {
+      "id": 97,
+      "category": "Social",
+      "passed": true,
+      "duration": 0.3871910572052002,
+      "answer": "Yes, they are sleeping."
+    },
+    {
+      "id": 98,
+      "category": "Text",
+      "passed": false,
+      "duration": 0.3714475631713867,
+      "answer": "Okay, I understand."
+    },
+    {
+      "id": 99,
+      "category": "General",
+      "passed": true,
+      "duration": 0.38399744033813477,
+      "answer": "Yes, it is a party."
+    },
+    {
+      "id": 100,
+      "category": "Perspective",
+      "passed": false,
+      "duration": 0.23969531059265137,
+      "answer": "Okay, I understand."
+    }
+  ]
+}

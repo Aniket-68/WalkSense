@@ -1,0 +1,1136 @@
+[
+    {
+        "id": 1,
+        "category": "Perspective",
+        "query": "Where is the person looking?",
+        "spatial": "person center 1m",
+        "vlm": "A person standing and facing the camera directly.",
+        "expected_keywords": [
+            "you",
+            "at me",
+            "facing me"
+        ]
+    },
+    {
+        "id": 2,
+        "category": "Perspective",
+        "query": "Is the dog coming towards me?",
+        "spatial": "dog center 3m moving closer",
+        "vlm": "A golden retriever running towards the camera lens.",
+        "expected_keywords": [
+            "yes",
+            "towards you",
+            "coming"
+        ]
+    },
+    {
+        "id": 3,
+        "category": "Perspective",
+        "query": "What direction is the car going?",
+        "spatial": "car center 10m",
+        "vlm": "A red sedan driving away from the camera.",
+        "expected_keywords": [
+            "away",
+            "from you"
+        ]
+    },
+    {
+        "id": 4,
+        "category": "Perspective",
+        "query": "Is anyone watching me?",
+        "spatial": "person left 2m, person right 2m",
+        "vlm": "Two people talking to each other, not looking at the camera.",
+        "expected_keywords": [
+            "no",
+            "not looking",
+            "at you"
+        ]
+    },
+    {
+        "id": 5,
+        "category": "Perspective",
+        "query": "Can the child see me?",
+        "spatial": "child center 2m",
+        "vlm": "A child waving at the camera.",
+        "expected_keywords": [
+            "yes",
+            "waving",
+            "at you"
+        ]
+    },
+    {
+        "id": 6,
+        "category": "Perspective",
+        "query": "Which way is the sign pointing?",
+        "spatial": "sign right 1m",
+        "vlm": "An arrow sign pointing to the left of the image frame.",
+        "expected_keywords": [
+            "left"
+        ]
+    },
+    {
+        "id": 7,
+        "category": "Spatial",
+        "query": "Where is my cup?",
+        "spatial": "cup right 0.5m",
+        "vlm": "A blue ceramic cup on the table to the right.",
+        "expected_keywords": [
+            "right"
+        ]
+    },
+    {
+        "id": 8,
+        "category": "Spatial",
+        "query": "Is there anything on my left?",
+        "spatial": "wall left 1m",
+        "vlm": "A blank white wall.",
+        "expected_keywords": [
+            "wall",
+            "left"
+        ]
+    },
+    {
+        "id": 9,
+        "category": "Spatial",
+        "query": "What is directly ahead?",
+        "spatial": "door center 4m",
+        "vlm": "A closed wooden door at the end of the hallway.",
+        "expected_keywords": [
+            "door",
+            "ahead",
+            "front"
+        ]
+    },
+    {
+        "id": 10,
+        "category": "Spatial",
+        "query": "How far is the table?",
+        "spatial": "table center 2m",
+        "vlm": "A glass dining table.",
+        "expected_keywords": [
+            "2m",
+            "2 meters",
+            "two meters"
+        ]
+    },
+    {
+        "id": 11,
+        "category": "Spatial",
+        "query": "Where are my keys?",
+        "spatial": "keys left 0.3m",
+        "vlm": "Silver keys lying on the sofa cushion.",
+        "expected_keywords": [
+            "sofa",
+            "left"
+        ]
+    },
+    {
+        "id": 12,
+        "category": "Spatial",
+        "query": "Locate the exit.",
+        "spatial": "exit_sign center 5m",
+        "vlm": "A glowing green exit sign above the door.",
+        "expected_keywords": [
+            "center",
+            "door",
+            "above"
+        ]
+    },
+    {
+        "id": 13,
+        "category": "Existence",
+        "query": "Is there a chair here?",
+        "spatial": "chair right 1m",
+        "vlm": "An office chair with wheels.",
+        "expected_keywords": [
+            "yes",
+            "right"
+        ]
+    },
+    {
+        "id": 14,
+        "category": "Existence",
+        "query": "Do you see a cat?",
+        "spatial": "dog center 2m",
+        "vlm": "A brown dog sleeping on the rug.",
+        "expected_keywords": [
+            "no",
+            "dog"
+        ]
+    },
+    {
+        "id": 15,
+        "category": "Existence",
+        "query": "Any electronics visible?",
+        "spatial": "laptop center 0.5m",
+        "vlm": "An open laptop displaying a spreadsheet.",
+        "expected_keywords": [
+            "yes",
+            "laptop"
+        ]
+    },
+    {
+        "id": 16,
+        "category": "Existence",
+        "query": "Is the light on?",
+        "spatial": "",
+        "vlm": "A brightly lit room with a ceiling lamp on.",
+        "expected_keywords": [
+            "yes",
+            "on"
+        ]
+    },
+    {
+        "id": 17,
+        "category": "Existence",
+        "query": "Are there any people?",
+        "spatial": "",
+        "vlm": "An empty corridor with no people.",
+        "expected_keywords": [
+            "no",
+            "empty"
+        ]
+    },
+    {
+        "id": 18,
+        "category": "Safety",
+        "query": "Is it safe to walk?",
+        "spatial": "obstacle center 1m",
+        "vlm": "A wet floor sign in the middle of the path.",
+        "expected_keywords": [
+            "no",
+            "wet",
+            "caution",
+            "obstacle"
+        ]
+    },
+    {
+        "id": 19,
+        "category": "Safety",
+        "query": "Can I cross the street?",
+        "spatial": "car left 10m approaching",
+        "vlm": "A busy street with cars moving fast.",
+        "expected_keywords": [
+            "no",
+            "cars",
+            "busy",
+            "unsafe"
+        ]
+    },
+    {
+        "id": 20,
+        "category": "Safety",
+        "query": "Any stairs nearby?",
+        "spatial": "stairs center 2m",
+        "vlm": "A descending staircase straight ahead.",
+        "expected_keywords": [
+            "yes",
+            "ahead",
+            "descending"
+        ]
+    },
+    {
+        "id": 21,
+        "category": "Safety",
+        "query": "What's blocking my way?",
+        "spatial": "box center 0.5m",
+        "vlm": "A large cardboard box on the floor.",
+        "expected_keywords": [
+            "box"
+        ]
+    },
+    {
+        "id": 22,
+        "category": "Safety",
+        "query": "Is the path clear?",
+        "spatial": "",
+        "vlm": "A clear hallway with no obstacles.",
+        "expected_keywords": [
+            "yes",
+            "clear"
+        ]
+    },
+    {
+        "id": 23,
+        "category": "Visual Attribute",
+        "query": "What color is the shirt?",
+        "spatial": "person center",
+        "vlm": "A person wearing a green hoodie.",
+        "expected_keywords": [
+            "green"
+        ]
+    },
+    {
+        "id": 24,
+        "category": "Visual Attribute",
+        "query": "Is the bottle full?",
+        "spatial": "bottle center",
+        "vlm": "A transparent water bottle that is half full.",
+        "expected_keywords": [
+            "half",
+            "full"
+        ]
+    },
+    {
+        "id": 25,
+        "category": "Visual Attribute",
+        "query": "Describe the person's expression.",
+        "spatial": "person center",
+        "vlm": "A smiling woman looking happy.",
+        "expected_keywords": [
+            "smiling",
+            "happy"
+        ]
+    },
+    {
+        "id": 26,
+        "category": "Visual Attribute",
+        "query": "What brand is the computer?",
+        "spatial": "laptop center",
+        "vlm": "A silver MacBook with the Apple logo.",
+        "expected_keywords": [
+            "apple",
+            "macbook"
+        ]
+    },
+    {
+        "id": 27,
+        "category": "Visual Attribute",
+        "query": "Is the door open or closed?",
+        "spatial": "door center",
+        "vlm": "The door is slightly ajar.",
+        "expected_keywords": [
+            "ajar",
+            "open"
+        ]
+    },
+    {
+        "id": 28,
+        "category": "Social",
+        "query": "Who is in the room?",
+        "spatial": "person1 left, person2 right",
+        "vlm": "A man and a woman chatting.",
+        "expected_keywords": [
+            "man",
+            "woman",
+            "two"
+        ]
+    },
+    {
+        "id": 29,
+        "category": "Social",
+        "query": "Is anyone looking at me?",
+        "spatial": "person center",
+        "vlm": "A man staring directly at the camera.",
+        "expected_keywords": [
+            "yes",
+            "man",
+            "you"
+        ]
+    },
+    {
+        "id": 30,
+        "category": "Social",
+        "query": "Are they busy?",
+        "spatial": "person center",
+        "vlm": "A person reading a book intensely.",
+        "expected_keywords": [
+            "reading",
+            "yes"
+        ]
+    },
+    {
+        "id": 31,
+        "category": "Text",
+        "query": "Read the sign.",
+        "spatial": "sign center",
+        "vlm": "A sign that says 'Restroom'.",
+        "expected_keywords": [
+            "restroom"
+        ]
+    },
+    {
+        "id": 32,
+        "category": "Text",
+        "query": "What time is it on the clock?",
+        "spatial": "clock wall",
+        "vlm": "An analog clock showing 3:15.",
+        "expected_keywords": [
+            "3:15"
+        ]
+    },
+    {
+        "id": 33,
+        "category": "General",
+        "query": "Describe the room.",
+        "spatial": "",
+        "vlm": "A messy bedroom with clothes on the floor.",
+        "expected_keywords": [
+            "messy",
+            "bedroom",
+            "clothes"
+        ]
+    },
+    {
+        "id": 34,
+        "category": "General",
+        "query": "What's happening?",
+        "spatial": "tv center",
+        "vlm": "A TV playing a football match.",
+        "expected_keywords": [
+            "tv",
+            "football"
+        ]
+    },
+    {
+        "id": 35,
+        "category": "Perspective",
+        "query": "Is the bike facing me?",
+        "spatial": "bike center",
+        "vlm": "A bicycle parked sideways to the camera.",
+        "expected_keywords": [
+            "no",
+            "sideways"
+        ]
+    },
+    {
+        "id": 36,
+        "category": "Perspective",
+        "query": "Point to the person.",
+        "spatial": "person left 2m",
+        "vlm": "A person standing on the left side of the frame.",
+        "expected_keywords": [
+            "left",
+            "standing"
+        ]
+    },
+    {
+        "id": 37,
+        "category": "Safety",
+        "query": "Watch out!",
+        "spatial": "ball center 1m incoming",
+        "vlm": "A ball flying towards the camera.",
+        "expected_keywords": [
+            "ball",
+            "incoming",
+            "flying"
+        ]
+    },
+    {
+        "id": 38,
+        "category": "Existence",
+        "query": "Do I have my wallet?",
+        "spatial": "wallet table",
+        "vlm": "A black leather wallet on the table.",
+        "expected_keywords": [
+            "yes",
+            "table"
+        ]
+    },
+    {
+        "id": 39,
+        "category": "Visual Attribute",
+        "query": "Is the sky clear?",
+        "spatial": "",
+        "vlm": "Blue sky with white fluffy clouds.",
+        "expected_keywords": [
+            "clouds",
+            "blue"
+        ]
+    },
+    {
+        "id": 40,
+        "category": "Spatial",
+        "query": "Where is the noise coming from?",
+        "spatial": "speaker right",
+        "vlm": "A large speaker vibrating on the right.",
+        "expected_keywords": [
+            "right",
+            "speaker"
+        ]
+    },
+    {
+        "id": 41,
+        "category": "Perspective",
+        "query": "Is he pointing at me?",
+        "spatial": "person center",
+        "vlm": "A man pointing his finger at the camera lens.",
+        "expected_keywords": [
+            "yes",
+            "you",
+            "pointing"
+        ]
+    },
+    {
+        "id": 42,
+        "category": "Spatial",
+        "query": "How close is the wall?",
+        "spatial": "wall center 0.2m",
+        "vlm": "A brick wall very close up.",
+        "expected_keywords": [
+            "close",
+            "0.2",
+            "very close"
+        ]
+    },
+    {
+        "id": 43,
+        "category": "Safety",
+        "query": "Is the fire hydrant blocking me?",
+        "spatial": "hydrant right 1m",
+        "vlm": "A red fire hydrant on the sidewalk to the right.",
+        "expected_keywords": [
+            "right",
+            "no"
+        ]
+    },
+    {
+        "id": 44,
+        "category": "Visual Attribute",
+        "query": "Is the fruit fresh?",
+        "spatial": "apple center",
+        "vlm": "A rotten brown apple.",
+        "expected_keywords": [
+            "no",
+            "rotten",
+            "brown"
+        ]
+    },
+    {
+        "id": 45,
+        "category": "Social",
+        "query": "Are they fighting?",
+        "spatial": "person1, person2 center",
+        "vlm": "Two people hugging each other.",
+        "expected_keywords": [
+            "no",
+            "hugging"
+        ]
+    },
+    {
+        "id": 46,
+        "category": "Text",
+        "query": "What's the price?",
+        "spatial": "tag center",
+        "vlm": "A price tag saying '$5.99'.",
+        "expected_keywords": [
+            "5.99",
+            "five"
+        ]
+    },
+    {
+        "id": 47,
+        "category": "General",
+        "query": "What season is it?",
+        "spatial": "",
+        "vlm": "Trees losing orange leaves, ground covered in leaves.",
+        "expected_keywords": [
+            "autumn",
+            "fall"
+        ]
+    },
+    {
+        "id": 48,
+        "category": "Perspective",
+        "query": "Is the car backing up towards me?",
+        "spatial": "car center reverse_lights_on",
+        "vlm": "A car with reverse lights on moving towards the camera.",
+        "expected_keywords": [
+            "yes",
+            "backing",
+            "reversing"
+        ]
+    },
+    {
+        "id": 49,
+        "category": "Spatial",
+        "query": "Is the elevator to my left?",
+        "spatial": "elevator right",
+        "vlm": "Elevator doors on the right wall.",
+        "expected_keywords": [
+            "no",
+            "right"
+        ]
+    },
+    {
+        "id": 50,
+        "category": "Existence",
+        "query": "Is there a bin?",
+        "spatial": "trash_can corner",
+        "vlm": "A metal trash can in the corner.",
+        "expected_keywords": [
+            "yes",
+            "corner"
+        ]
+    },
+    {
+        "id": 51,
+        "category": "Perspective",
+        "query": "Is the dog looking at me?",
+        "spatial": "dog center",
+        "vlm": "A dog looking away at a squirrel.",
+        "expected_keywords": [
+            "no",
+            "away"
+        ]
+    },
+    {
+        "id": 52,
+        "category": "Safety",
+        "query": "Is the stove on?",
+        "spatial": "stove center",
+        "vlm": "A gas stove with a blue flame visible.",
+        "expected_keywords": [
+            "yes",
+            "on",
+            "flame"
+        ]
+    },
+    {
+        "id": 53,
+        "category": "Visual Attribute",
+        "query": "Is the text readable?",
+        "spatial": "paper center",
+        "vlm": "A blurry piece of paper with illegible text.",
+        "expected_keywords": [
+            "no",
+            "blurry",
+            "illegible"
+        ]
+    },
+    {
+        "id": 54,
+        "category": "Social",
+        "query": "Is the crowd happy?",
+        "spatial": "crowd center",
+        "vlm": "A crowd of people cheering and clapping.",
+        "expected_keywords": [
+            "yes",
+            "cheering"
+        ]
+    },
+    {
+        "id": 55,
+        "category": "General",
+        "query": "Where am I?",
+        "spatial": "",
+        "vlm": "A grocery store aisle with shelves of cereal.",
+        "expected_keywords": [
+            "grocery",
+            "store",
+            "supermarket"
+        ]
+    },
+    {
+        "id": 56,
+        "category": "Spatial",
+        "query": "Where is the plug?",
+        "spatial": "outlet bottom_left",
+        "vlm": "A power outlet near the floor on the left.",
+        "expected_keywords": [
+            "left",
+            "floor"
+        ]
+    },
+    {
+        "id": 57,
+        "category": "Safety",
+        "query": "Is the floor wet?",
+        "spatial": "puddle center",
+        "vlm": "A spilled drink forming a puddle on the floor.",
+        "expected_keywords": [
+            "yes",
+            "puddle",
+            "wet"
+        ]
+    },
+    {
+        "id": 58,
+        "category": "Visual Attribute",
+        "query": "Are the shoes dirty?",
+        "spatial": "shoes center",
+        "vlm": "White sneakers covered in mud.",
+        "expected_keywords": [
+            "yes",
+            "mud",
+            "dirty"
+        ]
+    },
+    {
+        "id": 59,
+        "category": "Perspective",
+        "query": "Is the bus arriving?",
+        "spatial": "bus center approaching",
+        "vlm": "A bus pulling up to the curb near the camera.",
+        "expected_keywords": [
+            "yes",
+            "arriving",
+            "pulling up"
+        ]
+    },
+    {
+        "id": 60,
+        "category": "Text",
+        "query": "What stops here?",
+        "spatial": "bus_stop sign",
+        "vlm": "Bus stop sign listing routes 5, 22, and 45.",
+        "expected_keywords": [
+            "5",
+            "22",
+            "45"
+        ]
+    },
+    {
+        "id": 61,
+        "category": "Existence",
+        "query": "Do you see my cane?",
+        "spatial": "cane floor",
+        "vlm": "A white cane lying on the floor.",
+        "expected_keywords": [
+            "yes",
+            "floor"
+        ]
+    },
+    {
+        "id": 62,
+        "category": "Spatial",
+        "query": "Is the gap wide enough?",
+        "spatial": "gap 0.5m",
+        "vlm": "A narrow gap between two cars.",
+        "expected_keywords": [
+            "narrow",
+            "tight",
+            "0.5"
+        ]
+    },
+    {
+        "id": 63,
+        "category": "Social",
+        "query": "Is he angry?",
+        "spatial": "person center",
+        "vlm": "A man shouting with a red face.",
+        "expected_keywords": [
+            "yes",
+            "shouting"
+        ]
+    },
+    {
+        "id": 64,
+        "category": "Perspective",
+        "query": "Is the camera focused?",
+        "spatial": "",
+        "vlm": "A sharp, clear image of a flower.",
+        "expected_keywords": [
+            "yes",
+            "clear",
+            "sharp"
+        ]
+    },
+    {
+        "id": 65,
+        "category": "Safety",
+        "query": "Is there glass on the floor?",
+        "spatial": "shards center",
+        "vlm": "Broken glass shards scattered on the tiles.",
+        "expected_keywords": [
+            "yes",
+            "broken",
+            "glass"
+        ]
+    },
+    {
+        "id": 66,
+        "category": "Visual Attribute",
+        "query": "Is the screen cracked?",
+        "spatial": "phone center",
+        "vlm": "A smartphone with a spiderweb crack on the screen.",
+        "expected_keywords": [
+            "yes",
+            "cracked"
+        ]
+    },
+    {
+        "id": 67,
+        "category": "General",
+        "query": "What animal is that?",
+        "spatial": "animal center",
+        "vlm": "A raccoon rummaging in the trash.",
+        "expected_keywords": [
+            "raccoon"
+        ]
+    },
+    {
+        "id": 68,
+        "category": "Spatial",
+        "query": "Where is the remote?",
+        "spatial": "remote sofa_arm",
+        "vlm": "A black remote control on the arm of the sofa.",
+        "expected_keywords": [
+            "sofa",
+            "arm"
+        ]
+    },
+    {
+        "id": 69,
+        "category": "Existence",
+        "query": "Any benches?",
+        "spatial": "bench park",
+        "vlm": "A wooden bench in a park setting.",
+        "expected_keywords": [
+            "yes",
+            "bench"
+        ]
+    },
+    {
+        "id": 70,
+        "category": "Perspective",
+        "query": "Is the train leaving?",
+        "spatial": "train moving_away",
+        "vlm": "The rear of a train moving away from the camera.",
+        "expected_keywords": [
+            "yes",
+            "leaving",
+            "away"
+        ]
+    },
+    {
+        "id": 71,
+        "category": "Text",
+        "query": "Is this the men's room?",
+        "spatial": "sign door",
+        "vlm": "A restroom sign with a woman symbol.",
+        "expected_keywords": [
+            "no",
+            "woman"
+        ]
+    },
+    {
+        "id": 72,
+        "category": "Safety",
+        "query": "Is the knife safe?",
+        "spatial": "knife table",
+        "vlm": "A sharp kitchen knife lying blade-out on the counter.",
+        "expected_keywords": [
+            "no",
+            "sharp",
+            "blade"
+        ]
+    },
+    {
+        "id": 73,
+        "category": "Visual Attribute",
+        "query": "Is the bread moldy?",
+        "spatial": "bread center",
+        "vlm": "A slice of bread with green spots.",
+        "expected_keywords": [
+            "yes",
+            "moldy",
+            "green"
+        ]
+    },
+    {
+        "id": 74,
+        "category": "Social",
+        "query": "Is it a formal event?",
+        "spatial": "people suits",
+        "vlm": "People wearing tuxedos and evening gowns.",
+        "expected_keywords": [
+            "yes",
+            "formal"
+        ]
+    },
+    {
+        "id": 75,
+        "category": "General",
+        "query": "What is that noise?",
+        "spatial": "construction nearby",
+        "vlm": "Construction workers using a jackhammer.",
+        "expected_keywords": [
+            "construction",
+            "jackhammer"
+        ]
+    },
+    {
+        "id": 76,
+        "category": "Spatial",
+        "query": "Where is the moon?",
+        "spatial": "moon top_right",
+        "vlm": "A full moon in the top right corner of the sky.",
+        "expected_keywords": [
+            "top",
+            "right"
+        ]
+    },
+    {
+        "id": 77,
+        "category": "Perspective",
+        "query": "Is the ball rolling to me?",
+        "spatial": "ball center moving_closer",
+        "vlm": "A soccer ball rolling straight towards the camera.",
+        "expected_keywords": [
+            "yes",
+            "towards",
+            "you"
+        ]
+    },
+    {
+        "id": 78,
+        "category": "Existence",
+        "query": "Is there a mirror?",
+        "spatial": "mirror wall",
+        "vlm": "A large oval mirror on the wall.",
+        "expected_keywords": [
+            "yes",
+            "wall"
+        ]
+    },
+    {
+        "id": 79,
+        "category": "Safety",
+        "query": "Is the iron hot?",
+        "spatial": "iron board steam",
+        "vlm": "A steam iron releasing steam.",
+        "expected_keywords": [
+            "yes",
+            "steam",
+            "likely"
+        ]
+    },
+    {
+        "id": 80,
+        "category": "Text",
+        "query": "What street is this?",
+        "spatial": "sign pole",
+        "vlm": "A street sign reading 'Main St'.",
+        "expected_keywords": [
+            "main",
+            "street"
+        ]
+    },
+    {
+        "id": 81,
+        "category": "Visual Attribute",
+        "query": "Is the plant dead?",
+        "spatial": "plant pot",
+        "vlm": "A brown, withered plant in a pot.",
+        "expected_keywords": [
+            "yes",
+            "withered",
+            "brown"
+        ]
+    },
+    {
+        "id": 82,
+        "category": "Social",
+        "query": "Are they playing?",
+        "spatial": "children park",
+        "vlm": "Children playing tag in the grass.",
+        "expected_keywords": [
+            "yes",
+            "tag"
+        ]
+    },
+    {
+        "id": 83,
+        "category": "General",
+        "query": "Is it raining?",
+        "spatial": "",
+        "vlm": "Raindrops falling on a window pane.",
+        "expected_keywords": [
+            "yes",
+            "raining"
+        ]
+    },
+    {
+        "id": 84,
+        "category": "Perspective",
+        "query": "Am I facing the wall?",
+        "spatial": "wall center very_close",
+        "vlm": "The camera is pointed directly at a blank wall few inches away.",
+        "expected_keywords": [
+            "yes",
+            "facing",
+            "wall"
+        ]
+    },
+    {
+        "id": 85,
+        "category": "Spatial",
+        "query": "Where is the charger?",
+        "spatial": "charger floor",
+        "vlm": "A white phone charger plugged into the wall.",
+        "expected_keywords": [
+            "wall",
+            "plugged"
+        ]
+    },
+    {
+        "id": 86,
+        "category": "Existence",
+        "query": "Is there a taxi?",
+        "spatial": "taxi street",
+        "vlm": "A yellow taxi cab driving by.",
+        "expected_keywords": [
+            "yes",
+            "taxi"
+        ]
+    },
+    {
+        "id": 87,
+        "category": "Safety",
+        "query": "Is the traffic light green?",
+        "spatial": "light center",
+        "vlm": "A traffic light showing solid red.",
+        "expected_keywords": [
+            "no",
+            "red"
+        ]
+    },
+    {
+        "id": 88,
+        "category": "Visual Attribute",
+        "query": "Is the towel dry?",
+        "spatial": "towel rack",
+        "vlm": "A fluffy dry white towel.",
+        "expected_keywords": [
+            "yes",
+            "dry"
+        ]
+    },
+    {
+        "id": 89,
+        "category": "Social",
+        "query": "Is the queue long?",
+        "spatial": "people line",
+        "vlm": "A long line of about 20 people.",
+        "expected_keywords": [
+            "yes",
+            "long",
+            "20"
+        ]
+    },
+    {
+        "id": 90,
+        "category": "Text",
+        "query": "What floor is this?",
+        "spatial": "sign elevator",
+        "vlm": "A sign indicating 'Level 3'.",
+        "expected_keywords": [
+            "3",
+            "third",
+            "level"
+        ]
+    },
+    {
+        "id": 91,
+        "category": "General",
+        "query": "What game is this?",
+        "spatial": "screen center",
+        "vlm": "A screen showing Minecraft gameplay.",
+        "expected_keywords": [
+            "minecraft"
+        ]
+    },
+    {
+        "id": 92,
+        "category": "Perspective",
+        "query": "Is the drone watching us?",
+        "spatial": "drone air",
+        "vlm": "A drone hovering with its camera pointed at the ground.",
+        "expected_keywords": [
+            "ground",
+            "not you"
+        ]
+    },
+    {
+        "id": 93,
+        "category": "Spatial",
+        "query": "Where is the cat?",
+        "spatial": "cat under_table",
+        "vlm": "A cat hiding under the coffee table.",
+        "expected_keywords": [
+            "under",
+            "table"
+        ]
+    },
+    {
+        "id": 94,
+        "category": "Existence",
+        "query": "Is there a path?",
+        "spatial": "trees woods",
+        "vlm": "A dirt path leading through the woods.",
+        "expected_keywords": [
+            "yes",
+            "path"
+        ]
+    },
+    {
+        "id": 95,
+        "category": "Safety",
+        "query": "Is the bridge safe?",
+        "spatial": "bridge old",
+        "vlm": "A crumbling wooden bridge with missing planks.",
+        "expected_keywords": [
+            "no",
+            "crumbling",
+            "missing"
+        ]
+    },
+    {
+        "id": 96,
+        "category": "Visual Attribute",
+        "query": "Is the painting crooked?",
+        "spatial": "painting wall",
+        "vlm": "A picture frame hanging at a severe angle.",
+        "expected_keywords": [
+            "yes",
+            "crooked",
+            "angle"
+        ]
+    },
+    {
+        "id": 97,
+        "category": "Social",
+        "query": "Are they sleeping?",
+        "spatial": "person bed",
+        "vlm": "Someone lying in bed with eyes closed.",
+        "expected_keywords": [
+            "yes",
+            "sleeping"
+        ]
+    },
+    {
+        "id": 98,
+        "category": "Text",
+        "query": "What is the error?",
+        "spatial": "monitor center",
+        "vlm": "A computer screen showing '404 Not Found'.",
+        "expected_keywords": [
+            "404",
+            "found"
+        ]
+    },
+    {
+        "id": 99,
+        "category": "General",
+        "query": "Is it a party?",
+        "spatial": "balloons people",
+        "vlm": "A room full of balloons, cake, and dancing people.",
+        "expected_keywords": [
+            "yes",
+            "party"
+        ]
+    },
+    {
+        "id": 100,
+        "category": "Perspective",
+        "query": "Is the arrow pointing at me?",
+        "spatial": "arrow sign",
+        "vlm": "A directional arrow pointing straight up.",
+        "expected_keywords": [
+            "no",
+            "up",
+            "straight"
+        ]
+    }
+]

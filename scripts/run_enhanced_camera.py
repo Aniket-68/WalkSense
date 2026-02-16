@@ -20,6 +20,7 @@ from interaction_layer.tts import TTSEngine
 from reasoning_layer.vlm import QwenVLM
 from infrastructure.sampler import FrameSampler
 from infrastructure.scene import SceneChangeDetector
+from infrastructure.darkness_detector import DarknessDetector
 
 import threading
 import queue
@@ -76,7 +77,7 @@ def draw_detections(frame, detections: list[dict]) -> object:
     return frame
 
 
-def draw_overlay(frame, status: str, description: str, spatial_summary: str, vlm_ok: bool = False, llm_ok: bool = False, timeline: list = [], is_listening: bool = False, current_query: str = None, query_start_time: float = None) -> object:
+def draw_overlay(frame, status: str, description: str, spatial_summary: str, vlm_ok: bool = False, llm_ok: bool = False, timeline: list = [], is_listening: bool = False, current_query: str = None, query_start_time: float = None, **kwargs) -> object:
     """
     Draws the UI overlay including status, spatial summary, and AI health indicators.
     
@@ -100,7 +101,7 @@ def draw_overlay(frame, status: str, description: str, spatial_summary: str, vlm
     status_color = (0, 255, 0) if status == "RUNNING" else (0, 165, 255)
     if is_listening: status_color = (0, 255, 255) # Cyan for listening
     
-    cv2.putText(frame, f"WALKSENSE OS // {status}", (20, 35),
+    cv2.putText(frame, f"WALKSENSE OS // {status} // {kwargs.get('mode', 'NORMAL')}", (20, 35),
                cv2.FONT_HERSHEY_DUPLEX, 0.7, status_color, 1)
     
     # 3. AI HEALTH (Right-aligned)
@@ -114,19 +115,41 @@ def draw_overlay(frame, status: str, description: str, spatial_summary: str, vlm
     
     # 4. DIALOGUE TIMELINE (Left Floating Panel)
     if timeline:
-        start_y = 120
-        panel_h = len(timeline[-3:]) * 40 + 20
-        overlay = frame.copy()
-        cv2.rectangle(overlay, (15, start_y - 30), (int(w*0.45), start_y + panel_h - 30), (30, 30, 30), -1)
-        cv2.addWeighted(overlay, 0.5, frame, 0.5, 0, frame)
+        last_int_ts = kwargs.get('last_interaction_ts', t)
+        elapsed_int = t - last_int_ts
         
-        for entry in timeline[-3:]:
-            prefix = entry.split(":")[0]
-            color = (0, 255, 255) if "USER" in prefix else (100, 255, 100)
-            cv2.circle(frame, (35, start_y - 5), 4, color, -1)
-            cv2.putText(frame, entry, (50, start_y),
-                       cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 1)
-            start_y += 40
+        # Fade out after 10 seconds, completely gone by 13 seconds
+        alpha_hist = 1.0
+        if elapsed_int > 10.0:
+            alpha_hist = max(0, 1.0 - (elapsed_int - 10.0) / 3.0)
+            
+        if alpha_hist > 0.01:
+            start_y = 120
+            # Truncate to last 3
+            visible_items = timeline[-3:]
+            
+            panel_h = len(visible_items) * 40 + 20
+            # Background
+            overlay = frame.copy()
+            cv2.rectangle(overlay, (15, start_y - 30), (int(w*0.45), start_y + panel_h - 30), (30, 30, 30), -1)
+            cv2.addWeighted(overlay, 0.5 * alpha_hist, frame, 1.0 - (0.5 * alpha_hist), 0, frame)
+            
+            for entry in visible_items:
+                prefix = entry.split(":")[0]
+                color = (0, 255, 255) if "USER" in prefix else (100, 255, 100)
+                
+                # Manual text truncation if too long
+                display_txt = entry
+                if len(display_txt) > 55: display_txt = display_txt[:52] + "..."
+                
+                # Apply alpha to text (dim colors)
+                if alpha_hist < 1.0:
+                     color = (int(color[0]*alpha_hist), int(color[1]*alpha_hist), int(color[2]*alpha_hist))
+                
+                cv2.circle(frame, (35, start_y - 5), 4, color, -1)
+                cv2.putText(frame, display_txt, (50, start_y),
+                           cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 1)
+                start_y += 40
 
     # 5. JARVIS CORE (Bottom Right)
     import math
@@ -149,7 +172,23 @@ def draw_overlay(frame, status: str, description: str, spatial_summary: str, vlm
         cv2.putText(frame, "LISTENING...", (w//2 - 100, h//2), cv2.FONT_HERSHEY_DUPLEX, 1.5, (0, 255, 255), 2)
         
     # NEW: Show Pending Query Prominently (Only if NOT currently answering)
-    if current_query and "AI:" not in description:
+    # OR Show Fading Query
+    target_query = current_query
+    is_fading = False
+    alpha = 1.0
+    
+    if not target_query and (t - getattr(draw_overlay, 'last_query_ts', 0) < 5.0):
+        # We are in fading state
+        target_query = kwargs.get('fading_text')
+        is_fading = True
+        elapsed_fade = t - getattr(draw_overlay, 'last_query_ts', 0)
+        alpha = max(0, 1.0 - (elapsed_fade / 5.0))
+        
+    # Store timestamp for next frame if provided
+    if kwargs.get('last_ts'):
+        draw_overlay.last_query_ts = kwargs.get('last_ts')
+
+    if target_query and "AI:" not in description:
         # Draw a highlight box
         qh, qw = 60, 800
         qx, qy = (w - qw)//2, h - 150
@@ -157,20 +196,33 @@ def draw_overlay(frame, status: str, description: str, spatial_summary: str, vlm
         # Glassmorphism background
         overlay = frame.copy()
         cv2.rectangle(overlay, (qx, qy), (qx + qw, qy + qh), (20, 20, 20), -1)
-        cv2.addWeighted(overlay, 0.85, frame, 0.15, 0, frame)
+        cv2.addWeighted(overlay, 0.85 * alpha, frame, 1.0 - (0.85 * alpha), 0, frame)
         
         # Border
-        cv2.rectangle(frame, (qx, qy), (qx + qw, qy + qh), (0, 255, 255), 1)
+        border_color = (0, 255, 255) if not is_fading else (0, 255, 0)
+        # Apply alpha to border manually not easy in CV2, just assume solid for now or skip
+        if not is_fading:
+             cv2.rectangle(frame, (qx, qy), (qx + qw, qy + qh), border_color, 1)
         
-        # Text with latency indicator
-        elapsed = time.time() - (query_start_time if query_start_time else time.time())
-        cv2.putText(frame, f"QUERY: {current_query}", (qx + 20, qy + 40), 
-                   cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-                   
-        # Pulsing processing text
-        if int(time.time() * 2) % 2 == 0:
-            cv2.putText(frame, f"Processing... {elapsed:.1f}s", (qx + qw - 200, qy + 40),
-                       cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 1)
+        # Text with status
+        text_color = (255, 255, 255)
+        # We can't easily do alpha text in pure CV2 without another overlay, 
+        # so we'll just dim the color for fading
+        if is_fading:
+             val = int(255 * alpha)
+             text_color = (val, val, val)
+             
+        status_suffix = ""
+        if not is_fading:
+            elapsed = time.time() - (query_start_time if query_start_time else time.time())
+            status_suffix = f" (Processing {elapsed:.1f}s...)"
+            
+        display_text = f"QUERY: {target_query}{status_suffix}"
+        # Truncate if too long
+        if len(display_text) > 60: display_text = display_text[:57] + "..."
+        
+        cv2.putText(frame, display_text, (qx + 20, qy + 40), 
+                   cv2.FONT_HERSHEY_SIMPLEX, 0.7, text_color, 2)
 
     # 6. BOTTOM DESCRIPTION PANEL
     cv2.rectangle(frame, (0, h - 60), (w, h), (10, 10, 10), -1)
@@ -328,6 +380,7 @@ def main() -> None:
     
     sampler = FrameSampler(every_n_frames=SAMPLING)
     scene_detector = SceneChangeDetector(threshold=SCENE_THRESH)
+    darkness_detector = DarknessDetector(darkness_threshold=40, area_threshold=0.75)
     qwen_worker = QwenWorker(qwen)
     
     # UI Variables
@@ -337,9 +390,16 @@ def main() -> None:
     llm_response = ""
     llm_response_timer = 0
     llm_response_timer = 0
+    llm_response_timer = 0
     is_listening = False
+    is_asking = False
     query_start_time = None
+    last_query_ts = 0 
+    fading_query_text = None
+    last_interaction_ts = 0 # Timestamp of last message added to timeline
     dialogue_history = []  # Stores last few interactions
+    is_too_dark = False  # Track if environment is too dark
+    last_darkness_alert_time = 0  # Prevent spamming darkness alerts
 
     cv2.namedWindow("WalkSense Enhanced", cv2.WINDOW_NORMAL)
     cv2.resizeWindow("WalkSense Enhanced", WINDOW_WIDTH, WINDOW_HEIGHT)
@@ -351,14 +411,16 @@ def main() -> None:
         Runs the speech-to-text listener in a separate thread to avoid UI lag.
         Updates shared 'current_user_query' upon successful recognition.
         """
-        nonlocal current_user_query, is_listening, llm_response, llm_response_timer, query_start_time
-        is_listening = True
+        nonlocal current_user_query, is_listening, is_asking, llm_response, llm_response_timer, query_start_time, last_query_ts, fading_query_text, last_interaction_ts
+        # is_listening = True # MOVED DOWN
+        
         # 🔴 STOP TTS IMMEDIATELY to prevent interference
         tts.stop()
         
         max_retries = 2
         for attempt in range(max_retries):
             # PROMPT USER
+            is_asking = True # Status update
             if attempt == 0:
                 tts.speak("What do you want to know?")
             else:
@@ -366,25 +428,37 @@ def main() -> None:
                 
             update_status("ASKING...")
             time.sleep(1.8) # Wait for TTS to finish roughly
+            is_asking = False # Done asking
             
+            # NOW we are actually listening
+            is_listening = True
             logger.info(f"Listening thread started (Attempt {attempt+1})...")
             tracker.start_timer("stt")
             query = listener.stt.listen_once()
             tracker.stop_timer("stt")
+            is_listening = False # Reset immediately after interact
             
             if query:
                 print(f"\n[USER QUERY] >>> {query} <<<\n")
                 logger.info(f"USER: {query}")
                 current_user_query = query
                 query_start_time = time.time()
-                dialogue_history.append(f"USER: {query}")
+                
+                user_entry = f"USER: {query}"
+                if not dialogue_history or dialogue_history[-1] != user_entry:
+                    dialogue_history.append(user_entry)
+                    last_interaction_ts = time.time()
                 
                 # Get immediate answer (Stage 1)
                 immediate_ans = fusion.handle_user_query(query)
                 if immediate_ans:
                     llm_response = f"AI: {immediate_ans}"
                     llm_response_timer = time.time() + 10
-                    dialogue_history.append(f"AI: {immediate_ans}")
+                    
+                    ai_entry = f"AI: {immediate_ans}"
+                    if not dialogue_history or dialogue_history[-1] != ai_entry:
+                        dialogue_history.append(ai_entry)
+                        last_interaction_ts = time.time()
                 break # Success
             
             # If query is None (Timeout), loop continues
@@ -396,6 +470,27 @@ def main() -> None:
         nonlocal description
         # description = msg # Optional: don't override scene desc
         pass
+
+    # 🔴 REMOTE CONTROL LISTENER (Bluetooth Headset Support)
+    try:
+        from pynput import keyboard
+        logger.info("Initializing Global Key Listener for Bluetooth Controls...")
+        
+        def on_remote_press(key):
+            try:
+                # Check for Media Play/Pause (common on headsets)
+                if key == keyboard.Key.media_play_pause:
+                    logger.info("[REMOTE] Play/Pause detected - Triggering Listen")
+                    if not is_listening and not is_asking:
+                        threading.Thread(target=threaded_listen, daemon=True).start()
+            except AttributeError:
+                pass
+
+        remote_listener = keyboard.Listener(on_press=on_remote_press)
+        remote_listener.start()
+        logger.info("✓ Remote Listener Active (Press Play/Pause on Headset to Speak)")
+    except Exception as e:
+        logger.warning(f"Could not setup global listener: {e}")
 
     for frame in camera.stream():
         current_time = time.time()
@@ -441,26 +536,63 @@ def main() -> None:
                     if answer:
                         llm_response = f"AI: {answer}"
                         llm_response_timer = time.time() + 10 # Show for 10s
-                        dialogue_history.append(f"AI: {answer}")
+                        
+                        ai_entry = f"AI: {answer}"
+                        # Simple deduplication: don't look back just at the last one, 
+                        # sometimes "USER" message is in between.
+                        # But here, we just want to avoid appending if already there recently.
+                        if not dialogue_history or dialogue_history[-1] != ai_entry:
+                             dialogue_history.append(ai_entry)
+                             last_interaction_ts = time.time()
+                        
                         logger.info(f"LLM Answer: {answer}")
                         
                         # TTS is already handled by the router when routing the RESPONSE event
                         # No need to call tts.speak() here as it would be redundant
                         
+                        fading_query_text = current_user_query # Save for fading effect
+                        last_query_ts = time.time()
                         current_user_query = None
                 else:
                     fusion.handle_scene_description(new_desc)
                     logger.info("VLM Update (Silent)")
             
-            # 2. Trigger Logic
+            # 2. Darkness Check (before VLM processing)
+            is_too_dark, dark_percentage = darkness_detector.is_too_dark(clean_frame)
+            
+            # 3. Trigger Logic
             has_query = (current_user_query is not None)
             time_to_sample = sampler.should_sample()
             should_run_qwen = False
             
-            if has_query:
-                should_run_qwen = True # Priority
-            elif time_to_sample and scene_detector.has_changed(clean_frame):
-                should_run_qwen = True
+            if is_too_dark:
+                # Environment is too dark - skip VLM and notify user
+                if current_time - last_darkness_alert_time > 10.0:  # Alert every 10 seconds max
+                    brightness_level = darkness_detector.get_brightness_level(clean_frame)
+                    darkness_msg = f"Your view is too dark ({dark_percentage*100:.0f}% dark). Please move to a brighter area."
+                    logger.warning(f"Darkness detected: {dark_percentage*100:.1f}% - Skipping VLM")
+                    
+                    # Update description and speak
+                    description = f"DARK ENVIRONMENT: {brightness_level} - {darkness_msg}"
+                    tts.speak(darkness_msg)
+                    
+                    last_darkness_alert_time = current_time
+                
+                # If user has a query but it's too dark, clear the query and notify
+                if has_query and current_time - last_darkness_alert_time < 2.0:
+                    logger.info(f"Clearing query due to darkness: {current_user_query}")
+                    fading_query_text = current_user_query
+                    last_query_ts = time.time()
+                    current_user_query = None
+                    
+                # Skip VLM processing
+                should_run_qwen = False
+            else:
+                # Normal lighting - proceed with VLM logic
+                if has_query:
+                    should_run_qwen = True # Priority
+                elif time_to_sample and scene_detector.has_changed(clean_frame):
+                    should_run_qwen = True
             
             if should_run_qwen:
                 context_str = ", ".join([d["label"] for d in detections])
@@ -475,6 +607,7 @@ def main() -> None:
 
         # UI Overlay Construction
         status = "RUNNING" if started else "PAUSED"
+        if is_asking: status = "WAIT..."
         if is_listening: status = "LISTENING..."
         
         # Check if we are in the 'prompting' phase (heuristically, if is_listening but mic not open yet/during sleep)
@@ -497,7 +630,11 @@ def main() -> None:
             timeline=dialogue_history,
             is_listening=is_listening,
             current_query=current_user_query,
-            query_start_time=query_start_time
+            query_start_time=query_start_time,
+            mode=fusion.router.mode,
+            last_ts=last_query_ts,
+            fading_text=fading_query_text,
+            last_interaction_ts=last_interaction_ts
         )
         
         tracker.stop_timer("frame_total")
@@ -526,6 +663,11 @@ def main() -> None:
             current_user_query = "What obstacles are in front of me?"
             fusion.handle_user_query(current_user_query)
             tts.speak("Analyzing obstacles")
+
+        elif key in (ord('c'), ord('C')):
+            # TOGGLE CRITICAL MODE
+            new_mode = fusion.router.toggle_mode()
+            logger.info(f"Mode toggled to: {new_mode}")
 
         elif key in (ord('m'), ord('M')):
             is_muted = fusion.router.toggle_mute()

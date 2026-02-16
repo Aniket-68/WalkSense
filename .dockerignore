@@ -1,0 +1,41 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.env
+
+# git
+.git/
+.gitignore
+
+# IDE settings
+.vscode/
+.idea/
+
+# Local logs and output
+logs/
+*.log
+
+# Large model files (should be downloaded or mounted, not built into image)
+models/
+*.pt
+*.pth
+*.onnx
+*.bin
+
+# Temporary or local testing plots
+docs/plots/
+*.png
+*.jpg
+*.mp4
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Documentation build
+site/

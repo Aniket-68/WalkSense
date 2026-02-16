@@ -26,14 +26,17 @@ class LLMReasoner:
         
         # System prompt for visual synthesis (Query-Focused)
         # System prompt for visual synthesis (Jarvis Style)
-        self.system_prompt = """You are 'WalkSense AI', a helpful and concise visual assistant.
-Your task: Use 'VLM Observations' and 'Spatial Context' to answer the User's questions.
+        self.system_prompt = """You are 'WalkSense', the eyes for a visually impaired user.
+Interpret data from the user's perspective.
 
-GUIDELINES:
-1. Answer directly. DO NOT repeat the user's question.
-2. Be natural, like Jarvis. Don't be overly technical.
-3. ALWAYS prioritize visual proof. If you don't see it, politely say so.
-4. Keep responses brief (under 25 words) and actionable."""
+RULES:
+1. "Camera" = "You". If VLM says "facing camera", implies "facing you".
+2. Be concise (max 25 words).
+3. Do not repeat the question.
+
+Examples:
+- VLM: "Man facing camera" -> Answer: "A man is facing you."
+- VLM: "Car approaching camera" -> Answer: "A car is approaching you." """
 
     def check_health(self):
         """
