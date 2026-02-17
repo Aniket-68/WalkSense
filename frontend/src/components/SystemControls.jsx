@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = "http://localhost:8080";
 
 export default function SystemControls({ state, onStartStop }) {
   const [loading, setLoading] = useState(false);
-  const systemStatus = state?.system_status || 'IDLE';
-  const isRunning = systemStatus === 'RUNNING';
+  const systemStatus = state?.system_status || "IDLE";
+  const isRunning = systemStatus === "RUNNING";
   const isMuted = state?.muted || false;
 
   const handleToggle = async () => {
@@ -16,10 +16,10 @@ export default function SystemControls({ state, onStartStop }) {
       // Fallback to direct API call
       setLoading(true);
       try {
-        const endpoint = isRunning ? '/api/system/stop' : '/api/system/start';
-        await fetch(`${API_BASE}${endpoint}`, { method: 'POST' });
+        const endpoint = isRunning ? "/api/system/stop" : "/api/system/start";
+        await fetch(`${API_BASE}${endpoint}`, { method: "POST" });
       } catch (err) {
-        console.error('Toggle failed:', err);
+        console.error("Toggle failed:", err);
       } finally {
         setLoading(false);
       }
@@ -28,16 +28,16 @@ export default function SystemControls({ state, onStartStop }) {
 
   const handleMute = async () => {
     try {
-      await fetch(`${API_BASE}/api/system/mute`, { method: 'POST' });
+      await fetch(`${API_BASE}/api/system/mute`, { method: "POST" });
     } catch (err) {
-      console.error('Mute failed:', err);
+      console.error("Mute failed:", err);
     }
   };
 
   return (
     <div className="controls-container card">
       <button
-        className={`control-btn ${isRunning ? 'stop' : 'start'}`}
+        className={`control-btn ${isRunning ? "stop" : "start"}`}
         onClick={handleToggle}
         disabled={loading}
       >
@@ -54,15 +54,15 @@ export default function SystemControls({ state, onStartStop }) {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5.14v14l11-7-11-7z" />
             </svg>
-            {loading ? 'Starting…' : 'Start System'}
+            {loading ? "Starting…" : "Start System"}
           </>
         )}
       </button>
 
       <button
-        className={`control-btn ${isMuted ? 'mute-active' : ''}`}
+        className={`control-btn ${isMuted ? "mute-active" : ""}`}
         onClick={handleMute}
-        title={isMuted ? 'Unmute Audio' : 'Mute Audio'}
+        title={isMuted ? "Unmute Audio" : "Mute Audio"}
       >
         {isMuted ? (
           <>

@@ -166,24 +166,44 @@ class SystemManager:
             model_dir = os.path.join(project_root, "models", "whisper")
 
             logger.info(f"[STT] Pre-loading Whisper model '{model_size}' on {device}...")
-            try:
+            
+            # ENFORCE GPU - No CPU fallback
+            if device == "cuda":
+                try:
+                    from faster_whisper import WhisperModel
+                    self._whisper_model = WhisperModel(
+                        model_size, device=device, compute_type=compute_type,
+                        download_root=model_dir
+                    )
+                    self._whisper_backend = "faster_whisper"
+                    logger.info(f"[STT] ✓ Faster-Whisper loaded successfully on CUDA ({model_size})")
+                    return
+                except Exception as e:
+                    logger.error(f"[STT] ✗ CUDA REQUIRED but failed: {e}")
+                    logger.error("[STT] ═══════════════════════════════════════")
+                    logger.error("[STT] GPU ENFORCEMENT: Install CUDA PyTorch:")
+                    logger.error("[STT] pip uninstall torch torchvision torchaudio")  
+                    logger.error("[STT] pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121")
+                    logger.error("[STT] ═══════════════════════════════════════")
+                    raise RuntimeError(f"CUDA required but unavailable: {e}")
+
+            # CPU only allowed if explicitly configured
+            elif device == "cpu":
                 from faster_whisper import WhisperModel
                 self._whisper_model = WhisperModel(
-                    model_size, device=device, compute_type=compute_type,
-                    download_root=model_dir, local_files_only=True
+                    model_size, device="cpu", compute_type="int8",
+                    download_root=model_dir
                 )
                 self._whisper_backend = "faster_whisper"
-                logger.info("[STT] Faster-Whisper pre-loaded (local_files_only)")
-            except Exception as e:
-                logger.warning(f"[STT] Faster-Whisper failed ({e}), trying OpenAI Whisper")
-                import whisper
-                self._whisper_model = whisper.load_model(model_size, download_root=model_dir)
-                self._whisper_backend = "openai_whisper"
-                logger.info("[STT] OpenAI Whisper pre-loaded")
+                logger.info(f"[STT] Faster-Whisper loaded on CPU ({model_size}) - GPU disabled by config")
+            else:
+                raise ValueError(f"Invalid device: {device}")
+                
         except Exception as e:
             logger.error(f"[STT] Pre-load failed: {e}")
             self._whisper_model = None
             self._whisper_backend = None
+            raise  # Re-raise to stop initialization
 
     # ------------------------------------------------------------------
     # Public API
@@ -254,6 +274,8 @@ class SystemManager:
             provider = Config.get("stt.active_provider", "whisper_local")
             language = Config.get(f"stt.providers.{provider}.language", "en")
 
+            logger.debug(f"[STT] Starting transcription: backend={self._whisper_backend}, language={language}")
+
             # Save audio bytes to temp file for transcription
             with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as f:
                 f.write(audio_bytes)
@@ -261,12 +283,21 @@ class SystemManager:
 
             try:
                 start = time.time()
+                logger.debug(f"[STT] Calling transcribe on temp file: {temp_path}")
+                
                 if self._whisper_backend == "faster_whisper":
+                    logger.debug("[STT] Using faster-whisper backend")
                     segments, info = self._whisper_model.transcribe(temp_path, language=language)
                     text = " ".join([seg.text for seg in segments]).strip()
-                else:
+                    logger.debug(f"[STT] faster-whisper completed, detected language: {info.language}")
+                elif "openai" in self._whisper_backend:
+                    logger.debug("[STT] Using openai-whisper backend")
                     result = self._whisper_model.transcribe(temp_path, language=language, fp16=False)
                     text = result["text"].strip() if isinstance(result, dict) else str(result).strip()
+                    logger.debug("[STT] openai-whisper completed")
+                else:
+                    logger.error(f"[STT] Unknown backend: {self._whisper_backend}")
+                    return None
 
                 duration = (time.time() - start) * 1000
                 logger.info(f"[STT] Transcribed in {duration:.0f}ms: {text}")
@@ -277,7 +308,21 @@ class SystemManager:
 
         except Exception as e:
             logger.error(f"[STT] Transcription failed: {e}")
+            import traceback
+            logger.error(f"[STT] Full traceback: {traceback.format_exc()}")
+            
+            # NO CPU FALLBACK - Enforce GPU usage
+            if "cublas" in str(e) or "cuda" in str(e).lower():
+                logger.error("[STT] ═══════════════════════════════════════")
+                logger.error("[STT] CUDA ERROR - Install proper PyTorch:")
+                logger.error("[STT] pip uninstall torch torchvision torchaudio")
+                logger.error("[STT] pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121")
+                logger.error("[STT] ═══════════════════════════════════════")
             return None
+
+    # ------------------------------------------------------------------
+    # State API
+    # ------------------------------------------------------------------
 
     def get_state(self) -> Dict[str, Any]:
         """Get the full system state for WebSocket broadcast."""

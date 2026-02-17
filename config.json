@@ -1,127 +1,124 @@
 {
-    "vlm": {
-        "active_provider": "ollama",
-        "providers": {
-            "lm_studio": {
-                "url": "http://localhost:1234/v1",
-                "model_id": "qwen/qwen3-vl-b"
-            },
-            "huggingface": {
-                "model_id": "Qwen/Qwen2-VL-2B-Instruct",
-                "device": "auto",
-                "precision": "4bit"
-            },
-            "ollama": {
-                "url": "http://localhost:11434",
-                "model_id": "qwen3-vl:2b"
-            }
-        }
-    },
-    "llm": {
-        "active_provider": "gemini",
-        "providers": {
-            "gemini": {
-                "model_id": "gemini-2.5-flash",
-                "api_key_env": "GEMINI_API_KEY"
-            },
-            "ollama": {
-                "url": "http://localhost:11434",
-                "model_id": "gemma3:270m"
-            },
-            "lm_studio": {
-                "url": "http://localhost:1234/v1",
-                "model_id": "phi-4"
-            },
-            "huggingface": {
-                "model_id": "microsoft/phi-2",
-                "device": "auto",
-                "precision": "4bit"
-            }
-        }
-    },
-    "tts": {
-        "active_provider": "pyttsx3",
-        "providers": {
-            "pyttsx3": {
-                "voice": "default",
-                "rate": 150,
-                "volume": 1.0
-            },
-            "coqui": {
-                "model": "tts_models/en/ljspeech/vits"
-            },
-            "system": {
-                "command": "say"
-            }
-        }
-    },
-    "microphone": {
-        "mode": "hardware",
-        "hardware": {
-            "id": 2,
-            "calibration_duration": 2.0,
-            "energy_threshold": 50,
-            "pause_threshold": 0.6,
-            "dynamic_energy": true
-        }
-    },
-    "stt": {
-        "active_provider": "whisper_local",
-        "providers": {
-            "google": {
-                "language": "en-US",
-                "timeout": 25,
-                "phrase_time_limit": 25
-            },
-            "whisper_api": {
-                "api_key_env": "OPENAI_API_KEY",
-                "model": "whisper-1",
-                "language": "en",
-                "timeout": 15,
-                "phrase_time_limit": 20
-            },
-            "whisper_local": {
-                "model_size": "small",
-                "device": "cuda",
-                "compute_type": "int8",
-                "language": "en",
-                "timeout": 10,
-                "phrase_time_limit": 15
-            }
-        }
-    },
-    "camera": {
-        "mode": "hardware",
-        "hardware": {
-            "id": 1,
-            "width": 1280,
-            "height": 720
-        },
-        "simulation": {
-            "video_path": "test_walk.mp4",
-            "loop": true
-        }
-    },
-    "detector": {
-        "active_model": "yolov11m",
-        "models": {
-            "yolov8n": "models/yolo/yolov8n.pt",
-            "yolo11m": "models/yolo/yolo11m.pt"
-        },
-        "confidence_threshold": 0.25,
-        "device": "cuda"
-    },
-    "perception": {
-        "sampling_interval": 150,
-        "scene_threshold": 0.15
-    },
-    "safety": {
-        "alert_cooldown": 20.0,
-        "suppression": {
-            "enabled": true,
-            "redundancy_threshold": 0.5,
-            "warning_timeout": 30.0,
-            "scene_timeout": 60.0
-        }
+  "vlm": {
+    "active_provider": "lm_studio",
+    "providers": {
+      "lm_studio": {
+        "url": "http://localhost:1234/v1",
+        "model_id": "qwen/qwen3-vl-4b"
+      },
+      "huggingface": {
+        "model_id": "Qwen/Qwen2-VL-2B-Instruct",
+        "device": "auto",
+        "precision": "4bit"
+      },
+      "ollama": {
+        "url": "http://localhost:11434",
+        "model_id": "llava"
+      }
     }
+  },
+  "llm": {
+    "active_provider": "ollama",
+    "providers": {
+      "ollama": {
+        "url": "http://localhost:11434",
+        "model_id": "gemma3:270m"
+      },
+      "lm_studio": {
+        "url": "http://localhost:1234/v1",
+        "model_id": "phi-4"
+      },
+      "huggingface": {
+        "model_id": "microsoft/phi-2",
+        "device": "auto",
+        "precision": "4bit"
+      }
+    }
+  },
+  "tts": {
+    "active_provider": "pyttsx3",
+    "providers": {
+      "pyttsx3": {
+        "voice": "default",
+        "rate": 150,
+        "volume": 1.0
+      },
+      "coqui": {
+        "model": "tts_models/en/ljspeech/vits"
+      },
+      "system": {
+        "command": "say"
+      }
+    }
+  },
+  "microphone": {
+    "mode": "hardware",
+    "hardware": {
+      "id": 2,
+      "calibration_duration": 2.0,
+      "energy_threshold": 50,
+      "pause_threshold": 0.6,
+      "dynamic_energy": true
+    }
+  },
+  "stt": {
+    "active_provider": "whisper_local",
+    "providers": {
+      "google": {
+        "language": "en-US",
+        "timeout": 25,
+        "phrase_time_limit": 25
+      },
+      "whisper_api": {
+        "api_key_env": "OPENAI_API_KEY",
+        "model": "whisper-1",
+        "language": "en",
+        "timeout": 15,
+        "phrase_time_limit": 20
+      },
+      "whisper_local": {
+        "model_size": "small",
+        "device": "cuda",
+        "compute_type": "int8",
+        "language": "en",
+        "timeout": 10,
+        "phrase_time_limit": 15
+      }
+    }
+  },
+  "camera": {
+    "mode": "hardware",
+    "hardware": {
+      "id": 0,
+      "width": 1280,
+      "height": 720
+    },
+    "simulation": {
+      "video_path": "test_walk.mp4",
+      "loop": true
+    }
+  },
+  "detector": {
+    "active_model": "yolo11m",
+    "models": {
+      "yolov8n": "models/yolo/yolov8n.pt",
+      "yolo11m": "models/yolo/yolo11m.pt",
+      "yolov11ft": "models/yolo/yolov11ft.pt"
+    },
+    "confidence_threshold": 0.25,
+    "device": "cuda"
+  },
+  "perception": {
+    "sampling_interval": 150,
+    "scene_threshold": 0.15
+  },
+  "safety": {
+    "alert_cooldown": 20.0,
+    "suppression": {
+      "enabled": true,
+      "redundancy_threshold": 0.5,
+      "warning_timeout": 30.0,
+      "scene_timeout": 60.0
+    }
+  }
 }

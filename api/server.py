@@ -115,6 +115,38 @@ async def voice_query(audio: UploadFile = File(...)):
         )
 
 
+def _find_ffmpeg():
+    """Find ffmpeg executable, refreshing PATH from system environment if needed."""
+    import shutil
+    import os
+    ffmpeg = shutil.which("ffmpeg")
+    if ffmpeg:
+        return ffmpeg
+    # Refresh PATH from system environment (winget installs update registry but not current process)
+    system_path = os.environ.get("Path", "")
+    fresh_path = os.pathsep.join([
+        os.environ.get("SystemRoot", r"C:\Windows") + r"\system32",
+        os.environ.get("SystemRoot", r"C:\Windows"),
+    ])
+    try:
+        import winreg
+        for root, sub in [(winreg.HKEY_LOCAL_MACHINE, r"SYSTEM\CurrentControlSet\Control\Session Manager\Environment"),
+                          (winreg.HKEY_CURRENT_USER, r"Environment")]:
+            try:
+                with winreg.OpenKey(root, sub) as key:
+                    val, _ = winreg.QueryValueEx(key, "Path")
+                    fresh_path = fresh_path + os.pathsep + val
+            except OSError:
+                pass
+        os.environ["Path"] = fresh_path
+        ffmpeg = shutil.which("ffmpeg")
+        if ffmpeg:
+            return ffmpeg
+    except ImportError:
+        pass
+    return None
+
+
 def _process_voice_audio(audio_bytes: bytes, content_type: str) -> Optional[str]:
     """Convert audio to WAV and transcribe. Runs in thread pool."""
     import tempfile
@@ -129,13 +161,26 @@ def _process_voice_audio(audio_bytes: bytes, content_type: str) -> Optional[str]
 
         wav_path = src_path.replace(".webm", ".wav")
         try:
+            ffmpeg_path = _find_ffmpeg()
+            if not ffmpeg_path:
+                logger.error("[VoiceQuery] FFmpeg not found. Please install FFmpeg:")
+                logger.error("  1. Download from: https://ffmpeg.org/download.html")
+                logger.error("  2. Add to system PATH")
+                logger.error("  3. Or install via: winget install FFmpeg")
+                raise FileNotFoundError("FFmpeg is required but not installed. Please install FFmpeg and add it to your system PATH.")
+                
             subprocess.run(
-                ["ffmpeg", "-y", "-i", src_path, "-ar", "16000", "-ac", "1", "-f", "wav", wav_path],
+                [ffmpeg_path, "-y", "-i", src_path, "-ar", "16000", "-ac", "1", "-f", "wav", wav_path],
                 capture_output=True, timeout=10
             )
             with open(wav_path, "rb") as wav_f:
                 audio_bytes = wav_f.read()
             logger.info(f"[VoiceQuery] Converted to WAV: {len(audio_bytes)} bytes")
+        except FileNotFoundError:
+            raise
+        except Exception as e:
+            logger.error(f"[VoiceQuery] Audio conversion failed: {e}")
+            raise
         finally:
             import os
             for p in [src_path, wav_path]:
@@ -219,7 +264,7 @@ if __name__ == "__main__":
     uvicorn.run(
         "api.server:app",
         host="0.0.0.0",
-        port=8000,
+        port=8080,
         reload=False,
         log_level="info",
     )

@@ -1,4 +1,10 @@
 # ===============================
+# System Requirements (Install Separately)
+# ===============================
+# FFmpeg (for audio processing): winget install FFmpeg
+# OR download from: https://ffmpeg.org/download.html
+
+# ===============================
 # Core ML / Deep Learning
 # ===============================
 torch>=2.1.0

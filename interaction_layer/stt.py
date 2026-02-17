@@ -139,7 +139,7 @@ class STTListener:
             provider = self.config.get("stt.active_provider", "whisper_local")
             if provider == "whisper_local":
                 path = "stt.providers.whisper_local"
-                size = self.config.get(f"{path}.model_size", "base")
+                size = self.config.get(f"{path}.model_size", "small")
                 dev = self.config.get(f"{path}.device", "cuda")
                 ctype = self.config.get(f"{path}.compute_type", "int8")
                 
@@ -154,7 +154,7 @@ class STTListener:
                     self._whisper_model = WhisperModel(size, device=dev, compute_type=ctype, download_root=model_dir)
                     self._whisper_model_size = size
                     self._backend = "faster_whisper"
-                    logger.info("[STT] Faster-Whisper Loaded Successfully")
+                    logger.info(f"[STT] Faster-Whisper Loaded Successfully ({size})")
                 except Exception as e:
                     logger.warning(f"[STT] Faster-Whisper failed ({e}). Falling back to OpenAI Whisper.")
                     import whisper
@@ -164,11 +164,12 @@ class STTListener:
                     self._whisper_model = whisper.load_model(size, download_root=model_dir)
                     self._whisper_model_size = size
                     self._backend = "openai_whisper"
+                    logger.info(f"[STT] OpenAI Whisper Loaded Successfully ({size})")
                     
         except Exception as e:
             logger.error(f"[STT] Pre-loading failed: {e}")
 
-    def _recognize_faster_whisper(self, audio, model_size="base", device="cpu", compute_type="int8", language="en"):
+    def _recognize_faster_whisper(self, audio, model_size="small", device="cuda", compute_type="int8", language="en"):
         """Use faster-whisper for local transcription (recommended)"""
         from faster_whisper import WhisperModel
         import io
@@ -189,6 +190,7 @@ class STTListener:
             # Use provided compute_type or default logic
             try:
                 self._whisper_model = WhisperModel(model_size, device=device, compute_type=compute_type, download_root=model_dir)
+                logger.info(f"[STT] Loaded Faster-Whisper model '{model_size}' on {device}")
             except Exception:
                 # If int8/cuda fails, fallback to cpu/int8 or float32
                 logger.warning("STT: GPU/Int8 failed, falling back to CPU")
@@ -201,7 +203,7 @@ class STTListener:
         lang_info = f"Detected: {info.language} ({int(info.language_probability*100)}% prob)"
         return text.strip(), lang_info
     
-    def _recognize_openai_whisper(self, audio, model_size="base", language="en"):
+    def _recognize_openai_whisper(self, audio, model_size="small", language="en"):
         """Fallback: Use OpenAI's whisper for local transcription"""
         import whisper
         import io
@@ -212,7 +214,7 @@ class STTListener:
             self._whisper_model_size != model_size or 
             getattr(self, '_backend', '') != "openai_whisper"):
             
-            print(f"[STT] Loading whisper model: {model_size} from models/whisper")
+            logger.info(f"[STT] Loading OpenAI Whisper model: {model_size} from models/whisper")
             # Use the local models directory
             project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             model_dir = os.path.join(project_root, "models", "whisper")
